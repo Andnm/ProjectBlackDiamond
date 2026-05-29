@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localizedPath, locales, type Locale, type RouteKey } from "@/i18n/routing";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
 /** Convert locale to BCP-47 / OG format */
 function ogLocale(locale: Locale) {

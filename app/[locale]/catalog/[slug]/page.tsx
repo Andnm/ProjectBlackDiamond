@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!piece) return { title: dictionary.seo.catalog.title };
 
   const ogLocale = typedLocale === "vi" ? "vi_VN" : "en_US";
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
   const url = `${siteUrl}/${typedLocale}/catalog/${slug}`;
   const imageUrl = typeof piece.image === "string" ? piece.image : piece.image.src;
 
@@ -75,7 +75,7 @@ export default async function CatalogDetailPage({ params }: PageProps) {
   if (!piece) notFound();
 
   const dictionary = await getDictionary(locale);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
   return (
     <>

@@ -4,7 +4,7 @@ import { collectionPieces } from "@/lib/collection";
 import { blogPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
   const now = new Date();
 
   /* ── Static pages ─────────────────────────────────────── */

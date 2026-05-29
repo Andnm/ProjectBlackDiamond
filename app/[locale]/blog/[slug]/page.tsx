@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return { title: dictionary.blog.eyebrow };
 
   const ogLocale = typedLocale === "vi" ? "vi_VN" : "en_US";
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
   const url = `${siteUrl}/${typedLocale}/blog/${slug}`;
 
   return {
@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const dictionary = await getDictionary(locale);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
   return (
     <>

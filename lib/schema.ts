@@ -2,7 +2,7 @@ import type { Locale } from "@/i18n/routing";
 import type { CollectionPiece } from "@/lib/collection";
 import type { BlogPost } from "@/lib/blog";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 const BRAND_NAME = "BlackDiamond";
 const BRAND_EMAIL = "contact@blackdiamond.luxury";
 const BRAND_PHONE = "+84123456789";

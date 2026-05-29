@@ -22,7 +22,7 @@ export default async function BlogPage({ params }: PageProps) {
   const { locale } = await params;
   const typedLocale: Locale = isLocale(locale) ? locale : "vi";
   const dictionary = await getDictionary(typedLocale);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
   return (
     <>

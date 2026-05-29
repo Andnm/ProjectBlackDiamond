@@ -14,7 +14,7 @@ const notoSerif = Noto_Serif({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
