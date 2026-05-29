@@ -1,0 +1,349 @@
+{
+  "brand": {
+    "name": "BlackDiamond",
+    "tagline": "Rare black diamonds for collectors, bespoke jewelry, and alternative asset portfolios."
+  },
+  "nav": {
+    "story": "Story",
+    "education": "Education",
+    "catalog": "Catalog",
+    "blog": "Journal",
+    "membership": "Membership"
+  },
+  "common": {
+    "viewCatalog": "View catalog",
+    "joinMembership": "Join membership",
+    "requestConsultation": "Request consultation",
+    "learnMore": "Learn more",
+    "email": "contact@blackdiamond.luxury",
+    "phone": "+84 123 456 789",
+    "language": "Language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "newsletterPlaceholder": "Email address"
+  },
+  "seo": {
+    "home": {
+      "title": "BlackDiamond Luxury | Rare Black Diamonds",
+      "description": "Discover rare black diamonds, certified sourcing, bespoke jewelry, and investment-grade stones from BlackDiamond Luxury.",
+      "keywords": ["black diamonds", "luxury jewelry", "bespoke diamond", "investment diamond"]
+    },
+    "about": {
+      "title": "BlackDiamond Story | Origin, Craft, and Scarcity",
+      "description": "Learn the BlackDiamond point of view on rare black diamonds, provenance, craftsmanship, and collector-grade curation.",
+      "keywords": ["black diamond story", "diamond provenance", "luxury gemstone brand"]
+    },
+    "education": {
+      "title": "Black Diamond Education | Origin, Properties, and Cuts",
+      "description": "Understand black diamond origins, structure, rarity, raw stones, polished stones, and carat presence.",
+      "keywords": ["black diamond education", "carbonado", "black diamond properties"]
+    },
+    "catalog": {
+      "title": "BlackDiamond Catalog | Certified Black Diamond Collection",
+      "description": "Browse a curated collection of certified black diamonds for jewelry, collectors, and private acquisition.",
+      "keywords": ["black diamond catalog", "GIA black diamonds", "diamond collection"]
+    },
+    "blog": {
+      "title": "BlackDiamond Journal | Black Diamond Insights & Education",
+      "description": "In-depth articles on black diamond origins, grading, investment, history, and care — curated by the BlackDiamond team.",
+      "keywords": ["black diamond blog", "black diamond guide", "carbonado", "diamond investment", "diamond care"]
+    },
+    "membership": {
+      "title": "BlackDiamond Membership | Private Sourcing and Bespoke Orders",
+      "description": "Apply for private BlackDiamond membership, bespoke sourcing, concierge procurement, and custom black diamond orders.",
+      "keywords": ["diamond membership", "bespoke black diamond", "private diamond sourcing"]
+    }
+  },
+  "about": {
+    "eyebrow": "Our Legacy",
+    "heroTitle": "Beyond the Visible Spectrum.",
+    "heroCopy": "Black diamonds are not born of typical earth-bound pressures. These enigmatic polycrystalline structures carry the weight of celestial origins, offering a depth that absorbs light and redefines the meaning of brilliance.",
+    "narrativeTitle": "A Different Kind of Rare",
+    "narrativeBody": [
+      "Every stone in our catalog is meticulously sourced from deep metamorphic cratons, ensuring that the void within each gem is as pure as it is profound.",
+      "We do not chase brilliance. We preserve gravity. BlackDiamond exists to bring the most serious black diamonds in the world to the collectors who understand what they represent.",
+      "Each acquisition is supported by gemological documentation, provenance records, and a curatorial point of view built on fifteen years of fieldwork."
+    ],
+    "manifestoTitle": "The BlackDiamond Manifesto",
+    "manifesto": "Light passes through most things. Black diamonds consume it. In a world that celebrates sparkle, we celebrate weight — the irreducible presence of matter that has survived billions of years to exist in your hand.",
+    "statsItems": [
+      { "value": "15+", "label": "Years of Fieldwork" },
+      { "value": "2,400+", "label": "Stones Curated" },
+      { "value": "6", "label": "Source Countries" },
+      { "value": "100%", "label": "Certified" }
+    ],
+    "processEyebrow": "Our Method",
+    "processTitle": "From the Earth to Your Collection",
+    "processSteps": [
+      { "step": "01", "title": "Field Identification", "body": "Our gemologists travel directly to mining regions in Brazil and Central Africa, selecting raw stones before they reach commercial markets." },
+      { "step": "02", "title": "Geological Assessment", "body": "Each stone undergoes inclusion mapping, density measurement, and structural integrity testing to confirm collector-grade status." },
+      { "step": "03", "title": "Precision Cutting", "body": "Master cutters specializing exclusively in black diamonds work with the polycrystalline grain structure to maximize luster without compromising integrity." },
+      { "step": "04", "title": "Certification", "body": "Every stone receives a complete dossier: GIA or IGI grading report, provenance record, and BlackDiamond curatorial analysis." }
+    ],
+    "ctaLabel": "Explore the collection"
+  },
+  "home": {
+    "heroEyebrow": "BlackDiamond Luxury",
+    "heroTitle": "The rarity of night",
+    "heroCopy": "Where geological extremity meets collector precision. Natural black diamonds sourced from field to certified dossier.",
+    "legacyEyebrow": "Our legacy",
+    "legacyTitle": "Beyond the visible spectrum.",
+    "legacyBody": [
+      "Black diamonds carry a depth that absorbs light and rewrites the usual language of brilliance.",
+      "Unlike transparent stones graded by how they refract, black diamonds are assessed by weight, silhouette, and structural integrity — a fundamentally different kind of value.",
+      "Every stone is curated for origin and presence, with documentation that supports confident ownership across generations."
+    ],
+    "eduTeaserEyebrow": "Knowledge Base",
+    "eduTeaserTitle": "Understanding what you own.",
+    "eduTeaserItems": [
+      { "title": "Cosmic Origins", "body": "Black diamonds may predate the solar system — formed by supernova impact, not mantle pressure." },
+      { "title": "Structural Defiance", "body": "Polycrystalline, not a single crystal. A fundamentally different material with different properties." },
+      { "title": "A Different Grading", "body": "Assessed for luster, integrity, and silhouette — not brilliance. The criteria are entirely unique." }
+    ],
+    "eduTeaserCta": "Explore the Education Series",
+    "vaultEyebrow": "Curated selection",
+    "vaultTitle": "The signature vault",
+    "heroTitleLine1": "The Rarity",
+    "heroTitleLine2": "of Night",
+    "legacyLink": "Discover the origin",
+    "vaultItems": [
+      { "name": "Solar Eclipse", "category": "High jewelry" },
+      { "name": "Midnight Vows", "category": "Engagement" },
+      { "name": "Stellar Studs", "category": "Daily luxury" }
+    ],
+    "vaultBespokeTitle": "Bespoke Cuts",
+    "vaultBespokeBody": "Tailored dimensions for the most discerning collectors.",
+    "vaultCtaTitle": "Join the Circle",
+    "vaultCtaBody": "Access private viewings and early release allocations.",
+    "vaultCtaBtn": "Apply Now",
+    "trustItems": [
+      { "title": "Certified origin", "body": "Each stone is paired with documentation for authenticity, provenance, and ethical sourcing." },
+      { "title": "Artisan craft", "body": "Specialized cutters understand the unique density and light absorption of dark-toned diamonds." },
+      { "title": "Investment grade", "body": "Collector-grade stones are selected for rarity, durability, and long-term portfolio relevance." }
+    ]
+  },
+  "education": {
+    "eyebrow": "Masterclass series",
+    "title": "The alchemy of darkness",
+    "intro": "Black diamonds are geological anomalies: opaque, polycrystalline diamonds shaped by extreme pressure, time, and mystery.",
+    "originTitle": "Origins: extraterrestrial or earth-bound?",
+    "originBody": [
+      "Unlike traditional diamonds that crystallize deep within the mantle, the origin story of black diamonds remains debated.",
+      "Their porous structure and unusual signatures have inspired both terrestrial and cosmic theories."
+    ],
+    "propertiesTitle": "Structural defiance",
+    "properties": [
+      { "title": "Indomitable toughness", "body": "A polycrystalline structure makes many black diamonds exceptionally resistant to cleavage." },
+      { "title": "The porous void", "body": "Internal porosity gives black diamonds a distinct density and surface character." },
+      { "title": "Total opacity", "body": "Graphite and mineral inclusions create the deep black visual signature." }
+    ],
+    "originQuote": "Black diamonds are the only diamonds found on Earth that are never associated with Kimberlite pipes — the volcanic highways that bring mantle diamonds to the surface.",
+    "originEvidenceLabel": "Evidence Case #04",
+    "originEvidenceBody": "Infrared spectroscopy reveals that black diamonds contain trace elements of polycyclic aromatic hydrocarbons — building blocks of stars.",
+    "rarityCardTitle": "Unmatched Rarity",
+    "rarityCardBody": "Black diamonds are found exclusively in the Central African Republic and Brazil, never in the same mining sites as common diamonds.",
+    "catalogCtaLabel": "View Current Inventory",
+    "rawTitle": "The raw state",
+    "rawBody": "In natural form, black diamonds can resemble charcoal: irregular, rugged, and marked by intense formation history.",
+    "cutTitle": "The cut aesthetic",
+    "cutBody": "When polished, a black diamond reveals a metallic, sub-adamantine luster unlike transparent gemstones.",
+    "caratTitle": "Find Your Presence",
+    "caratBody": "Black diamonds command attention not through sparkle, but through weight and silhouette.",
+    "geographyEyebrow": "Origin Geography",
+    "geographyTitle": "Two Sources. Two Signatures.",
+    "regions": [
+      {
+        "name": "Brazil — Carbonado Capital",
+        "location": "Minas Gerais & Bahia",
+        "body": "The carbonado of Brazil represents the largest known source of natural black diamonds. Found in alluvial deposits far from any kimberlite pipe, these stones are characterized by a denser polycrystalline matrix and higher graphite inclusion density, producing a deep, light-consuming black.",
+        "stats": [
+          { "label": "Avg. Density", "value": "3.1 g/cm³" },
+          { "label": "Primary Region", "value": "Bahia" },
+          { "label": "Formation Age", "value": "3.8 Bn yrs" }
+        ]
+      },
+      {
+        "name": "Central African Republic",
+        "location": "Lobaye & Sangha-Mbaéré",
+        "body": "CAR stones exhibit more surface porosity and a distinctive matte-to-metallic luster range. Their alluvial distribution pattern aligns closely with the extraterrestrial impact theory, lending them a provenance narrative unlike any other gemstone on Earth.",
+        "stats": [
+          { "label": "Avg. Density", "value": "2.9 g/cm³" },
+          { "label": "Primary Region", "value": "Sangha-Mbaéré" },
+          { "label": "Surface Character", "value": "Matte-porous" }
+        ]
+      }
+    ],
+    "gradingEyebrow": "Grading Criteria",
+    "gradingTitle": "How Black Diamonds Are Assessed",
+    "gradingIntro": "Unlike colorless diamonds graded on the 4Cs, black diamonds are evaluated through a distinct framework built around opacity, structure, and surface character.",
+    "gradingCriteria": [
+      { "title": "Surface Luster", "body": "Ranges from matte to sub-adamantine to metallic. Metallic luster is the rarest and commands the highest premium in collector markets." },
+      { "title": "Inclusion Density", "body": "The distribution of graphite and hematite inclusions determines the uniformity of black color. Even, dense distribution is preferred over patchy or transparent zones." },
+      { "title": "Structural Integrity", "body": "Unlike single-crystal diamonds, black diamonds are assessed for polycrystalline cohesion — the absence of separating grain boundaries visible under magnification." },
+      { "title": "Surface Character", "body": "The visibility of porous microstructure is documented. High-grade stones show minimal surface pitting under 10× magnification and maximum facet reflectivity." }
+    ],
+    "cuttingEyebrow": "The Cutting Process",
+    "cuttingTitle": "Against the Grain",
+    "cuttingIntro": "Cutting a black diamond is categorically more complex than cutting a colorless stone. The polycrystalline structure requires a completely different methodology.",
+    "cuttingSteps": [
+      { "step": "01", "title": "Structural Mapping", "body": "Before any saw touches the stone, gemologists map polycrystalline grain boundaries using polarized light. Cutting across a grain line risks fracture propagation through the entire stone." },
+      { "step": "02", "title": "Laser Shaping", "body": "Initial shaping uses a laser rather than a mechanical saw. The precision reduces thermal stress and the fracture risk common in polycrystalline material." },
+      { "step": "03", "title": "Facet Planning", "body": "Unlike transparent stones, black diamonds are faceted to maximize silhouette and surface luster — not light return. Every geometric decision is purely aesthetic and architectural." },
+      { "step": "04", "title": "Metallic Polishing", "body": "A specialized iron scaife charged with diamond powder polishes each facet to a metallic finish. The process takes 3–4× longer than polishing a colorless diamond of equivalent size." }
+    ]
+  },
+  "catalog": {
+    "eyebrow": "The refractive collection",
+    "heroLine1": "Celestial Carbon",
+    "heroLine2": "For the Exceptional.",
+    "title": "Celestial carbon for the exceptional.",
+    "intro": "A curated archive of certified black diamonds — sourced from geological extremes, documented to collector standards, and polished to a sharp architectural finish.",
+    "heroStats": [
+      { "label": "Active stones", "value": "118+" },
+      { "label": "Min. carat", "value": "3 ct" },
+      { "label": "Certifications", "value": "GIA · IGI" }
+    ],
+    "contextPills": [
+      { "label": "Hardness", "value": "10 Mohs — the hardest natural material" },
+      { "label": "Origin", "value": "Brazil · Central Africa · Russia" },
+      { "label": "Color mechanism", "value": "Graphite & hematite inclusions" },
+      { "label": "Luster type", "value": "Sub-adamantine to metallic" },
+      { "label": "Certification", "value": "GIA · IGI · Internal grading" }
+    ],
+    "filtersTitle": "Curated filters",
+    "filterCarat": "Carat weight",
+    "filterCut": "Cut style",
+    "filterPrice": "Acquisition range",
+    "stonesLabel": "stones",
+    "clearFilters": "Clear filters",
+    "noResults": "No stones match your current filters.",
+    "rarityLegendTitle": "Rarity index",
+    "rarityLegend": [
+      { "label": "Exceptional (90–100)", "color": "#e9c176" },
+      { "label": "Collector (80–89)", "color": "#c5a059" },
+      { "label": "Fine (70–79)", "color": "#9a8f80" }
+    ],
+    "retailTab": "Retail boutique",
+    "wholesaleTab": "Wholesale portal",
+    "showing": "Showing 8 of 118 stones",
+    "loadMore": "Discover more artifacts",
+    "researchEyebrow": "Gemological point of view",
+    "researchTitle": "Black diamonds are designed around pressure, not sparkle.",
+    "researchBody": "A serious black diamond collection needs protected settings, disciplined silhouettes, and documentation strong enough for private acquisition. Every piece is curated around opacity, surface luster, inclusion stability, carat presence, and architectural behavior.",
+    "researchPillars": [
+      { "title": "Inclusion stability", "body": "Polycrystalline structure screened for structural continuity before every setting." },
+      { "title": "Surface luster", "body": "Sub-adamantine to metallic finish — selected for silhouette, not brilliance." },
+      { "title": "Origin documentation", "body": "Provenance records accompany every stone, supporting insurance and investment holdings." }
+    ],
+    "collectionTitle": "Collector edit",
+    "viewDetail": "View specification",
+    "bespokeEyebrow": "Bespoke concierge",
+    "bespokeTitle": "Cannot find your perfect stone?",
+    "bespokeBody": "Our curators work directly with diamond fields to source specific carat weights, rare cuts, and investment-grade parcels. Every private search is handled with full discretion.",
+    "bespokeFeatures": [
+      { "title": "Private sourcing", "body": "Global network across Brazil, Africa, and Russia." },
+      { "title": "Bespoke cutting", "body": "Custom geometry specified by the collector." },
+      { "title": "Custody options", "body": "Secure vaulting and insurance valuation support." }
+    ],
+    "ethicalLabel": "Ethically sourced · conflict-free carbon",
+    "requestSearch": "Request private search",
+    "downloadCatalog": "Download catalog",
+    "detailBack": "Back to collection",
+    "detailSpecs": "Technical dossier",
+    "detailAnalysis": "Curatorial analysis",
+    "detailAcquisition": "Acquisition notes",
+    "detailSource": "Image reference",
+    "detailRarity": "Rarity index",
+    "detailInclusion": "Inclusion profile",
+    "detailLight": "Light behavior",
+    "detailProvenance": "Provenance and certification",
+    "detailWearability": "Wearability profile",
+    "detailCare": "Care and handling",
+    "detailWhy": "Why this belongs in BlackDiamond",
+    "detailPricing": "Acquisition level",
+    "detailPriceNote": "Pricing note",
+    "detailInvestment": "Investment note",
+    "detailDimensions": "Dimensions",
+    "detailHardness": "Hardness",
+    "detailLuster": "Surface luster",
+    "detailTreatment": "Treatment",
+    "detailCertificate": "Gemological certificate",
+    "detailCertAuthority": "Issuing authority",
+    "detailCertNumber": "Report number",
+    "detailCertType": "Report type",
+    "detailCertDate": "Issue date",
+    "detailCertVerify": "Verify on official registry",
+    "detailCertView": "View certificate",
+    "detailCertDownload": "Download PDF",
+    "detailCertNote": "This report number can be independently verified on the issuing authority's public registry.",
+    "detailCertNone": "This piece is accompanied by an internal grading memo. A formal GIA or IGI submission can be arranged upon request."
+  },
+  "blog": {
+    "eyebrow": "The BlackDiamond Journal",
+    "title": "Insights on the World's Rarest Carbon.",
+    "intro": "A curated archive of perspectives on black diamond origins, grading, market dynamics, and collector practice.",
+    "allLabel": "All",
+    "readMore": "Read article",
+    "minRead": "min read"
+  },
+  "investment": {
+    "eyebrow": "Asset preservation",
+    "title": "The BlackDiamond standard",
+    "intro": "Investment-grade black diamonds are selected for density, provenance, market scarcity, and certification strength.",
+    "performanceTitle": "Investment performance",
+    "stats": [
+      { "label": "Market scarcity index", "value": "98.4/100", "body": "Annual compound appreciation model: +14.2%." },
+      { "label": "Global supply", "value": "Limited", "body": "Only a small number of sources yield collector-grade black diamonds." },
+      { "label": "Risk profile", "value": "Low-volatility", "body": "Physical stones can provide portfolio diversification outside traditional equities." }
+    ],
+    "standardsTitle": "Unyielding standards",
+    "standardsBody": "Every acquisition should be supported by gemological certification, provenance records, secure custody options, and transparent ownership documentation.",
+    "vaultSectionTitle": "Secured Custodial Solutions",
+    "vaultSectionBody": "Direct ownership with option for climate-controlled vaulting in Switzerland or Singapore. All assets are fully insured by Lloyd's of London.",
+    "vaultSectionBtn": "Contact Specialist",
+    "channelsTitle": "Acquisition channels",
+    "channels": [
+      { "title": "Private reserve", "body": "Curated five to ten carat stones for individual collectors." },
+      { "title": "Institutional allotments", "body": "Strategic allocations for family offices and funds." },
+      { "title": "Concierge sourcing", "body": "Global search for singular museum-grade specimens." }
+    ]
+  },
+  "membership": {
+    "eyebrow": "Exclusivity defined",
+    "title": "The inner circle.",
+    "intro": "Membership grants priority procurement and bespoke architectural jewelry design services.",
+    "requestTitle": "Request invitation",
+    "requestBody": "Membership is reviewed case by case. Please provide your professional details.",
+    "form": {
+      "name": "Legal name",
+      "email": "Digital address",
+      "submit": "Submit application"
+    },
+    "heroTitleLine1": "The Inner",
+    "heroTitleLine2": "Circle.",
+    "heroStats": [
+      { "value": "0.01%", "label": "Global availability" },
+      { "value": "24/7", "label": "Concierge access" }
+    ],
+    "heroInfoLabel": "Authenticity",
+    "heroInfoBody": "Each stone is certified by the BlackDiamond Registry of Origin.",
+    "retailTab": "Retail",
+    "wholesaleTab": "Wholesale",
+    "sizeLabel": "Specification: Size (Carats)",
+    "shadeLabel": "Shade of Black",
+    "cutLabel": "Geometric Cut",
+    "quantityLabel": "Acquisition Quantity",
+    "quotationBtn": "Request Quotation",
+    "bespokeTitle": "Bespoke ordering",
+    "bespokeBody": "Configure your acquisition from single-cut retail masterpieces to wholesale architectural supply.",
+    "contactTitle": "Concierge lead",
+    "contactBody": "Direct encrypted line available for diamond procurement over ten carats. Typical member response time is under four hours."
+  },
+  "footer": {
+    "quickLinks": "Quick links",
+    "support": "Support",
+    "newsletter": "Newsletter",
+    "newsletterCopy": "Receive private invitations to gallery exhibitions and limited releases.",
+    "copyright": "© 2026 BlackDiamond Luxury. All rights reserved."
+  }
+}

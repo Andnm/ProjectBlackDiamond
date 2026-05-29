@@ -1,0 +1,269 @@
+import Image from "next/image";
+import { remoteImages } from "@/lib/assets";
+import type { Dictionary } from "@/i18n/dictionaries";
+
+type Props = {
+  dictionary: Dictionary;
+};
+
+export function MembershipSections({ dictionary }: Props) {
+  const d = dictionary.membership;
+
+  return (
+    <main>
+
+      {/* ── Hero: Asymmetric Editorial ────────────────────── */}
+      <section className="relative flex min-h-[80vh] items-center overflow-hidden py-24">
+        <div className="section-shell grid grid-cols-12 items-center gap-8">
+          {/* Left text */}
+          <div className="z-10 col-span-12 lg:col-span-7">
+            <p className="eyebrow mb-6">{d.eyebrow}</p>
+            <h1 className="mb-8 font-headline text-6xl leading-[1.1] md:text-8xl">
+              {d.heroTitleLine1}
+              <br />
+              <span className="text-outline">{d.heroTitleLine2}</span>
+            </h1>
+            <p className="mb-12 max-w-lg text-lg leading-relaxed text-on-surface-variant">
+              {d.intro}
+            </p>
+            {/* Stats */}
+            <div className="flex items-center gap-12 border-t border-outline/20 pt-12">
+              {d.heroStats.map((stat) => (
+                <div key={stat.label}>
+                  <span className="block font-headline text-3xl mb-1">{stat.value}</span>
+                  <span className="font-label text-[10px] uppercase tracking-widest text-outline">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right image */}
+          <div className="col-span-12 relative lg:col-span-5">
+            <div className="group relative aspect-[4/5] overflow-hidden bg-surface-container-high">
+              <Image
+                alt={d.title}
+                className="h-full w-full object-cover grayscale transition-transform duration-1000 group-hover:scale-105"
+                fill
+                priority
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                src={remoteImages.membership}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+            </div>
+            {/* Floating info box */}
+            <div className="absolute -bottom-8 -left-8 hidden w-48 border border-primary/20 bg-primary/10 p-6 backdrop-blur-xl md:block">
+              <span className="mb-4 block font-label text-[10px] tracking-widest">
+                {d.heroInfoLabel}
+              </span>
+              <p className="text-xs leading-relaxed text-on-surface-variant">{d.heroInfoBody}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Membership Registration ───────────────────────── */}
+      <section className="bg-surface-container-low py-32">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-20 text-center">
+            <h2 className="mb-4 font-headline text-4xl">{d.requestTitle}</h2>
+            <p className="text-on-surface-variant">{d.requestBody}</p>
+          </div>
+          <form action="/api/membership" className="space-y-12">
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+              <div className="relative">
+                <label className="mb-2 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
+                  {d.form.name}
+                </label>
+                <input
+                  className="w-full border-b border-outline/50 bg-transparent py-4 text-sm transition-colors focus:border-primary focus:outline-none placeholder:text-surface-container-highest"
+                  name="name"
+                  placeholder="ALEXANDER VANCE"
+                  type="text"
+                />
+              </div>
+              <div className="relative">
+                <label className="mb-2 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
+                  {d.form.email}
+                </label>
+                <input
+                  className="w-full border-b border-outline/50 bg-transparent py-4 text-sm transition-colors focus:border-primary focus:outline-none placeholder:text-surface-container-highest"
+                  name="email"
+                  placeholder="VANCE@ARCHIVE.CO"
+                  type="email"
+                />
+              </div>
+            </div>
+            <div className="pt-8">
+              <button
+                className="w-full bg-gradient-to-r from-primary to-primary-container py-5 font-label text-sm uppercase tracking-[0.25em] text-on-primary transition hover:brightness-110 active:scale-[0.99]"
+                type="submit"
+              >
+                {d.form.submit}
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      {/* ── Bespoke Orders Configurator ───────────────────── */}
+      <section className="bg-surface py-32">
+        <div className="section-shell">
+          {/* Header */}
+          <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
+            <div className="max-w-xl">
+              <p className="eyebrow mb-6">Commission</p>
+              <h2 className="font-headline text-4xl md:text-5xl">{d.bespokeTitle}</h2>
+              <p className="mt-6 text-on-surface-variant">{d.bespokeBody}</p>
+            </div>
+            <div className="flex gap-4">
+              <button
+                className="border border-outline/50 px-8 py-3 font-label text-[10px] uppercase tracking-widest transition hover:bg-on-background/5"
+                type="button"
+              >
+                {d.retailTab}
+              </button>
+              <button
+                className="bg-surface-container-highest px-8 py-3 font-label text-[10px] uppercase tracking-widest"
+                type="button"
+              >
+                {d.wholesaleTab}
+              </button>
+            </div>
+          </div>
+
+          {/* Configurator + sidebar grid */}
+          <div className="grid grid-cols-12 gap-px border border-outline/20 bg-outline/20">
+            {/* Configurator form */}
+            <div className="col-span-12 bg-surface p-10 md:p-16 lg:col-span-8">
+              <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
+                <div className="space-y-12">
+                  {/* Carat slider */}
+                  <div>
+                    <label className="mb-6 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
+                      {d.sizeLabel}
+                    </label>
+                    <div className="relative pt-6">
+                      <div className="h-px w-full bg-outline/50" />
+                      <div className="absolute left-1/4 top-[23px] -mt-2 h-4 w-4 border-4 border-surface bg-primary" />
+                      <div className="mt-6 flex justify-between font-label text-[10px] tracking-tighter text-outline">
+                        <span>0.5ct</span>
+                        <span className="font-bold text-primary">2.5ct Selected</span>
+                        <span>15.0ct+</span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Shade selector */}
+                  <div>
+                    <label className="mb-6 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
+                      {d.shadeLabel}
+                    </label>
+                    <div className="flex gap-4">
+                      {(["#050505", "#1a1a1a", "#2d2d2d"] as const).map((color, i) => (
+                        <button
+                          key={color}
+                          className={`h-12 w-12 p-1 ${i === 0 ? "border border-primary" : "border border-transparent"}`}
+                          style={{ background: color }}
+                          type="button"
+                        >
+                          <div className="h-full w-full" style={{ background: color }} />
+                        </button>
+                      ))}
+                    </div>
+                    <span className="mt-3 block font-body text-[10px] italic text-outline">
+                      Deep Obsidian (Matte)
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-12">
+                  {/* Cut select */}
+                  <div>
+                    <label className="mb-4 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
+                      {d.cutLabel}
+                    </label>
+                    <select className="w-full appearance-none border-b border-outline/50 bg-transparent py-4 text-sm focus:outline-none">
+                      <option>Asymmetric Raw</option>
+                      <option>Emerald Architectural</option>
+                      <option>Brilliant Void</option>
+                      <option>Cushion Carbon</option>
+                    </select>
+                  </div>
+                  {/* Quantity */}
+                  <div>
+                    <label className="mb-4 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
+                      {d.quantityLabel}
+                    </label>
+                    <input
+                      className="w-full border-b border-outline/50 bg-transparent py-4 text-sm placeholder:text-surface-container-highest focus:outline-none"
+                      defaultValue="1"
+                      min={1}
+                      type="number"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Submit */}
+              <div className="mt-20">
+                <button className="group flex items-center gap-4 text-primary" type="button">
+                  <span className="font-label text-xs tracking-[0.3em]">{d.quotationBtn}</span>
+                  <div className="h-px w-12 bg-primary transition-all group-hover:w-20" />
+                </button>
+              </div>
+            </div>
+
+            {/* Concierge sidebar */}
+            <div className="col-span-12 flex flex-col justify-between bg-surface-container-low p-10 md:p-16 lg:col-span-4">
+              <div>
+                <h3 className="mb-6 font-headline text-2xl">{d.contactTitle}</h3>
+                <div className="mb-12 flex items-center gap-6">
+                  <div className="h-20 w-20 shrink-0 overflow-hidden border border-outline/30 grayscale">
+                    <Image
+                      alt="Concierge"
+                      className="h-full w-full object-cover"
+                      height={80}
+                      src={remoteImages.concierge}
+                      width={80}
+                    />
+                  </div>
+                  <div>
+                    <span className="block text-sm font-semibold">BlackDiamond</span>
+                    <span className="font-label text-[10px] uppercase tracking-widest text-outline">
+                      Sr. Procurement Director
+                    </span>
+                  </div>
+                </div>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <p className="text-xs leading-relaxed text-on-surface-variant">
+                      Direct encrypted line available for diamond procurement over 10 carats.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <p className="text-xs leading-relaxed text-on-surface-variant">{d.contactBody}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12 border-t border-outline/10 pt-12">
+                <span className="mb-4 block font-label text-[10px] uppercase tracking-widest text-outline">
+                  {d.contactTitle}
+                </span>
+                <p className="mb-1 text-sm">sterling@blackdiamond.luxury</p>
+                <p className="text-sm">+41 44 212 4000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
