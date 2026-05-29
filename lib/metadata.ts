@@ -4,6 +4,16 @@ import { localizedPath, locales, type Locale, type RouteKey } from "@/i18n/routi
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://blackdiamond.luxury";
 
+/** Convert locale to BCP-47 / OG format */
+function ogLocale(locale: Locale) {
+  return locale === "vi" ? "vi_VN" : "en_US";
+}
+
+/** Alternate locales for OG */
+function ogLocaleAlternates(locale: Locale) {
+  return locales.filter((l) => l !== locale).map(ogLocale);
+}
+
 export function createPageMetadata(
   locale: Locale,
   route: RouteKey,
@@ -11,9 +21,9 @@ export function createPageMetadata(
 ): Metadata {
   const pageSeo = dictionary.seo[route];
   const path = localizedPath(locale, route);
-  const url = new URL(path, siteUrl);
+  const url = new URL(path, siteUrl).toString();
   const languages = Object.fromEntries(
-    locales.map((item) => [item, localizedPath(item, route)]),
+    locales.map((l) => [l, new URL(localizedPath(l, route), siteUrl).toString()]),
   );
 
   return {
@@ -21,22 +31,23 @@ export function createPageMetadata(
     description: pageSeo.description,
     keywords: pageSeo.keywords,
     alternates: {
-      canonical: url.toString(),
+      canonical: url,
       languages,
     },
     openGraph: {
       title: pageSeo.title,
       description: pageSeo.description,
-      url: url.toString(),
+      url,
       siteName: dictionary.brand.name,
-      locale,
+      locale: ogLocale(locale),
+      alternateLocale: ogLocaleAlternates(locale),
       type: "website",
       images: [
         {
           url: "/images/education-background.png",
           width: 1200,
           height: 630,
-          alt: dictionary.brand.name,
+          alt: pageSeo.title,
         },
       ],
     },

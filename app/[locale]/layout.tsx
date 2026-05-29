@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, locales, type Locale } from "@/i18n/routing";
+import { organizationSchema } from "@/lib/schema";
 
 type Props = {
   children: React.ReactNode;
@@ -25,6 +27,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <>
+      <JsonLd schema={organizationSchema()} />
       <Header dictionary={dictionary} locale={typedLocale} />
       {children}
       <Footer dictionary={dictionary} locale={typedLocale} />
