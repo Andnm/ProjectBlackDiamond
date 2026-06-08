@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { blogPosts, formatDate, type BlogPost } from "@/lib/blog";
+import { useEffect, useState } from "react";
+import { formatDate, type BlogPost } from "@/lib/blog";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import blogBg from "@/assets/images/background/blog_background.png";
@@ -11,6 +11,7 @@ import blogBg from "@/assets/images/background/blog_background.png";
 type Props = {
   dictionary: Dictionary;
   locale: Locale;
+  posts: BlogPost[];
 };
 
 /* Category → accent colour map */
@@ -33,21 +34,33 @@ function categoryColor(cat: string) {
   return CATEGORY_COLORS[cat] ?? "#e9c176";
 }
 
-export function BlogSections({ dictionary, locale }: Props) {
+/** Number of "rest" articles revealed per "Load more" click (after the featured + first row). */
+const REST_PAGE_SIZE = 5;
+
+export function BlogSections({ dictionary, locale, posts }: Props) {
   const d = dictionary.blog;
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [visibleRestCount, setVisibleRestCount] = useState(REST_PAGE_SIZE);
 
   const categories = [
     d.allLabel,
-    ...Array.from(new Set(blogPosts.map((p) => p.category[locale]))),
+    ...Array.from(new Set(posts.map((p) => p.category[locale]))),
   ];
 
   const filtered =
     activeCategory === "all" || activeCategory === d.allLabel
-      ? blogPosts
-      : blogPosts.filter((p) => p.category[locale] === activeCategory);
+      ? posts
+      : posts.filter((p) => p.category[locale] === activeCategory);
 
   const [featured, ...rest] = filtered;
+
+  // Reset pagination whenever the active category changes.
+  useEffect(() => {
+    setVisibleRestCount(REST_PAGE_SIZE);
+  }, [activeCategory]);
+
+  const visibleRest = rest.slice(0, visibleRestCount);
+  const hasMoreRest = visibleRestCount < rest.length;
 
   return (
     <main className="pt-20">
@@ -78,7 +91,7 @@ export function BlogSections({ dictionary, locale }: Props) {
             <div className="mt-8 flex items-center gap-3">
               <span className="h-px w-8 bg-primary" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-on-muted">
-                {blogPosts.length} {locale === "vi" ? "bài viết" : "articles"}
+                {posts.length} {locale === "vi" ? "bài viết" : "articles"}
               </span>
             </div>
           </div>
@@ -189,9 +202,9 @@ export function BlogSections({ dictionary, locale }: Props) {
             </div>
 
             {/* First row — 2 large cards */}
-            {rest.length >= 2 && (
+            {visibleRest.length >= 2 && (
               <div className="mb-4 grid gap-4 md:grid-cols-2">
-                {rest.slice(0, 2).map((post, i) => (
+                {visibleRest.slice(0, 2).map((post, i) => (
                   <ArticleCard
                     key={post.slug}
                     post={post}
@@ -206,10 +219,10 @@ export function BlogSections({ dictionary, locale }: Props) {
               </div>
             )}
 
-            {/* Second row — 3 compact cards */}
-            {rest.length >= 3 && (
+            {/* Second row onward — compact cards */}
+            {visibleRest.length >= 3 && (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {rest.slice(2).map((post, i) => (
+                {visibleRest.slice(2).map((post, i) => (
                   <ArticleCard
                     key={post.slug}
                     post={post}
@@ -223,6 +236,20 @@ export function BlogSections({ dictionary, locale }: Props) {
                 ))}
               </div>
             )}
+
+            {hasMoreRest ? (
+              <div className="mt-12 flex justify-center">
+                <button
+                  className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.18em] text-on-muted transition hover:text-on-surface"
+                  onClick={() => setVisibleRestCount((count) => count + REST_PAGE_SIZE)}
+                  type="button"
+                >
+                  <span className="h-px w-20 bg-outline transition duration-500 group-hover:w-32 group-hover:bg-primary" />
+                  {d.loadMore}
+                  <span className="h-px w-20 bg-outline transition duration-500 group-hover:w-32 group-hover:bg-primary" />
+                </button>
+              </div>
+            ) : null}
           </div>
         )}
       </div>

@@ -51,20 +51,10 @@ export function BlogPostSections({ post, locale, dictionary }: Props) {
       {/* ── Article body ─────────────────────────────────── */}
       <section className="bg-surface py-20">
         <div className="section-shell">
-          <div className="mx-auto max-w-3xl">
-            {post.body[locale].map((section, i) => (
-              <div className="mb-12" key={i}>
-                {section.heading && (
-                  <h2 className="mb-6 font-headline text-2xl md:text-3xl">{section.heading}</h2>
-                )}
-                {section.paragraphs.map((para, j) => (
-                  <p className="mb-6 text-lg leading-9 text-on-surface-variant" key={j}>
-                    {para}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
+          <div
+            className="prose prose-lg mx-auto max-w-3xl text-on-surface-variant prose-headings:font-headline prose-headings:text-on-surface prose-a:text-primary prose-img:my-10"
+            dangerouslySetInnerHTML={{ __html: post.body[locale] ?? "" }}
+          />
         </div>
       </section>
 

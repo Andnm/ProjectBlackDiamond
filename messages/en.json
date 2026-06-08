@@ -214,6 +214,7 @@
     "filterCarat": "Carat weight",
     "filterCut": "Cut style",
     "filterPrice": "Acquisition range",
+    "priceFrom": "From",
     "stonesLabel": "stones",
     "clearFilters": "Clear filters",
     "noResults": "No stones match your current filters.",
@@ -284,7 +285,8 @@
     "intro": "A curated archive of perspectives on black diamond origins, grading, market dynamics, and collector practice.",
     "allLabel": "All",
     "readMore": "Read article",
-    "minRead": "min read"
+    "minRead": "min read",
+    "loadMore": "Load more articles"
   },
   "investment": {
     "eyebrow": "Asset preservation",

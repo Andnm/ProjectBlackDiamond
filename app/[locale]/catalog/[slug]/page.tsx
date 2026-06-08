@@ -3,25 +3,29 @@ import { notFound } from "next/navigation";
 import { CatalogDetailSections } from "@/components/sections/CatalogDetailSections";
 import { JsonLd } from "@/components/JsonLd";
 import { getDictionary } from "@/i18n/dictionaries";
-import { isLocale, locales, type Locale } from "@/i18n/routing";
-import { collectionPieces, getCollectionPiece } from "@/lib/collection";
+import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
+import { getPublishedCollectionPiece, getPublishedCollectionSlugs } from "@/lib/data/collection";
 import { gemstoneProductSchema, breadcrumbSchema } from "@/lib/schema";
+
+// Re-fetch from Supabase at most once per minute so admin edits show up
+// without a full redeploy, while keeping the page statically cacheable.
+export const revalidate = 60;
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    collectionPieces.map((piece) => ({ locale, slug: piece.slug })),
-  );
+export async function generateStaticParams() {
+  // Vietnamese-only for now: only pre-render the "vi" locale tree.
+  const slugs = await getPublishedCollectionSlugs();
+  return slugs.map((slug) => ({ locale: defaultLocale, slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const typedLocale: Locale = isLocale(locale) ? locale : "vi";
   const dictionary = await getDictionary(typedLocale);
-  const piece = getCollectionPiece(slug);
+  const piece = await getPublishedCollectionPiece(slug);
 
   if (!piece) return { title: dictionary.seo.catalog.title };
 
@@ -71,7 +75,7 @@ export default async function CatalogDetailPage({ params }: PageProps) {
 
   if (!isLocale(locale)) notFound();
 
-  const piece = getCollectionPiece(slug);
+  const piece = await getPublishedCollectionPiece(slug);
   if (!piece) notFound();
 
   const dictionary = await getDictionary(locale);

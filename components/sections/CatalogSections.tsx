@@ -2,22 +2,28 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { collectionPieces } from "@/lib/collection";
+import { useEffect, useState } from "react";
+import type { CollectionPiece } from "@/lib/collection";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { formatPriceFrom } from "@/lib/format-price";
 import collectionBg from "@/assets/images/background/collection_background.png";
 
 type Props = {
   dictionary: Dictionary;
   locale: Locale;
+  pieces: CollectionPiece[];
 };
 
 const CUT_FILTERS = ["Emerald", "Radiant", "Cushion", "Asscher", "Marquise", "Brilliant", "Cabochon"];
 
-export function CatalogSections({ dictionary, locale }: Props) {
+/** Number of pieces revealed per "Load more" click — keeps the grid from rendering hundreds of cards at once. */
+const PAGE_SIZE = 9;
+
+export function CatalogSections({ dictionary, locale, pieces }: Props) {
   const [activeTab, setActiveTab] = useState<"retail" | "wholesale">("retail");
   const [selectedCuts, setSelectedCuts] = useState<string[]>([]);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   function toggleCut(cut: string) {
     setSelectedCuts((prev) =>
@@ -27,13 +33,22 @@ export function CatalogSections({ dictionary, locale }: Props) {
 
   const filtered =
     selectedCuts.length === 0
-      ? collectionPieces
-      : collectionPieces.filter((p) =>
+      ? pieces
+      : pieces.filter((p) =>
           selectedCuts.some((c) =>
             p.specs.cut[locale].toLowerCase().includes(c.toLowerCase()) ||
             p.tags.some((t) => t.toLowerCase().includes(c.toLowerCase()))
           )
         );
+
+  // Reset pagination whenever the active filter changes so users always start
+  // from the first page of a new result set.
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedCuts]);
+
+  const visiblePieces = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   return (
     <main className="bg-background">
@@ -153,7 +168,7 @@ export function CatalogSections({ dictionary, locale }: Props) {
             </button>
           </div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-on-muted">
-            {filtered.length} / {collectionPieces.length} {dictionary.catalog.stonesLabel}
+            {filtered.length} / {pieces.length} {dictionary.catalog.stonesLabel}
           </p>
         </div>
 
@@ -263,23 +278,31 @@ export function CatalogSections({ dictionary, locale }: Props) {
                 {dictionary.catalog.noResults}
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-px overflow-hidden bg-outline/10 md:grid-cols-2 xl:grid-cols-3">
-                {filtered.map((piece) => (
-                  <CatalogCard dictionary={dictionary} key={piece.slug} locale={locale} piece={piece} />
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 gap-px overflow-hidden bg-outline/10 md:grid-cols-2 xl:grid-cols-3">
+                  {visiblePieces.map((piece) => (
+                    <CatalogCard dictionary={dictionary} key={piece.slug} locale={locale} piece={piece} />
+                  ))}
+                </div>
+                <p className="mt-8 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-on-muted">
+                  {visiblePieces.length}/{filtered.length} {dictionary.catalog.stonesLabel}
+                </p>
+              </>
             )}
 
-            <div className="mt-20 flex justify-center">
-              <button
-                className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.18em] text-on-muted transition hover:text-on-surface"
-                type="button"
-              >
-                <span className="h-px w-20 bg-outline transition duration-500 group-hover:w-32 group-hover:bg-primary" />
-                {dictionary.catalog.loadMore}
-                <span className="h-px w-20 bg-outline transition duration-500 group-hover:w-32 group-hover:bg-primary" />
-              </button>
-            </div>
+            {hasMore ? (
+              <div className="mt-12 flex justify-center">
+                <button
+                  className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.18em] text-on-muted transition hover:text-on-surface"
+                  onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+                  type="button"
+                >
+                  <span className="h-px w-20 bg-outline transition duration-500 group-hover:w-32 group-hover:bg-primary" />
+                  {dictionary.catalog.loadMore}
+                  <span className="h-px w-20 bg-outline transition duration-500 group-hover:w-32 group-hover:bg-primary" />
+                </button>
+              </div>
+            ) : null}
           </section>
         </div>
       </section>
@@ -374,7 +397,7 @@ function CatalogCard({
   locale,
   dictionary,
 }: {
-  piece: (typeof collectionPieces)[number];
+  piece: CollectionPiece;
   locale: Locale;
   dictionary: Dictionary;
 }) {
@@ -455,7 +478,11 @@ function CatalogCard({
             </p>
             <h2 className="font-headline text-2xl leading-tight">{piece.name[locale]}</h2>
           </div>
-          <span className="whitespace-nowrap text-sm font-bold text-primary">{piece.price}</span>
+          {piece.price ? (
+            <span className="whitespace-nowrap text-sm font-bold text-primary">
+              {formatPriceFrom(piece.price, dictionary.catalog.priceFrom)}
+            </span>
+          ) : null}
         </div>
 
         <p className="mt-4 line-clamp-2 text-sm leading-7 text-on-muted">{piece.summary[locale]}</p>

@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 import type { Locale } from "@/i18n/routing";
+import type { Price } from "@/lib/format-price";
 
 import piece1 from "@/assets/images/collection/piece_1.png";
 import piece2 from "@/assets/images/collection/piece_2.png";
@@ -34,7 +35,8 @@ export type CollectionPiece = {
   name: LocalizedText;
   line: LocalizedText;
   summary: LocalizedText;
-  price: string;
+  /** Starting price as a structured amount + currency; null when unset (admin shows "—"). */
+  price: Price | null;
   priceNote: LocalizedText;
   rarityIndex: number;
   origin: LocalizedText;
@@ -80,7 +82,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A sharply composed collector stone for clients who want the visual gravity of black carbon with the discipline of a modern gallery object. The radiant geometry keeps the stone visually alive without compromising the severe black silhouette.",
       vi: "Một tuyệt phẩm sưu tầm được chắt lọc kỹ lưỡng — mang sức nặng thị giác của carbon đen thuần khiết trong dáng dấp kỷ luật của một vật thể gallery đương đại. Hình học radiant duy trì nhịp thị giác mà không đánh mất đường bóng đen nghiêm và sắc đặc trưng.",
     },
-    price: "From $18,400",
+    price: { amount: 18400, currency: "USD" },
     priceNote: {
       en: "Stone-only pricing. Setting and finishing quoted separately.",
       vi: "Giá đá rời. Ổ và hoàn thiện được báo giá riêng.",
@@ -166,7 +168,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A restrained emerald-cut composition built around proportion, edge discipline, and a quieter form of prestige. The stepped facets allow specialists to judge cutting precision at a glance.",
       vi: "Một bố cục emerald tiết chế và chuẩn mực — được xây dựng quanh tỷ lệ, kỷ luật cạnh cắt và một dạng uy tín trầm hơn, sâu hơn. Các bậc facet phản chiếu sự am hiểu của người sở hữu hơn là thu hút ánh nhìn bên ngoài.",
     },
-    price: "From $12,900",
+    price: { amount: 12900, currency: "USD" },
     priceNote: {
       en: "Includes IGI certification and setting consultation.",
       vi: "Bao gồm chứng nhận IGI và tư vấn ổ đá.",
@@ -252,7 +254,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A large cushion-cut black diamond with enough softness for fine jewelry, but enough mass to remain an asset-class object. At this carat weight, the stone demands institutional documentation.",
       vi: "Kim cương đen giác cushion cỡ lớn — đủ tinh tế để trở thành trang sức cao cấp, đủ khối lượng để giữ vị thế tài sản. Ở trọng lượng này, viên đá đòi hỏi hồ sơ ngang tầm tổ chức tài chính.",
     },
-    price: "From $24,200",
+    price: { amount: 24200, currency: "USD" },
     priceNote: {
       en: "Full gemological report and insurance valuation included.",
       vi: "Bao gồm báo cáo ngọc học đầy đủ và định giá bảo hiểm.",
@@ -338,7 +340,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A compact round black diamond created for clients who want the BlackDiamond language in a more wearable scale. The round brilliant is the collection's most approachable entry point without sacrificing the brand's severe tone.",
       vi: "Kim cương đen round brilliant gọn tinh, dành cho người muốn mang ngôn ngữ BlackDiamond vào cuộc sống hằng ngày. Đây là cánh cửa dễ bước vào nhất của bộ sưu tập — nhưng không nhượng bộ một chút nào về tông sắc thương hiệu.",
     },
-    price: "From $7,800",
+    price: { amount: 7800, currency: "USD" },
     priceNote: {
       en: "Includes sizing and internal certification.",
       vi: "Bao gồm chỉnh ni và chứng nhận nội bộ.",
@@ -417,7 +419,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A stepped, architectural black diamond concept for collectors who value rarity, scale, and measurable specification. The Asscher geometry transforms the stone into a spatial object — a controlled void in the finest tradition of abstract art.",
       vi: "Ý niệm kim cương đen kiến trúc bậc thang — dành cho nhà sưu tầm đặt ưu tiên vào độ hiếm, quy mô và thông số có thể đo lường. Hình học Asscher biến viên đá thành một vật thể không gian: một khoảng hư không được kiểm soát, theo truyền thống tốt nhất của nghệ thuật trừu tượng.",
     },
-    price: "From $31,000",
+    price: { amount: 31000, currency: "USD" },
     priceNote: {
       en: "Custody option and insurance valuation support included.",
       vi: "Bao gồm lựa chọn lưu ký và hỗ trợ định giá bảo hiểm.",
@@ -503,7 +505,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A long, blade-like black diamond that creates a severe silhouette and a distinct editorial presence. The marquise returns drama to the collection without abandoning the original black-and-gold discipline.",
       vi: "Kim cương đen dài như lưỡi kiếm, tạo ra đường bóng sắc lạnh và sức hiện diện editorial không thể nhầm lẫn. Marquise đưa kịch tính trở lại bộ sưu tập mà không rời bỏ kỷ luật đen–vàng đặc trưng.",
     },
-    price: "From $9,200",
+    price: { amount: 9200, currency: "USD" },
     priceNote: {
       en: "Includes V-prong setting and tip protection.",
       vi: "Bao gồm ổ chấu V và bảo vệ hai đầu mũi.",
@@ -582,7 +584,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A warmer, sculptural interpretation of black diamond luxury, inspired by object-led jewelry design. The dome profile shifts the conversation from brilliance to mass, touch, and silhouette.",
       vi: "Diễn giải ấm áp và giàu tính điêu khắc về sự xa xỉ kim cương đen — lấy cảm hứng từ thiết kế trang sức như vật thể nghệ thuật. Dáng vòm chuyển trọng tâm từ độ lấp lánh sang khối lượng, xúc giác và đường bóng thuần khiết.",
     },
-    price: "From $12,900",
+    price: { amount: 12900, currency: "USD" },
     priceNote: {
       en: "Includes hand engraving option and made-to-measure service.",
       vi: "Bao gồm tùy chọn khắc tay và dịch vụ làm theo ni.",
@@ -661,7 +663,7 @@ export const collectionPieces: CollectionPiece[] = [
       en: "A matched engagement and commitment set designed for contrast: matte black presence against precise white-metal light. The pair format adds an emotional entry point to a collection that could otherwise feel too institutional.",
       vi: "Bộ nhẫn đính hôn và cam kết được thiết kế theo tương phản hoàn hảo: sắc đen lì có sức nặng đặt cạnh ánh kim trắng tinh xác. Định dạng đôi nhẫn mở ra lối vào cảm xúc cho một bộ sưu tập vốn toát ra vẻ nghiêm cẩn.",
     },
-    price: "From $24,200",
+    price: { amount: 24200, currency: "USD" },
     priceNote: {
       en: "Includes private bridal consultation and custom sizing.",
       vi: "Bao gồm tư vấn cưới riêng và chỉnh ni riêng.",

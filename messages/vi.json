@@ -214,6 +214,7 @@
     "filterCarat": "Trọng lượng carat",
     "filterCut": "Kiểu giác cắt",
     "filterPrice": "Ngưỡng đầu tư",
+    "priceFrom": "Từ",
     "stonesLabel": "viên",
     "clearFilters": "Xoá bộ lọc",
     "noResults": "Không có viên đá nào khớp với bộ lọc hiện tại.",
@@ -284,7 +285,8 @@
     "intro": "Kho tư liệu chuyên sâu về nguồn gốc, phân loại, thị trường và thực hành sưu tầm kim cương đen.",
     "allLabel": "Tất cả",
     "readMore": "Đọc bài viết",
-    "minRead": "phút đọc"
+    "minRead": "phút đọc",
+    "loadMore": "Xem thêm bài viết"
   },
   "investment": {
     "eyebrow": "Gìn giữ giá trị tài sản",

@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { CollectionPiece } from "@/lib/collection";
 import { localizedPath, type Locale } from "@/i18n/routing";
+import { formatPriceFrom } from "@/lib/format-price";
 import { CertificateViewer, NoCertificatePlaceholder } from "@/components/CertificateViewer";
 
 type Props = {
@@ -119,7 +120,9 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
                   <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-muted">
                     {d.detailPricing}
                   </p>
-                  <p className="font-headline text-3xl text-primary">{piece.price}</p>
+                  <p className="font-headline text-3xl text-primary">
+                    {piece.price ? formatPriceFrom(piece.price, d.priceFrom) : "—"}
+                  </p>
                   <p className="mt-2 text-xs leading-5 text-on-muted">{piece.priceNote[locale]}</p>
                 </div>
                 {/* Rarity visual */}

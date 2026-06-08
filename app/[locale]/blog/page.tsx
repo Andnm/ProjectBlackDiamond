@@ -4,8 +4,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
-import { blogPosts } from "@/lib/blog";
+import { getPublishedBlogPosts } from "@/lib/data/blog";
 import { blogListSchema, breadcrumbSchema } from "@/lib/schema";
+
+// Re-fetch from Supabase at most once per minute so admin edits show up
+// without a full redeploy, while keeping the page statically cacheable.
+export const revalidate = 60;
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -23,6 +27,7 @@ export default async function BlogPage({ params }: PageProps) {
   const typedLocale: Locale = isLocale(locale) ? locale : "vi";
   const dictionary = await getDictionary(typedLocale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
+  const blogPosts = await getPublishedBlogPosts();
 
   return (
     <>
@@ -33,7 +38,7 @@ export default async function BlogPage({ params }: PageProps) {
           { name: dictionary.blog.eyebrow },
         ]),
       ]} />
-      <BlogSections dictionary={dictionary} locale={typedLocale} />
+      <BlogSections dictionary={dictionary} locale={typedLocale} posts={blogPosts} />
     </>
   );
 }

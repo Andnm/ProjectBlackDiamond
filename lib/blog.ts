@@ -1,5 +1,10 @@
 import type { Locale } from "@/i18n/routing";
 
+/**
+ * Public BlogPost shape used by components & schema.
+ * `body` is rich-text content (sanitized HTML) per locale, as authored via
+ * the admin's WYSIWYG editor and stored in Supabase — e.g. `{ vi: "<p>…</p>" }`.
+ */
 export type BlogPost = {
   slug: string;
   category: Record<Locale, string>;
@@ -7,11 +12,24 @@ export type BlogPost = {
   readMinutes: number;
   title: Record<Locale, string>;
   excerpt: Record<Locale, string>;
-  body: Record<Locale, { heading?: string; paragraphs: string[] }[]>;
+  body: Record<Locale, string>;
+  /** Optional cover image uploaded via the admin (Supabase Storage public URL). */
+  coverImage?: string | null;
   tags: string[];
 };
 
-export const blogPosts: BlogPost[] = [
+/**
+ * Legacy structured-body shape (heading + paragraphs blocks) used only as the
+ * one-off seed source for migrating existing posts into Supabase. The
+ * migration script converts each block list into an HTML string before
+ * inserting into the `blog_posts.body` JSONB column.
+ */
+type LegacyBodyBlock = { heading?: string; paragraphs: string[] };
+type LegacySeedBlogPost = Omit<BlogPost, "body"> & {
+  body: Record<Locale, LegacyBodyBlock[]>;
+};
+
+export const legacySeedBlogPosts: LegacySeedBlogPost[] = [
   {
     slug: "cosmic-origin-theory-black-diamonds",
     category: { en: "Science", vi: "Khoa học" },
@@ -418,8 +436,15 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export function getBlogPost(slug: string): BlogPost | undefined {
-  return blogPosts.find((p) => p.slug === slug);
+/** Convert a legacy structured body (heading + paragraphs) into HTML. */
+export function legacyBodyToHtml(blocks: LegacyBodyBlock[]): string {
+  return blocks
+    .map((block) => {
+      const heading = block.heading ? `<h2>${block.heading}</h2>` : "";
+      const paragraphs = block.paragraphs.map((p) => `<p>${p}</p>`).join("");
+      return heading + paragraphs;
+    })
+    .join("");
 }
 
 export function formatDate(dateString: string, locale: string): string {

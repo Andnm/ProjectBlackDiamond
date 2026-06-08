@@ -1,11 +1,18 @@
 import type { MetadataRoute } from "next";
-import { localizedPath, locales, pathnames } from "@/i18n/routing";
-import { collectionPieces } from "@/lib/collection";
-import { blogPosts } from "@/lib/blog";
+import { defaultLocale, localizedPath, pathnames } from "@/i18n/routing";
+import { getPublishedCollectionPieces } from "@/lib/data/collection";
+import { getPublishedBlogPosts } from "@/lib/data/blog";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Vietnamese-only for now: only list the "vi" locale tree in the sitemap.
+const locales = [defaultLocale] as const;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
   const now = new Date();
+  const [collectionPieces, blogPosts] = await Promise.all([
+    getPublishedCollectionPieces(),
+    getPublishedBlogPosts(),
+  ]);
 
   /* ── Static pages ─────────────────────────────────────── */
   const staticPages = locales.flatMap((locale) =>

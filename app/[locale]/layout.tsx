@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { getDictionary } from "@/i18n/dictionaries";
-import { isLocale, locales, type Locale } from "@/i18n/routing";
+import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
 import { organizationSchema } from "@/lib/schema";
 
 type Props = {
@@ -12,7 +12,9 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  // Vietnamese-only for now: only pre-render the "vi" locale tree.
+  // (proxy.ts redirects any /en/* request to its /vi/* equivalent.)
+  return [{ locale: defaultLocale }];
 }
 
 export default async function LocaleLayout({ children, params }: Props) {

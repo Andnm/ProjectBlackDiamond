@@ -3,24 +3,28 @@ import { notFound } from "next/navigation";
 import { BlogPostSections } from "@/components/sections/BlogPostSections";
 import { JsonLd } from "@/components/JsonLd";
 import { getDictionary } from "@/i18n/dictionaries";
-import { blogPosts, getBlogPost } from "@/lib/blog";
-import { isLocale, locales, type Locale } from "@/i18n/routing";
+import { getPublishedBlogPost, getPublishedBlogSlugs } from "@/lib/data/blog";
+import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+
+// Re-fetch from Supabase at most once per minute so admin edits show up
+// without a full redeploy, while keeping the page statically cacheable.
+export const revalidate = 60;
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    blogPosts.map((post) => ({ locale, slug: post.slug }))
-  );
+export async function generateStaticParams() {
+  // Vietnamese-only for now: only pre-render the "vi" locale tree.
+  const slugs = await getPublishedBlogSlugs();
+  return slugs.map((slug) => ({ locale: defaultLocale, slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const typedLocale: Locale = isLocale(locale) ? locale : "vi";
-  const post = getBlogPost(slug);
+  const post = await getPublishedBlogPost(slug);
   const dictionary = await getDictionary(typedLocale);
 
   if (!post) return { title: dictionary.blog.eyebrow };
@@ -75,7 +79,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   if (!isLocale(locale)) notFound();
 
-  const post = getBlogPost(slug);
+  const post = await getPublishedBlogPost(slug);
   if (!post) notFound();
 
   const dictionary = await getDictionary(locale);
