@@ -4,7 +4,7 @@ import type { BlogPost } from "@/lib/blog";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 const BRAND_NAME = "BlackDiamond";
-const BRAND_EMAIL = "contact@blackdiamond.luxury";
+const BRAND_EMAIL = "contact@blackdiamondluxury.org";
 const BRAND_PHONE = "+84123456789";
 
 /* ── Helpers ──────────────────────────────────────────────── */

@@ -257,7 +257,7 @@ export function MembershipSections({ dictionary }: Props) {
                 <span className="mb-4 block font-label text-[10px] uppercase tracking-widest text-outline">
                   {d.contactTitle}
                 </span>
-                <p className="mb-1 text-sm">sterling@blackdiamond.luxury</p>
+                <p className="mb-1 text-sm">contact@blackdiamondluxury.org</p>
                 <p className="text-sm">+41 44 212 4000</p>
               </div>
             </div>

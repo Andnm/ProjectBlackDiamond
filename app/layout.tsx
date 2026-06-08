@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@blackdiamond",
-    creator: "@blackdiamond",
+    site: "@blackdiamondluxury",
+    creator: "@blackdiamondluxury",
     images: ["/images/education-background.png"],
   },
   icons: {
