@@ -1,17 +1,21 @@
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import Link from "next/link";
 import { remoteImages } from "@/lib/assets";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { CollectionPiece } from "@/lib/collection";
 import homeBg from "@/assets/images/background/home_background.png";
 
 type Props = {
   dictionary: Dictionary;
   locale: Locale;
+  featuredPieces: CollectionPiece[];
 };
 
-export function HomeSections({ dictionary, locale }: Props) {
+export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
   const d = dictionary.home;
+  const fallbackImages = [remoteImages.catalog, remoteImages.catalog2, remoteImages.catalog3];
 
   return (
     <main>
@@ -143,20 +147,40 @@ export function HomeSections({ dictionary, locale }: Props) {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-6">
-            {/* Card 1 — large */}
-            <BentoImageCard
-              className="md:col-span-2 lg:col-span-3"
-              image={remoteImages.catalog}
-              name={d.vaultItems[0].name}
-              category={d.vaultItems[0].category}
-            />
-            {/* Card 2 — large */}
-            <BentoImageCard
-              className="md:col-span-2 lg:col-span-3"
-              image={remoteImages.catalog2}
-              name={d.vaultItems[1].name}
-              category={d.vaultItems[1].category}
-            />
+            {/* Card 1 — large, signature piece #1 */}
+            {featuredPieces[0] ? (
+              <BentoImageCard
+                category={featuredPieces[0].line[locale]}
+                className="md:col-span-2 lg:col-span-3"
+                href={`${localizedPath(locale, "catalog")}/${featuredPieces[0].slug}`}
+                image={featuredPieces[0].image}
+                name={featuredPieces[0].name[locale]}
+              />
+            ) : (
+              <BentoImageCard
+                category={d.vaultItems[0].category}
+                className="md:col-span-2 lg:col-span-3"
+                image={fallbackImages[0]}
+                name={d.vaultItems[0].name}
+              />
+            )}
+            {/* Card 2 — large, signature piece #2 */}
+            {featuredPieces[1] ? (
+              <BentoImageCard
+                category={featuredPieces[1].line[locale]}
+                className="md:col-span-2 lg:col-span-3"
+                href={`${localizedPath(locale, "catalog")}/${featuredPieces[1].slug}`}
+                image={featuredPieces[1].image}
+                name={featuredPieces[1].name[locale]}
+              />
+            ) : (
+              <BentoImageCard
+                category={d.vaultItems[1].category}
+                className="md:col-span-2 lg:col-span-3"
+                image={fallbackImages[1]}
+                name={d.vaultItems[1].name}
+              />
+            )}
             {/* Card 3 — Bespoke info (center, dark bg) */}
             <div className="relative flex flex-col items-center justify-center bg-surface-container-high p-10 text-center md:col-span-4 lg:col-span-2">
               <Image
@@ -174,14 +198,25 @@ export function HomeSections({ dictionary, locale }: Props) {
                 <p className="mx-auto max-w-xs text-sm text-on-surface-variant">{d.vaultBespokeBody}</p>
               </div>
             </div>
-            {/* Card 4 — medium image */}
-            <BentoImageCard
-              className="md:col-span-2 lg:col-span-2"
-              image={remoteImages.catalog3}
-              name={d.vaultItems[2].name}
-              category={d.vaultItems[2].category}
-              small
-            />
+            {/* Card 4 — medium image, signature piece #3 */}
+            {featuredPieces[2] ? (
+              <BentoImageCard
+                category={featuredPieces[2].line[locale]}
+                className="md:col-span-2 lg:col-span-2"
+                href={`${localizedPath(locale, "catalog")}/${featuredPieces[2].slug}`}
+                image={featuredPieces[2].image}
+                name={featuredPieces[2].name[locale]}
+                small
+              />
+            ) : (
+              <BentoImageCard
+                category={d.vaultItems[2].category}
+                className="md:col-span-2 lg:col-span-2"
+                image={fallbackImages[2]}
+                name={d.vaultItems[2].name}
+                small
+              />
+            )}
             {/* Card 5 — Join the Circle CTA */}
             <div className="flex flex-col items-center justify-center border border-primary/20 bg-gradient-to-br from-surface-container to-surface-container-highest p-12 text-center md:col-span-2 lg:col-span-2">
               <span className="mb-6 block font-label text-sm uppercase tracking-[0.3em] text-primary">
@@ -261,15 +296,17 @@ function BentoImageCard({
   category,
   className = "",
   small = false,
+  href,
 }: {
-  image: string;
+  image: string | StaticImageData;
   name: string;
   category: string;
   className?: string;
   small?: boolean;
+  href?: string;
 }) {
-  return (
-    <div className={`group relative aspect-square overflow-hidden bg-surface-container ${className}`}>
+  const content = (
+    <>
       <Image
         alt={name}
         className="h-full w-full scale-105 object-cover brightness-50 transition-transform duration-1000 group-hover:scale-100"
@@ -281,8 +318,20 @@ function BentoImageCard({
         <h3 className={`font-headline ${small ? "text-2xl mb-1" : "text-3xl mb-2"}`}>{name}</h3>
         <p className="font-label text-xs uppercase tracking-[0.1em] text-on-surface-variant">{category}</p>
       </div>
-    </div>
+    </>
   );
+
+  const cardClass = `group relative aspect-square overflow-hidden bg-surface-container ${className}`;
+
+  if (href) {
+    return (
+      <Link className={cardClass} href={href}>
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className={cardClass}>{content}</div>;
 }
 
 function TrustIcon({ index }: { index: number }) {

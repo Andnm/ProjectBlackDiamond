@@ -68,6 +68,25 @@ export async function getPublishedCollectionPieces(): Promise<CollectionPiece[]>
   return (data ?? []).map(mapRow);
 }
 
+/**
+ * Returns a small set of "signature" pieces for homepage teasers — the
+ * rarest (highest `rarity_index`) and, as a tiebreaker, the most recently
+ * added pieces. Used by the "Kho tàng dấu ấn" bento grid on the homepage.
+ */
+export async function getFeaturedCollectionPieces(limit = 3): Promise<CollectionPiece[]> {
+  const supabase = createPublicClient();
+  const { data, error } = await supabase
+    .from("collection_pieces")
+    .select("*")
+    .eq("published", true)
+    .order("rarity_index", { ascending: false, nullsFirst: false })
+    .order("created_at", { ascending: false })
+    .limit(limit);
+
+  if (error) throw new Error(error.message);
+  return (data ?? []).map(mapRow);
+}
+
 export async function getPublishedCollectionPiece(slug: string): Promise<CollectionPiece | undefined> {
   const supabase = createPublicClient();
   const { data, error } = await supabase

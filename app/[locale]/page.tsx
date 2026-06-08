@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import { webSiteSchema } from "@/lib/schema";
+import { getFeaturedCollectionPieces } from "@/lib/data/collection";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -22,11 +23,12 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   const typedLocale: Locale = isLocale(locale) ? locale : "vi";
   const dictionary = await getDictionary(typedLocale);
+  const featuredPieces = await getFeaturedCollectionPieces(3);
 
   return (
     <>
       <JsonLd schema={webSiteSchema()} />
-      <HomeSections dictionary={dictionary} locale={typedLocale} />
+      <HomeSections dictionary={dictionary} featuredPieces={featuredPieces} locale={typedLocale} />
     </>
   );
 }
