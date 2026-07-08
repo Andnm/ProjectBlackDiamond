@@ -1,11 +1,5 @@
 const pulseBlock = "animate-pulse rounded-sm bg-outline/15";
 
-/**
- * Loading placeholder for public listing pages (Catalog & Blog) — a grid of
- * card-shaped blocks matching the real `CatalogCard`/`ArticleCard` proportions
- * (square media + a few text lines), shown automatically by Next.js while the
- * page's Supabase fetch is in flight (`loading.tsx` convention).
- */
 export function PublicGridSkeleton({ count = 9 }: { count?: number }) {
   return (
     <main className="bg-background pt-20">

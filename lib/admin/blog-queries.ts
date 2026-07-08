@@ -4,10 +4,6 @@ import type { PagedResult } from "./collection-queries";
 
 export const BLOG_PAGE_SIZE = 8;
 
-/**
- * List blog posts for the admin table, paginated with `.range()` so the
- * query stays cheap as the journal grows beyond a single page.
- */
 export async function listBlogPosts(page = 1, pageSize = BLOG_PAGE_SIZE): Promise<PagedResult<BlogPostRow>> {
   const supabase = await createClient();
   const safePage = Math.max(1, Math.floor(page));

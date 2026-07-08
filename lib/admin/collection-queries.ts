@@ -11,10 +11,6 @@ export type PagedResult<T> = {
   pageCount: number;
 };
 
-/**
- * List collection pieces for the admin table, paginated with `.range()` so
- * the query stays cheap as the catalog grows beyond a single page.
- */
 export async function listCollectionPieces(page = 1, pageSize = COLLECTION_PAGE_SIZE): Promise<PagedResult<CollectionPieceRow>> {
   const supabase = await createClient();
   const safePage = Math.max(1, Math.floor(page));

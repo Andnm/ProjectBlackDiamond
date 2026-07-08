@@ -14,7 +14,6 @@ type Props = {
   posts: BlogPost[];
 };
 
-/* Category → accent colour map */
 const CATEGORY_COLORS: Record<string, string> = {
   Science: "#c6c6c7",
   "Khoa học": "#c6c6c7",
@@ -34,7 +33,6 @@ function categoryColor(cat: string) {
   return CATEGORY_COLORS[cat] ?? "#e9c176";
 }
 
-/** Number of "rest" articles revealed per "Load more" click (after the featured + first row). */
 const REST_PAGE_SIZE = 5;
 
 export function BlogSections({ dictionary, locale, posts }: Props) {
@@ -54,7 +52,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
 
   const [featured, ...rest] = filtered;
 
-  // Reset pagination whenever the active category changes.
   useEffect(() => {
     setVisibleRestCount(REST_PAGE_SIZE);
   }, [activeCategory]);
@@ -65,9 +62,7 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
   return (
     <main className="pt-20">
 
-      {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative flex min-h-[80vh] items-end overflow-hidden pb-20">
-        {/* Background image */}
         <Image
           alt=""
           aria-hidden
@@ -77,7 +72,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
           sizes="100vw"
           src={blogBg}
         />
-        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent" />
 
@@ -98,7 +92,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
         </div>
       </section>
 
-      {/* ── Category filter ──────────────────────────────── */}
       <div className="sticky top-20 z-30 border-b border-outline/10 bg-background/90 backdrop-blur">
         <div className="section-shell">
           <div className="flex overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -125,10 +118,8 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
         </div>
       </div>
 
-      {/* ── Content ──────────────────────────────────────── */}
       <div className="bg-surface">
 
-        {/* Featured article — full editorial treatment */}
         {featured && (
           <div className="section-shell py-16">
             <Link
@@ -136,7 +127,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
               href={`${localizedPath(locale, "blog")}/${featured.slug}`}
             >
               <div className="relative overflow-hidden bg-surface-container-lowest">
-                {/* Decorative large category text in background */}
                 <span
                   className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 select-none font-headline text-[10rem] leading-none opacity-[0.04] md:text-[14rem]"
                   style={{ color: categoryColor(featured.category[locale]) }}
@@ -146,7 +136,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
                 </span>
 
                 <div className="relative z-10 grid gap-0 md:grid-cols-[2fr_3fr]">
-                  {/* Left — index + meta */}
                   <div className="border-r border-outline/10 p-10 md:p-14">
                     <span className="mb-8 block font-headline text-7xl text-primary/20 md:text-9xl">01</span>
                     <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -161,7 +150,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
                     <p className="mt-1 text-xs text-on-muted">{featured.readMinutes} {d.minRead}</p>
                   </div>
 
-                  {/* Right — title + excerpt + CTA */}
                   <div className="p-10 md:p-14 flex flex-col justify-between">
                     <div>
                       <h2 className="mb-6 font-headline text-3xl leading-snug transition-colors group-hover:text-primary md:text-4xl lg:text-5xl">
@@ -189,10 +177,8 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
           </div>
         )}
 
-        {/* ── Remaining articles ───────────────────────────── */}
         {rest.length > 0 && (
           <div className="section-shell pb-24">
-            {/* Divider */}
             <div className="mb-12 flex items-center gap-6">
               <span className="h-px flex-1 bg-outline/20" />
               <span className="eyebrow opacity-50">
@@ -201,7 +187,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
               <span className="h-px flex-1 bg-outline/20" />
             </div>
 
-            {/* First row — 2 large cards */}
             {visibleRest.length >= 2 && (
               <div className="mb-4 grid gap-4 md:grid-cols-2">
                 {visibleRest.slice(0, 2).map((post, i) => (
@@ -219,7 +204,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
               </div>
             )}
 
-            {/* Second row onward — compact cards */}
             {visibleRest.length >= 3 && (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {visibleRest.slice(2).map((post, i) => (
@@ -257,7 +241,6 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
   );
 }
 
-/* ── Article card ────────────────────────────────────────── */
 function ArticleCard({
   post,
   locale,
@@ -282,11 +265,9 @@ function ArticleCard({
       className="group relative flex flex-col overflow-hidden bg-surface-container transition hover:bg-surface-container-high"
       href={`${blogPath}/${post.slug}`}
     >
-      {/* Color accent bar on top */}
       <div className="h-[3px] w-full transition-all" style={{ background: color }} />
 
       <div className={`flex flex-1 flex-col ${size === "large" ? "p-9" : "p-7"}`}>
-        {/* Index + category row */}
         <div className="mb-6 flex items-start justify-between">
           <span
             className="border px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.2em]"
@@ -299,7 +280,6 @@ function ArticleCard({
           </span>
         </div>
 
-        {/* Title */}
         <h2
           className={`flex-1 font-headline leading-snug transition-colors group-hover:text-primary ${
             size === "large" ? "mb-5 text-2xl md:text-3xl" : "mb-4 text-xl"
@@ -308,14 +288,12 @@ function ArticleCard({
           {post.title[locale]}
         </h2>
 
-        {/* Excerpt — large cards only */}
         {size === "large" && (
           <p className="mb-6 line-clamp-2 text-sm leading-7 text-on-surface-variant">
             {post.excerpt[locale]}
           </p>
         )}
 
-        {/* Footer */}
         <div className="flex items-center justify-between border-t border-outline/10 pt-5 mt-auto">
           <div className="flex items-center gap-3">
             <span className="text-[11px] text-on-muted">{formatDate(post.date, locale)}</span>

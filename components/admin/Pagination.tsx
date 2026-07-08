@@ -3,9 +3,7 @@ import Link from "next/link";
 type Props = {
   page: number;
   pageCount: number;
-  /** Base path the page links should point to, e.g. "/admin/collection". */
   basePath: string;
-  /** Optional extra query params to preserve across page links. */
   searchParams?: Record<string, string | undefined>;
 };
 
@@ -28,11 +26,6 @@ function buildHref(basePath: string, page: number, searchParams?: Record<string,
   return query ? `${basePath}?${query}` : basePath;
 }
 
-/**
- * Numbered pagination control for admin list tables (server-rendered links —
- * no client JS needed since the list pages are server components reading
- * `searchParams.page`).
- */
 export function Pagination({ page, pageCount, basePath, searchParams }: Props) {
   if (pageCount <= 1) return null;
 

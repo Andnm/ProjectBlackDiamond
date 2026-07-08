@@ -3,6 +3,8 @@ import Link from "next/link";
 import { remoteImages } from "@/lib/assets";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import { type Dictionary } from "@/i18n/dictionaries";
+import { PosterShowcase } from "@/components/PosterShowcase";
+import { informationImages } from "@/lib/information-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -15,7 +17,6 @@ export function EducationSections({ dictionary, locale }: Props) {
   return (
     <main className="pt-20">
 
-      {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-surface">
         <div className="absolute inset-0 opacity-40">
           <Image alt="" aria-hidden className="h-full w-full object-cover" fill priority sizes="100vw" src="/images/education-background.png" />
@@ -32,7 +33,6 @@ export function EducationSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Chapter 1: Origins ───────────────────────────── */}
       <section className="bg-surface-container-low py-32">
         <div className="section-shell grid grid-cols-1 items-start gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -58,7 +58,6 @@ export function EducationSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Chapter 2: Properties Bento ──────────────────── */}
       <section className="bg-surface py-32">
         <div className="section-shell">
           <div className="mb-24 text-center">
@@ -100,7 +99,6 @@ export function EducationSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Chapter 3: Raw vs Cut ─────────────────────────── */}
       <section className="bg-surface-container-highest py-20 md:py-32">
         <div className="section-shell">
           <div className="flex flex-col items-center gap-12 md:flex-row md:gap-20">
@@ -130,7 +128,6 @@ export function EducationSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Geographic Origins ───────────────────────────── */}
       <section className="bg-surface py-24 md:py-32">
         <div className="section-shell">
           <div className="mb-16">
@@ -162,7 +159,6 @@ export function EducationSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Grading Criteria ─────────────────────────────── */}
       <section className="bg-surface-container-low py-24 md:py-32">
         <div className="section-shell">
           <div className="mb-4">
@@ -182,7 +178,6 @@ export function EducationSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Cutting Process ──────────────────────────────── */}
       <section className="bg-surface py-24 md:py-32">
         <div className="section-shell">
           <div className="mb-4">
@@ -191,12 +186,10 @@ export function EducationSections({ dictionary, locale }: Props) {
             <p className="max-w-2xl text-lg leading-relaxed text-on-surface-variant">{d.cuttingIntro}</p>
           </div>
           <div className="relative mt-16">
-            {/* Vertical connector */}
             <div className="absolute left-6 top-0 h-full w-px bg-outline/20 md:left-8" />
             <div className="space-y-0">
               {d.cuttingSteps.map((step, i) => (
                 <div className="grid gap-6 border-b border-outline/10 py-10 pl-16 md:grid-cols-[12rem_1fr] md:gap-12 md:pl-20" key={step.step}>
-                  {/* Step indicator */}
                   <div className="absolute left-4 mt-1 flex h-5 w-5 items-center justify-center md:left-6">
                     <div className={`h-2 w-2 rotate-45 ${i === d.cuttingSteps.length - 1 ? "bg-primary" : "bg-outline/40"}`} />
                   </div>
@@ -212,7 +205,6 @@ export function EducationSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Carat Presence ───────────────────────────────── */}
       <section className="border-t border-outline/10 bg-surface-container-lowest py-20 md:py-32">
         <div className="section-shell">
           <div className="mx-auto max-w-4xl">
@@ -243,6 +235,18 @@ export function EducationSections({ dictionary, locale }: Props) {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-surface py-24 md:py-32">
+        <div className="section-shell">
+          <PosterShowcase
+            alt={dictionary.posters.formationEyebrow}
+            caption={dictionary.posters.formationCaption}
+            eyebrow={dictionary.posters.formationEyebrow}
+            image={informationImages.formation}
+            variant="banner"
+          />
         </div>
       </section>
     </main>

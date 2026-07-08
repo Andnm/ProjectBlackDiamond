@@ -1,10 +1,5 @@
 const pulseBlock = "animate-pulse rounded-sm bg-neutral-800";
 
-/**
- * Loading placeholder for admin edit pages — mirrors a back-link, heading,
- * and a stack of bordered field sections so the layout doesn't jump once the
- * record (and its <PieceForm>/<PostForm>) finishes loading.
- */
 export function FormSkeleton({ sections = 3 }: { sections?: number }) {
   return (
     <div className="flex flex-col gap-8" role="status" aria-label="Đang tải dữ liệu…">

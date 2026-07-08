@@ -15,10 +15,8 @@ export function BlogPostSections({ post, locale, dictionary }: Props) {
   return (
     <main className="pt-20">
 
-      {/* ── Article header ───────────────────────────────── */}
       <section className="border-b border-outline/10 bg-surface py-20 md:py-28">
         <div className="section-shell">
-          {/* Back link */}
           <Link
             className="mb-10 inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-on-muted transition hover:text-primary"
             href={localizedPath(locale, "blog")}
@@ -27,7 +25,6 @@ export function BlogPostSections({ post, locale, dictionary }: Props) {
             {d.eyebrow}
           </Link>
 
-          {/* Meta */}
           <div className="mb-6 flex flex-wrap items-center gap-4">
             <span className="eyebrow">{post.category[locale]}</span>
             <span className="text-on-muted">·</span>
@@ -36,19 +33,16 @@ export function BlogPostSections({ post, locale, dictionary }: Props) {
             <span className="text-xs text-on-muted">{post.readMinutes} {d.minRead}</span>
           </div>
 
-          {/* Title */}
           <h1 className="mb-8 max-w-4xl font-headline text-4xl leading-tight md:text-6xl">
             {post.title[locale]}
           </h1>
 
-          {/* Excerpt / lead */}
           <p className="max-w-3xl border-l-2 border-primary pl-6 text-xl leading-9 text-on-surface-variant">
             {post.excerpt[locale]}
           </p>
         </div>
       </section>
 
-      {/* ── Article body ─────────────────────────────────── */}
       <section className="bg-surface py-20">
         <div className="section-shell">
           <div
@@ -58,7 +52,6 @@ export function BlogPostSections({ post, locale, dictionary }: Props) {
         </div>
       </section>
 
-      {/* ── Tags ─────────────────────────────────────────── */}
       <section className="border-t border-outline/10 bg-surface py-12">
         <div className="section-shell">
           <div className="mx-auto max-w-3xl flex flex-wrap gap-2">
@@ -74,7 +67,6 @@ export function BlogPostSections({ post, locale, dictionary }: Props) {
         </div>
       </section>
 
-      {/* ── Back CTA ─────────────────────────────────────── */}
       <section className="bg-surface-container-lowest py-20">
         <div className="section-shell text-center">
           <Link

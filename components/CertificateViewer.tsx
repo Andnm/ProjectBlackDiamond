@@ -47,7 +47,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
 
   return (
     <div className="border border-outline/25 bg-surface">
-      {/* Header — always visible */}
       <button
         aria-expanded={expanded}
         className="flex w-full items-center justify-between px-7 py-5 text-left transition hover:bg-surface-container"
@@ -55,7 +54,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
         type="button"
       >
         <div className="flex items-center gap-5">
-          {/* Authority badge */}
           <span
             className="flex h-10 w-10 shrink-0 items-center justify-center text-[10px] font-bold"
             style={{ background: meta.bg, color: meta.color, border: `1px solid ${meta.color}30` }}
@@ -72,7 +70,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
           </div>
         </div>
 
-        {/* Chevron */}
         <span
           className="flex h-8 w-8 shrink-0 items-center justify-center border border-outline/30 transition duration-300"
           style={{ transform: expanded ? "rotate(45deg)" : "rotate(0deg)" }}
@@ -83,10 +80,8 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
         </span>
       </button>
 
-      {/* Expandable body */}
       {expanded && (
         <div className="border-t border-outline/20 px-7 py-6">
-          {/* Data rows */}
           <dl className="mb-7 grid gap-x-10 gap-y-5 sm:grid-cols-2">
             {rows.map(([label, value]) => (
               <div className="border-b border-outline/15 pb-4" key={label}>
@@ -98,7 +93,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
             ))}
           </dl>
 
-          {/* Verification note */}
           <p className="mb-6 flex items-start gap-3 text-xs leading-6 text-on-muted">
             <span
               className="mt-0.5 h-1.5 w-1.5 shrink-0 rotate-45"
@@ -107,7 +101,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
             {d.detailCertNote}
           </p>
 
-          {/* Action buttons */}
           <div className="flex flex-wrap gap-3">
             <a
               className="inline-flex items-center gap-2.5 px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-on-primary transition hover:opacity-90"
@@ -116,7 +109,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
               style={{ background: meta.color, color: "#1a1000" }}
               target="_blank"
             >
-              {/* External link icon */}
               <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -130,7 +122,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                {/* Document icon */}
                 <svg className="h-3.5 w-3.5 text-primary" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" strokeLinecap="round" strokeLinejoin="round" />
                   <polyline points="14 2 14 8 20 8" />
@@ -148,7 +139,6 @@ export function CertificateViewer({ certificate, dictionary }: Props) {
   );
 }
 
-/* ── Placeholder shown when no cert exists ─────────────── */
 export function NoCertificatePlaceholder({ dictionary }: { dictionary: Dictionary }) {
   const d = dictionary.catalog;
   return (

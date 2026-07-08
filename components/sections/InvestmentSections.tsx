@@ -15,7 +15,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
   return (
     <main className="pt-20">
 
-      {/* ── Hero: Scarcity & Prestige ─────────────────────── */}
       <section className="relative flex min-h-[80vh] items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -53,7 +52,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Market Trends Bento Grid ──────────────────────── */}
       <section className="bg-surface-container-low py-32">
         <div className="section-shell">
           <div className="mb-20 space-y-4">
@@ -61,7 +59,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
             <div className="h-px w-24 bg-primary" />
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {/* Stat 1 — Market Scarcity (col-span-2) with bar chart */}
             <div className="border-l border-primary bg-surface p-10 md:col-span-2 lg:col-span-2">
               <div className="mb-12 flex items-start justify-between">
                 <div>
@@ -76,7 +73,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
                   <path d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              {/* Bar chart visualization */}
               <div className="flex h-48 items-end gap-2">
                 {[20, 35, 55, 85, 65, 90].map((h, i) => (
                   <div
@@ -91,7 +87,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
               </p>
             </div>
 
-            {/* Stat 2 — Global Supply */}
             <div className="flex flex-col justify-between bg-surface-container-highest p-10">
               <svg className="mb-6 h-10 w-10 text-primary" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L2 9l10 13L22 9z" />
@@ -105,7 +100,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
               </div>
             </div>
 
-            {/* Stat 3 — Risk Profile */}
             <div className="border-t border-outline/50 bg-surface p-10">
               <span className="font-label text-xs uppercase tracking-widest text-outline">
                 {d.stats[2].label}
@@ -114,7 +108,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
               <p className="mt-4 text-sm leading-relaxed text-on-surface-variant">{d.stats[2].body}</p>
             </div>
 
-            {/* Large vault image */}
             <div className="relative h-[400px] overflow-hidden bg-surface md:col-span-3 lg:col-span-4">
               <Image
                 alt="Secure luxury vault"
@@ -141,11 +134,9 @@ export function InvestmentSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Certification Standards ───────────────────────── */}
       <section className="bg-surface py-32">
         <div className="section-shell">
           <div className="grid items-center gap-24 lg:grid-cols-2">
-            {/* Left — text + authority badges */}
             <div>
               <p className="eyebrow mb-6">Verification Architecture</p>
               <h2 className="mb-8 font-headline text-4xl md:text-5xl">{d.standardsTitle}</h2>
@@ -178,7 +169,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
               </div>
             </div>
 
-            {/* Right — certificate mock */}
             <div className="relative">
               <div className="absolute -inset-4 z-0 border border-outline/20" />
               <div className="relative z-10 border border-outline/50 bg-surface-container-low p-8">
@@ -213,7 +203,6 @@ export function InvestmentSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Acquisition Channels ──────────────────────────── */}
       <section className="bg-surface-container-lowest py-32">
         <div className="section-shell text-center">
           <p className="eyebrow mb-6">The Inner Circle</p>

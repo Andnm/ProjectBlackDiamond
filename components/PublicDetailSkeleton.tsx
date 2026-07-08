@@ -1,10 +1,5 @@
 const pulseBlock = "animate-pulse rounded-sm bg-outline/15";
 
-/**
- * Loading placeholder for public detail pages (catalog piece / blog article)
- * — a hero media block plus stacked text lines, shown automatically by
- * Next.js while the page's Supabase fetch is in flight (`loading.tsx`).
- */
 export function PublicDetailSkeleton() {
   return (
     <main className="bg-background pt-20">

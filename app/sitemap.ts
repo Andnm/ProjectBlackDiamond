@@ -14,7 +14,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getPublishedBlogPosts(),
   ]);
 
-  /* ── Static pages ─────────────────────────────────────── */
   const staticPages = locales.flatMap((locale) =>
     Object.keys(pathnames).map((route) => {
       const r = route as keyof typeof pathnames;
@@ -36,7 +35,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
-  /* ── Collection detail pages ──────────────────────────── */
   const collectionPages = locales.flatMap((locale) =>
     collectionPieces.map((piece) => ({
       url: `${siteUrl}${localizedPath(locale, "catalog")}/${piece.slug}`,
@@ -46,7 +44,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   );
 
-  /* ── Blog post pages ──────────────────────────────────── */
   const blogPostPages = locales.flatMap((locale) =>
     blogPosts.map((post) => ({
       url: `${siteUrl}/${locale}/blog/${post.slug}`,

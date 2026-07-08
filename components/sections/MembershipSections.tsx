@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { remoteImages } from "@/lib/assets";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { PosterShowcase } from "@/components/PosterShowcase";
+import { informationImages } from "@/lib/information-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -12,10 +14,8 @@ export function MembershipSections({ dictionary }: Props) {
   return (
     <main>
 
-      {/* ── Hero: Asymmetric Editorial ────────────────────── */}
       <section className="relative flex min-h-[80vh] items-center overflow-hidden py-24">
         <div className="section-shell grid grid-cols-12 items-center gap-8">
-          {/* Left text */}
           <div className="z-10 col-span-12 lg:col-span-7">
             <p className="eyebrow mb-6">{d.eyebrow}</p>
             <h1 className="mb-8 font-headline text-6xl leading-[1.1] md:text-8xl">
@@ -26,7 +26,6 @@ export function MembershipSections({ dictionary }: Props) {
             <p className="mb-12 max-w-lg text-lg leading-relaxed text-on-surface-variant">
               {d.intro}
             </p>
-            {/* Stats */}
             <div className="flex items-center gap-12 border-t border-outline/20 pt-12">
               {d.heroStats.map((stat) => (
                 <div key={stat.label}>
@@ -39,7 +38,6 @@ export function MembershipSections({ dictionary }: Props) {
             </div>
           </div>
 
-          {/* Right image */}
           <div className="col-span-12 relative lg:col-span-5">
             <div className="group relative aspect-[4/5] overflow-hidden bg-surface-container-high">
               <Image
@@ -52,7 +50,6 @@ export function MembershipSections({ dictionary }: Props) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
             </div>
-            {/* Floating info box */}
             <div className="absolute -bottom-8 -left-8 hidden w-48 border border-primary/20 bg-primary/10 p-6 backdrop-blur-xl md:block">
               <span className="mb-4 block font-label text-[10px] tracking-widest">
                 {d.heroInfoLabel}
@@ -63,7 +60,6 @@ export function MembershipSections({ dictionary }: Props) {
         </div>
       </section>
 
-      {/* ── Membership Registration ───────────────────────── */}
       <section className="bg-surface-container-low py-32">
         <div className="mx-auto max-w-3xl">
           <div className="mb-20 text-center">
@@ -107,10 +103,27 @@ export function MembershipSections({ dictionary }: Props) {
         </div>
       </section>
 
-      {/* ── Bespoke Orders Configurator ───────────────────── */}
+      <section className="bg-surface-container-lowest py-24 md:py-32">
+        <div className="section-shell grid gap-16 md:grid-cols-2">
+          <PosterShowcase
+            alt={dictionary.posters.occasionEyebrow}
+            caption={dictionary.posters.occasionCaption}
+            eyebrow={dictionary.posters.occasionEyebrow}
+            image={informationImages.occasion}
+            variant="portrait"
+          />
+          <PosterShowcase
+            alt={dictionary.posters.companionEyebrow}
+            caption={dictionary.posters.companionCaption}
+            eyebrow={dictionary.posters.companionEyebrow}
+            image={informationImages.companion}
+            variant="portrait"
+          />
+        </div>
+      </section>
+
       <section className="bg-surface py-32">
         <div className="section-shell">
-          {/* Header */}
           <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
             <div className="max-w-xl">
               <p className="eyebrow mb-6">Commission</p>
@@ -133,13 +146,10 @@ export function MembershipSections({ dictionary }: Props) {
             </div>
           </div>
 
-          {/* Configurator + sidebar grid */}
           <div className="grid grid-cols-12 gap-px border border-outline/20 bg-outline/20">
-            {/* Configurator form */}
             <div className="col-span-12 bg-surface p-10 md:p-16 lg:col-span-8">
               <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
                 <div className="space-y-12">
-                  {/* Carat slider */}
                   <div>
                     <label className="mb-6 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
                       {d.sizeLabel}
@@ -154,7 +164,6 @@ export function MembershipSections({ dictionary }: Props) {
                       </div>
                     </div>
                   </div>
-                  {/* Shade selector */}
                   <div>
                     <label className="mb-6 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
                       {d.shadeLabel}
@@ -178,7 +187,6 @@ export function MembershipSections({ dictionary }: Props) {
                 </div>
 
                 <div className="space-y-12">
-                  {/* Cut select */}
                   <div>
                     <label className="mb-4 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
                       {d.cutLabel}
@@ -190,7 +198,6 @@ export function MembershipSections({ dictionary }: Props) {
                       <option>Cushion Carbon</option>
                     </select>
                   </div>
-                  {/* Quantity */}
                   <div>
                     <label className="mb-4 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
                       {d.quantityLabel}
@@ -205,7 +212,6 @@ export function MembershipSections({ dictionary }: Props) {
                 </div>
               </div>
 
-              {/* Submit */}
               <div className="mt-20">
                 <button className="group flex items-center gap-4 text-primary" type="button">
                   <span className="font-label text-xs tracking-[0.3em]">{d.quotationBtn}</span>
@@ -214,7 +220,6 @@ export function MembershipSections({ dictionary }: Props) {
               </div>
             </div>
 
-            {/* Concierge sidebar */}
             <div className="col-span-12 flex flex-col justify-between bg-surface-container-low p-10 md:p-16 lg:col-span-4">
               <div>
                 <h3 className="mb-6 font-headline text-2xl">{d.contactTitle}</h3>

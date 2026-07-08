@@ -13,7 +13,6 @@ export type BlogPost = {
   title: Record<Locale, string>;
   excerpt: Record<Locale, string>;
   body: Record<Locale, string>;
-  /** Optional cover image uploaded via the admin (Supabase Storage public URL). */
   coverImage?: string | null;
   tags: string[];
 };
@@ -436,7 +435,6 @@ export const legacySeedBlogPosts: LegacySeedBlogPost[] = [
   },
 ];
 
-/** Convert a legacy structured body (heading + paragraphs) into HTML. */
 export function legacyBodyToHtml(blocks: LegacyBodyBlock[]): string {
   return blocks
     .map((block) => {

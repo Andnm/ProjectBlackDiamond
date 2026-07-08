@@ -15,11 +15,6 @@ type Props = {
   onCancel: () => void;
 };
 
-/**
- * Styled single-input modal used in place of the browser's native
- * `window.prompt` (e.g. for inserting links/images in the rich-text editor),
- * which renders with the OS locale/font and breaks the admin's visual style.
- */
 export function PromptDialog({
   open,
   title,

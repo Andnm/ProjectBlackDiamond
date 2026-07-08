@@ -12,6 +12,7 @@ export function Footer({ dictionary, locale }: Props) {
     { href: localizedPath(locale, "about"), label: dictionary.nav.story },
     { href: localizedPath(locale, "education"), label: dictionary.nav.education },
     { href: localizedPath(locale, "catalog"), label: dictionary.nav.catalog },
+    { href: localizedPath(locale, "lifestyle"), label: dictionary.nav.lifestyle },
     { href: localizedPath(locale, "blog"), label: dictionary.nav.blog },
   ];
 

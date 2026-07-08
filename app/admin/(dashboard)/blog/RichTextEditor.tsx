@@ -15,11 +15,6 @@ type Props = {
 const toolbarButtonClass =
   "border border-neutral-700 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-neutral-300 transition hover:border-amber-400 hover:text-amber-400 disabled:opacity-40 data-[active=true]:border-amber-400 data-[active=true]:text-amber-400";
 
-/**
- * WYSIWYG rich-text editor (Tiptap) that persists its content as sanitized
- * HTML into a hidden <input> so it submits naturally with the surrounding
- * <form action={serverAction}>.
- */
 export function RichTextEditor({ name, defaultValue = "" }: Props) {
   const [activePrompt, setActivePrompt] = useState<"link" | "image" | null>(null);
   const editor = useEditor({
@@ -38,7 +33,6 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
     },
   });
 
-  // Keep a hidden input in sync so the form submits the latest HTML.
   useEffect(() => {
     if (!editor) return;
     const input = document.getElementById(`${name}__hidden`) as HTMLInputElement | null;

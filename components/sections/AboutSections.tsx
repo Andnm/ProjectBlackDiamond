@@ -4,6 +4,8 @@ import { remoteImages } from "@/lib/assets";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import storyBg from "@/assets/images/background/story_background.png";
+import { PosterShowcase } from "@/components/PosterShowcase";
+import { informationImages } from "@/lib/information-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -17,7 +19,6 @@ export function AboutSections({ dictionary, locale }: Props) {
   return (
     <main className="pt-20">
 
-      {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative flex min-h-[80vh] items-center overflow-hidden">
         <Image
           alt={d.heroTitle}
@@ -37,7 +38,6 @@ export function AboutSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Brand Statistics ─────────────────────────────── */}
       <section className="bg-surface-container-lowest py-20">
         <div className="section-shell">
           <div className="grid grid-cols-2 gap-px bg-outline/10 md:grid-cols-4">
@@ -53,11 +53,9 @@ export function AboutSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Brand Narrative ──────────────────────────────── */}
       <section className="bg-surface py-24 md:py-40">
         <div className="section-shell">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-24">
-            {/* Image */}
             <div className="relative order-2 aspect-[3/4] bg-surface-container-low lg:order-1 lg:col-span-5">
               <Image
                 alt={d.heroTitle}
@@ -74,7 +72,6 @@ export function AboutSections({ dictionary, locale }: Props) {
                 </div>
               </div>
             </div>
-            {/* Text */}
             <div className="order-1 lg:order-2 lg:col-span-7">
               <h2 className="mb-10 font-headline text-4xl leading-tight md:text-5xl lg:text-6xl">
                 {d.narrativeTitle}
@@ -91,7 +88,6 @@ export function AboutSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Manifesto ────────────────────────────────────── */}
       <section className="bg-surface-container py-24">
         <div className="section-shell">
           <div className="mx-auto max-w-3xl text-center">
@@ -103,7 +99,6 @@ export function AboutSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Process Steps ────────────────────────────────── */}
       <section className="bg-surface-container-lowest py-24 md:py-32">
         <div className="section-shell">
           <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-end">
@@ -124,7 +119,6 @@ export function AboutSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── Trust pillars ────────────────────────────────── */}
       <section className="bg-surface py-24">
         <div className="section-shell border-y border-outline/10 py-20">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
@@ -139,7 +133,18 @@ export function AboutSections({ dictionary, locale }: Props) {
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────── */}
+      <section className="bg-surface py-24 md:py-32">
+        <div className="section-shell">
+          <PosterShowcase
+            alt={dictionary.posters.legacyEyebrow}
+            caption={dictionary.posters.legacyCaption}
+            eyebrow={dictionary.posters.legacyEyebrow}
+            image={informationImages.legacy}
+            variant="portrait"
+          />
+        </div>
+      </section>
+
       <section className="bg-surface-container-lowest py-24">
         <div className="section-shell text-center">
           <Link

@@ -8,6 +8,8 @@ import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { formatPriceFrom } from "@/lib/format-price";
 import collectionBg from "@/assets/images/background/collection_background.png";
+import { PosterShowcase } from "@/components/PosterShowcase";
+import { informationImages } from "@/lib/information-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -17,7 +19,6 @@ type Props = {
 
 const CUT_FILTERS = ["Emerald", "Radiant", "Cushion", "Asscher", "Marquise", "Brilliant", "Cabochon"];
 
-/** Number of pieces revealed per "Load more" click — keeps the grid from rendering hundreds of cards at once. */
 const PAGE_SIZE = 9;
 
 export function CatalogSections({ dictionary, locale, pieces }: Props) {
@@ -41,8 +42,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
           )
         );
 
-  // Reset pagination whenever the active filter changes so users always start
-  // from the first page of a new result set.
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
   }, [selectedCuts]);
@@ -52,10 +51,8 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
 
   return (
     <main className="bg-background">
-      {/* ── Hero Banner ────────────────────────────────────── */}
       <section className="relative overflow-hidden border-b border-outline/10">
         <div className="pointer-events-none absolute inset-0">
-          {/* Black diamond atmosphere image — right side, blended */}
           <div className="absolute right-0 top-0 h-full w-[52%]">
             <Image
               alt=""
@@ -66,18 +63,14 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
               sizes="52vw"
               src={collectionBg}
             />
-            {/* Fade left into headline */}
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-            {/* Fade top */}
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/90" />
-            {/* Subtle gold vignette */}
             <div
               className="absolute inset-0 opacity-[0.06]"
               style={{ background: "radial-gradient(ellipse at 80% 40%, #e9c176 0%, transparent 65%)" }}
             />
           </div>
 
-          {/* Grid lines */}
           <div
             className="absolute inset-0 opacity-[0.035]"
             style={{
@@ -85,7 +78,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
                 "repeating-linear-gradient(0deg,transparent,transparent 79px,#e9c17620 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,#e9c17620 80px)",
             }}
           />
-          {/* Base gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
         </div>
         <div className="section-shell relative pb-20 pt-36">
@@ -133,7 +125,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
         </div>
       </section>
 
-      {/* ── Gemological Context Strip ────────────────────── */}
       <section className="border-b border-outline/10 bg-surface-container">
         <div className="section-shell py-8">
           <div className="flex flex-wrap gap-8 divide-x divide-outline/30">
@@ -147,10 +138,8 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
         </div>
       </section>
 
-      {/* ── Main Catalog Body ─────────────────────────────── */}
       <section className="section-shell py-20">
         <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          {/* Retail / Wholesale tabs */}
           <div className="flex border-b border-outline/30">
             <button
               className={`py-4 pr-8 text-xs font-bold uppercase tracking-[0.18em] transition ${activeTab === "retail" ? "border-b-2 border-primary text-primary" : "text-on-muted hover:text-on-surface"}`}
@@ -173,10 +162,8 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
         </div>
 
         <div className="flex flex-col gap-12 lg:flex-row">
-          {/* ── Sidebar ── */}
           <aside className="w-full shrink-0 lg:w-72">
             <div className="sticky top-24 space-y-10">
-              {/* Carat range */}
               <div>
                 <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-on-muted">
                   {dictionary.catalog.filterCarat}
@@ -192,7 +179,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
                 </div>
               </div>
 
-              {/* Cut style */}
               <div>
                 <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-on-muted">
                   {dictionary.catalog.filterCut}
@@ -236,7 +222,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
                 )}
               </div>
 
-              {/* Price range */}
               <div>
                 <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.18em] text-on-muted">
                   {dictionary.catalog.filterPrice}
@@ -253,7 +238,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
                 </div>
               </div>
 
-              {/* Legend */}
               <div className="border border-outline/20 bg-surface-container p-5">
                 <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
                   {dictionary.catalog.rarityLegendTitle}
@@ -271,7 +255,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
             </div>
           </aside>
 
-          {/* ── Grid ── */}
           <section className="flex-1">
             {filtered.length === 0 ? (
               <div className="flex h-64 items-center justify-center text-sm text-on-muted">
@@ -307,7 +290,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
         </div>
       </section>
 
-      {/* ── Gemological Point of View ─────────────────────── */}
       <section className="border-y border-outline/10 bg-surface-container py-24">
         <div className="section-shell grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -332,7 +314,25 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
         </div>
       </section>
 
-      {/* ── Bespoke CTA ───────────────────────────────────── */}
+      <section className="bg-surface py-24 md:py-32">
+        <div className="section-shell grid gap-16 md:grid-cols-2">
+          <PosterShowcase
+            alt={dictionary.posters.crownEyebrow}
+            caption={dictionary.posters.crownCaption}
+            eyebrow={dictionary.posters.crownEyebrow}
+            image={informationImages.crown}
+            variant="portrait"
+          />
+          <PosterShowcase
+            alt={dictionary.posters.collectorEyebrow}
+            caption={dictionary.posters.collectorCaption}
+            eyebrow={dictionary.posters.collectorEyebrow}
+            image={informationImages.collector}
+            variant="portrait"
+          />
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-surface-low py-28">
         <div className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 select-none font-headline text-[18rem] leading-none text-on-surface/[0.03] md:text-[22rem]">
           VOID
@@ -391,7 +391,6 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
   );
 }
 
-/* ── Card component ─────────────────────────────────────── */
 function CatalogCard({
   piece,
   locale,
@@ -410,13 +409,11 @@ function CatalogCard({
 
   return (
     <article className="group relative flex min-h-[40rem] flex-col overflow-hidden bg-surface transition hover:bg-surface-container">
-      {/* Image */}
       <Link
         className="relative block overflow-hidden bg-surface-low"
         href={`${localizedPath(locale, "catalog")}/${piece.slug}`}
         style={{ aspectRatio: "1 / 1" }}
       >
-        {/* Base layer — full colour, subtle zoom on hover */}
         <Image
           alt={piece.imageAlt[locale]}
           className="object-cover transition duration-700 ease-in-out group-hover:scale-105"
@@ -425,7 +422,6 @@ function CatalogCard({
           src={piece.image}
         />
 
-        {/* Curtain layer — dark mono version that wipes left → right on hover */}
         <div
           className="absolute inset-0 transition-[clip-path] duration-700 ease-in-out [clip-path:inset(0_0%_0_0%)] group-hover:[clip-path:inset(0_0%_0_100%)]"
         >
@@ -437,16 +433,13 @@ function CatalogCard({
             sizes="(min-width: 1280px) 28vw, (min-width: 768px) 50vw, 100vw"
             src={piece.image}
           />
-          {/* Vignette so the dark layer blends with card background */}
           <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
         </div>
 
-        {/* Sheen line — travels left → right with the clip edge */}
         <div
           className="absolute inset-y-0 w-[2px] bg-gradient-to-b from-transparent via-primary/70 to-transparent opacity-0 transition-[left,opacity] duration-700 ease-in-out [left:0%] group-hover:opacity-100 group-hover:[left:100%]"
         />
 
-        {/* Rarity badge */}
         <div className="absolute left-4 top-4 flex items-center gap-2 bg-background/90 px-3 py-1.5 backdrop-blur">
           <span
             className="h-1.5 w-1.5 rounded-full"
@@ -456,7 +449,6 @@ function CatalogCard({
             {piece.rarityIndex}/100
           </span>
         </div>
-        {/* Tags */}
         <div className="absolute bottom-4 left-4 flex flex-wrap gap-1.5">
           {piece.tags.slice(0, 2).map((tag) => (
             <span
@@ -469,7 +461,6 @@ function CatalogCard({
         </div>
       </Link>
 
-      {/* Body */}
       <div className="flex flex-1 flex-col p-7">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -487,7 +478,6 @@ function CatalogCard({
 
         <p className="mt-4 line-clamp-2 text-sm leading-7 text-on-muted">{piece.summary[locale]}</p>
 
-        {/* Specs strip */}
         <dl className="mt-6 grid grid-cols-4 gap-3 border-t border-outline/20 pt-5 text-[10px] uppercase tracking-[0.12em] text-on-muted">
           <div>
             <dt>{locale === "vi" ? "Carat" : "Carat"}</dt>
@@ -509,7 +499,6 @@ function CatalogCard({
           </div>
         </dl>
 
-        {/* Hover CTA */}
         <div className="absolute inset-x-0 bottom-0 translate-y-full bg-surface-high/95 p-7 backdrop-blur transition duration-500 group-hover:translate-y-0">
           <p className="mb-4 text-xs leading-6 text-on-muted">{piece.lightBehavior[locale]}</p>
           <Link

@@ -9,6 +9,7 @@ export const pathnames = {
   education: "education",
   catalog: "catalog",
   blog: "blog",
+  lifestyle: "lifestyle",
   membership: "membership",
 } as const;
 

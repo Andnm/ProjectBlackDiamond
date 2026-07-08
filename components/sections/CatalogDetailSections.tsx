@@ -40,10 +40,8 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
 
   return (
     <main className="min-h-screen bg-background">
-      {/* ── Two-column sticky layout ── */}
       <div className="lg:grid lg:min-h-screen lg:grid-cols-[1fr_1fr]">
 
-        {/* Left — Sticky image panel */}
         <aside className="relative h-[60vh] overflow-hidden border-b border-outline/20 bg-surface-low lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
           <Image
             alt={piece.imageAlt[locale]}
@@ -53,10 +51,8 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
             sizes="(min-width: 1024px) 50vw, 100vw"
             src={piece.image}
           />
-          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
 
-          {/* Back link */}
           <Link
             className="absolute left-6 top-24 z-10 inline-flex items-center gap-3 border border-outline/20 bg-background/70 px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur transition hover:border-primary lg:left-10"
             href={localizedPath(locale, "catalog")}
@@ -65,9 +61,7 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
             {d.detailBack}
           </Link>
 
-          {/* Stone info overlay */}
           <div className="absolute inset-x-0 bottom-0 z-10 p-6 lg:p-10">
-            {/* Tags */}
             <div className="mb-4 flex flex-wrap gap-2">
               {piece.tags.map((tag) => (
                 <span
@@ -86,7 +80,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               {piece.name[locale]}
             </h1>
 
-            {/* Rarity bar */}
             <div className="mt-6 flex items-center gap-5">
               <div className="h-px flex-1 bg-outline/30">
                 <div
@@ -104,18 +97,15 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
           </div>
         </aside>
 
-        {/* Right — Scrollable detail panel */}
         <section className="px-6 py-20 lg:px-14 lg:py-28">
           <div className="mx-auto max-w-2xl">
 
-            {/* ── Summary & pricing ── */}
             <section className="mb-16">
               <p className="border-l-2 border-primary pl-6 text-xl leading-9 text-on-muted md:text-2xl">
                 {piece.summary[locale]}
               </p>
 
               <div className="mt-10 grid gap-px overflow-hidden border border-outline/20 bg-outline/20 sm:grid-cols-2">
-                {/* Price */}
                 <div className="bg-surface p-7">
                   <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-muted">
                     {d.detailPricing}
@@ -125,7 +115,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
                   </p>
                   <p className="mt-2 text-xs leading-5 text-on-muted">{piece.priceNote[locale]}</p>
                 </div>
-                {/* Rarity visual */}
                 <div className="bg-surface p-7">
                   <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-on-muted">
                     {d.detailRarity}
@@ -146,7 +135,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               </div>
             </section>
 
-            {/* ── Technical dossier ── */}
             <section className="mb-16">
               <SectionTitle>{d.detailSpecs}</SectionTitle>
 
@@ -183,7 +171,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               </div>
             </section>
 
-            {/* ── Gemological certificate ── */}
             <section className="mb-16">
               <SectionTitle>{d.detailCertificate}</SectionTitle>
               {piece.certificate ? (
@@ -193,7 +180,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               )}
             </section>
 
-            {/* ── Insight blocks ── */}
             <section className="mb-16 space-y-4">
               <SectionTitle>{locale === "vi" ? "Phân tích chuyên sâu" : "In-depth analysis"}</SectionTitle>
               <InsightBlock title={d.detailInclusion} body={piece.inclusionProfile[locale]} accent />
@@ -203,7 +189,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               <InsightBlock title={d.detailCare} body={piece.care[locale]} />
             </section>
 
-            {/* ── Investment note ── */}
             <section className="mb-16">
               <SectionTitle>{d.detailInvestment}</SectionTitle>
               <div className="border border-primary/30 bg-surface-container p-7">
@@ -211,7 +196,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               </div>
             </section>
 
-            {/* ── Curatorial analysis ── */}
             <section className="mb-16">
               <SectionTitle>{d.detailAnalysis}</SectionTitle>
               <div className="space-y-7">
@@ -229,7 +213,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               </div>
             </section>
 
-            {/* ── Acquisition ── */}
             <section className="mb-12">
               <SectionTitle>{d.detailAcquisition}</SectionTitle>
               <div className="mb-8 grid gap-px overflow-hidden border border-outline/20 bg-outline/20 md:grid-cols-3">
@@ -243,7 +226,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
                 ))}
               </div>
 
-              {/* Origin badge */}
               <div className="mb-6 flex items-center gap-4 border border-outline/20 bg-surface-container p-5">
                 <span className="h-2 w-2 rotate-45 bg-primary" />
                 <div>
@@ -256,7 +238,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
                 </div>
               </div>
 
-              {/* Image reference */}
               <div className="inline-flex flex-wrap items-center gap-3 border border-outline/20 px-5 py-4 text-xs">
                 <span className="font-bold uppercase tracking-[0.18em] text-on-muted">
                   {d.detailSource}
@@ -272,7 +253,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
               </div>
             </section>
 
-            {/* ── CTA ── */}
             <div className="flex flex-col gap-4 border-t border-outline/20 pt-10 sm:flex-row">
               <Link
                 className="flex-1 bg-primary py-4 text-center text-xs font-bold uppercase tracking-[0.18em] text-on-primary transition hover:bg-primary-muted"
@@ -293,8 +273,6 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
     </main>
   );
 }
-
-/* ── Sub-components ─────────────────────────────────────── */
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (

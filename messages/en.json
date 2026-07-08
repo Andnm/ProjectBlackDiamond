@@ -8,6 +8,7 @@
     "education": "Education",
     "catalog": "Catalog",
     "blog": "Journal",
+    "lifestyle": "Lifestyle",
     "membership": "Membership"
   },
   "common": {
@@ -52,6 +53,11 @@
       "title": "BlackDiamond Membership | Private Sourcing and Bespoke Orders",
       "description": "Apply for private BlackDiamond membership, bespoke sourcing, concierge procurement, and custom black diamond orders.",
       "keywords": ["diamond membership", "bespoke black diamond", "private diamond sourcing"]
+    },
+    "lifestyle": {
+      "title": "Carbonado Lifestyle | Hypercars, Yachts, Watches & Fine Jewelry",
+      "description": "Carbonado in the world of the elite — from hypercars, yachts and private jets to haute horlogerie and bespoke fine jewelry.",
+      "keywords": ["luxury lifestyle", "carbonado hypercars", "black diamond watches", "carbonado jewelry"]
     }
   },
   "about": {
@@ -340,6 +346,60 @@
     "bespokeBody": "Configure your acquisition from single-cut retail masterpieces to wholesale architectural supply.",
     "contactTitle": "Concierge lead",
     "contactBody": "Direct encrypted line available for diamond procurement over ten carats. Typical member response time is under four hours."
+  },
+  "posters": {
+    "overviewEyebrow": "Brand overview",
+    "overviewTitle": "The Black Diamond Universe",
+    "overviewCaption": "From crafting technology to inherited legacy — a panoramic view of the Carbonado black diamond world.",
+    "formationEyebrow": "The formation journey",
+    "formationCaption": "From billions of years underground to a collector's masterpiece: the origin, rarity, and craftsmanship of the Black Diamond.",
+    "legacyEyebrow": "Legacy",
+    "legacyCaption": "Some values cannot be measured in money — only in what is passed on to the next generation.",
+    "collectorEyebrow": "The collector",
+    "collectorCaption": "The successful do not buy much — they collect only enduring value.",
+    "occasionEyebrow": "The occasion",
+    "occasionCaption": "Not to draw attention, but to assert one's presence in the most natural way.",
+    "companionEyebrow": "The companion",
+    "companionCaption": "Carbonado represents a shared way of living — two people, one vision.",
+    "crownEyebrow": "A symbol of power",
+    "crownCaption": "Power need not be declared. It is felt in every detail."
+  },
+  "lifestyle": {
+    "eyebrow": "The Carbonado World",
+    "title": "The Elite Lifestyle",
+    "intro": "Class without display, power without limit. Carbonado stands as the mark of the elite — from the sky to the ocean, from machines of speed to the art of timekeeping.",
+    "scrollHint": "Scroll to explore",
+    "worldsEyebrow": "The Four Worlds of Carbonado",
+    "worldsTitle": "Where class makes its presence",
+    "worldsIntro": "More than a precious stone. Carbonado is the shared language of the ultimate luxury symbols — where every detail tells a story of power and refined taste.",
+    "items": [
+      {
+        "tag": "Yachts · Private Jets",
+        "title": "Elite Lifestyle",
+        "body": "Yachts, private jets and elevated living spaces — where Carbonado becomes a symbol of freedom and absolute influence."
+      },
+      {
+        "tag": "Hypercars · Performance",
+        "title": "Performance Engineering",
+        "body": "With exceptional hardness and an ultra-durable crystal structure, Carbonado delivers optimal performance for the fastest machines."
+      },
+      {
+        "tag": "Fine Jewelry",
+        "title": "Fine Jewelry",
+        "body": "A symbol of nobility and power — every Carbonado jewelry masterpiece is a statement of class and refined taste."
+      },
+      {
+        "tag": "Watches · Horology",
+        "title": "Haute Horlogerie",
+        "body": "Precision. Power. Timeless. Carbonado is the ideal material for the finest timepieces — precise and beyond time."
+      }
+    ],
+    "ctaTitle": "Step into the world of the elite",
+    "ctaBody": "Owning a Carbonado masterpiece is stepping into a lifestyle — where class is felt in every detail.",
+    "teaserEyebrow": "Lifestyle",
+    "teaserTitle": "Class without display",
+    "teaserBody": "From hypercars, yachts and private jets to haute horlogerie and fine jewelry — explore the world where Carbonado is the mark of the elite.",
+    "teaserCta": "Explore the lifestyle"
   },
   "footer": {
     "quickLinks": "Quick links",

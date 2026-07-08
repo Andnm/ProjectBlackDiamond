@@ -18,9 +18,7 @@ export type Certificate = {
   reportNumber: string;
   reportType: string;
   issueDate: string;
-  /** Public verification URL on the authority's own registry */
   verifyUrl: string;
-  /** Direct PDF/image of the certificate document */
   pdfUrl?: string;
 };
 
@@ -35,7 +33,6 @@ export type CollectionPiece = {
   name: LocalizedText;
   line: LocalizedText;
   summary: LocalizedText;
-  /** Starting price as a structured amount + currency; null when unset (admin shows "—"). */
   price: Price | null;
   priceNote: LocalizedText;
   rarityIndex: number;

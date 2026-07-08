@@ -1,6 +1,5 @@
 import type { Locale } from "@/i18n/routing";
 
-/** Currencies the admin can choose for a collection piece's display price. */
 export const PRICE_CURRENCIES = ["VND", "USD"] as const;
 export type PriceCurrency = (typeof PRICE_CURRENCIES)[number];
 
@@ -9,7 +8,6 @@ export type Price = {
   currency: PriceCurrency;
 };
 
-/** Display symbol/suffix per currency, as requested: "VNĐ" for VND, "$" for USD. */
 const CURRENCY_SYMBOL: Record<PriceCurrency, string> = {
   VND: "VNĐ",
   USD: "$",
@@ -20,7 +18,6 @@ const NUMBER_FORMATTERS: Record<PriceCurrency, Intl.NumberFormat> = {
   USD: new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }),
 };
 
-/** Format a numeric amount with the right grouping + currency symbol, e.g. "18.400.000 VNĐ" or "$18,400". */
 export function formatPriceValue(amount: number, currency: PriceCurrency): string {
   const formatted = NUMBER_FORMATTERS[currency].format(amount);
   return currency === "VND" ? `${formatted} ${CURRENCY_SYMBOL.VND}` : `${CURRENCY_SYMBOL.USD}${formatted}`;

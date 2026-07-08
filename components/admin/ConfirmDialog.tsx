@@ -14,11 +14,6 @@ type Props = {
   onCancel: () => void;
 };
 
-/**
- * Styled confirmation modal used in place of the browser's native
- * `window.confirm`, which renders with the OS locale/font and looks out of
- * place inside the admin UI.
- */
 export function ConfirmDialog({
   open,
   title = "Xác nhận",

@@ -15,6 +15,7 @@ const navItems: Array<{ key: RouteKey; labelKey: keyof Dictionary["nav"] }> = [
   { key: "about", labelKey: "story" },
   { key: "education", labelKey: "education" },
   { key: "catalog", labelKey: "catalog" },
+  { key: "lifestyle", labelKey: "lifestyle" },
   { key: "blog", labelKey: "blog" },
 ];
 
@@ -22,7 +23,6 @@ export function Header({ dictionary, locale }: Props) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  /** Desktop: inline link with underline right under text when active */
   const desktopNav = navItems.map((item) => {
     const href = localizedPath(locale, item.key);
     const isActive = pathname === href;
@@ -42,7 +42,6 @@ export function Header({ dictionary, locale }: Props) {
     );
   });
 
-  /** Mobile: stacked links with left-border active indicator */
   const mobileNav = navItems.map((item) => {
     const href = localizedPath(locale, item.key);
     const isActive = pathname === href;

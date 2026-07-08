@@ -7,12 +7,10 @@ const BRAND_NAME = "BlackDiamond";
 const BRAND_EMAIL = "contact@blackdiamondluxury.org";
 const BRAND_PHONE = "+84123456789";
 
-/* ── Helpers ──────────────────────────────────────────────── */
 function abs(path: string) {
   return `${SITE_URL}${path}`;
 }
 
-/* ── Organization (sitewide) ─────────────────────────────── */
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -44,7 +42,6 @@ export function organizationSchema() {
   };
 }
 
-/* ── WebSite with SearchAction (homepage) ────────────────── */
 export function webSiteSchema() {
   return {
     "@context": "https://schema.org",
@@ -65,7 +62,6 @@ export function webSiteSchema() {
   };
 }
 
-/* ── BreadcrumbList ──────────────────────────────────────── */
 export function breadcrumbSchema(
   items: { name: string; url?: string }[],
 ) {
@@ -81,7 +77,6 @@ export function breadcrumbSchema(
   };
 }
 
-/* ── Article (blog post) ─────────────────────────────────── */
 export function articleSchema(post: BlogPost, locale: Locale) {
   const localeTag = locale === "vi" ? "vi-VN" : "en-US";
   const url = abs(`/${locale}/blog/${post.slug}`);
@@ -121,7 +116,6 @@ export function articleSchema(post: BlogPost, locale: Locale) {
   };
 }
 
-/* ── Product (catalog piece) ─────────────────────────────── */
 export function gemstoneProductSchema(piece: CollectionPiece, locale: Locale) {
   const url = abs(`/${locale}/catalog/${piece.slug}`);
   const imageUrl =
@@ -175,7 +169,6 @@ export function gemstoneProductSchema(piece: CollectionPiece, locale: Locale) {
   };
 }
 
-/* ── Blog listing (ItemList) ─────────────────────────────── */
 export function blogListSchema(
   posts: BlogPost[],
   locale: Locale,
@@ -194,7 +187,6 @@ export function blogListSchema(
   };
 }
 
-/* ── Catalog listing (ItemList) ──────────────────────────── */
 export function catalogListSchema(
   pieces: CollectionPiece[],
   locale: Locale,

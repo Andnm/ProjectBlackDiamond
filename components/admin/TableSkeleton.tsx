@@ -5,12 +5,6 @@ type Props = {
 
 const pulseBlock = "animate-pulse rounded-sm bg-neutral-800";
 
-/**
- * Generic loading placeholder for admin list pages (Collection & Blog),
- * mirroring the real table's shape (thumbnail + text columns) so the layout
- * doesn't jump once data arrives. Rendered automatically by Next.js via
- * `loading.tsx` while the server component awaits its Supabase query.
- */
 export function TableSkeleton({ rows = 8, columns = 6 }: Props) {
   return (
     <div className="flex flex-col gap-8" role="status" aria-label="Đang tải dữ liệu…">

@@ -8,6 +8,7 @@
     "education": "Kiến thức",
     "catalog": "Bộ sưu tập",
     "blog": "Tạp chí",
+    "lifestyle": "Phong cách sống",
     "membership": "Hội viên"
   },
   "common": {
@@ -52,6 +53,11 @@
       "title": "Hội viên BlackDiamond | Tìm nguồn riêng và đặt chế tác",
       "description": "Đăng ký hội viên BlackDiamond để ưu tiên tìm nguồn, thu mua concierge và đặt chế tác kim cương đen riêng.",
       "keywords": ["hội viên kim cương", "kim cương đen đặt riêng", "tìm nguồn kim cương riêng"]
+    },
+    "lifestyle": {
+      "title": "Phong cách sống Carbonado | Siêu xe, du thuyền, đồng hồ & trang sức",
+      "description": "Carbonado hiện diện trong thế giới thượng lưu — từ siêu xe, du thuyền, máy bay riêng đến đồng hồ cao cấp và trang sức đặt chế tác.",
+      "keywords": ["phong cách sống xa xỉ", "carbonado siêu xe", "đồng hồ kim cương đen", "trang sức carbonado"]
     }
   },
   "about": {
@@ -340,6 +346,60 @@
     "bespokeBody": "Tùy chỉnh yêu cầu sở hữu từ tuyệt phẩm bán lẻ đơn chiếc đến nguồn cung kiến trúc cho đối tác sỉ.",
     "contactTitle": "Concierge phụ trách",
     "contactBody": "Kênh liên lạc mã hóa trực tiếp dành cho yêu cầu thu mua trên mười carat. Thời gian phản hồi hội viên thường dưới bốn giờ."
+  },
+  "posters": {
+    "overviewEyebrow": "Tổng quan thương hiệu",
+    "overviewTitle": "Vũ trụ Black Diamond",
+    "overviewCaption": "Từ công nghệ chế tác đến di sản trao truyền — một cái nhìn toàn cảnh về thế giới kim cương đen Carbonado.",
+    "formationEyebrow": "Hành trình hình thành",
+    "formationCaption": "Từ hàng tỷ năm dưới lòng đất đến tuyệt phẩm sưu tầm: nguồn gốc, độ hiếm và nghệ thuật chế tác của Black Diamond.",
+    "legacyEyebrow": "Di sản",
+    "legacyCaption": "Có những giá trị không đo bằng tiền, mà bằng những gì được truyền lại cho thế hệ sau.",
+    "collectorEyebrow": "Người sưu tầm",
+    "collectorCaption": "Người thành công không mua nhiều — họ chỉ sưu tầm những giá trị trường tồn.",
+    "occasionEyebrow": "Đêm dạ tiệc",
+    "occasionCaption": "Không phải để gây chú ý, mà để khẳng định vị thế một cách tự nhiên nhất.",
+    "companionEyebrow": "Sự đồng hành",
+    "companionCaption": "Carbonado đại diện cho một phong cách sống được chia sẻ — hai người, cùng một tầm nhìn.",
+    "crownEyebrow": "Biểu tượng quyền lực",
+    "crownCaption": "Quyền lực không cần được tuyên bố. Nó được cảm nhận qua từng chi tiết."
+  },
+  "lifestyle": {
+    "eyebrow": "Thế giới Carbonado",
+    "title": "Phong cách sống thượng lưu",
+    "intro": "Đẳng cấp không phô trương, quyền lực không giới hạn. Carbonado hiện diện như dấu ấn của tầng lớp tinh hoa — từ bầu trời đến đại dương, từ những cỗ máy tốc độ đến nghệ thuật đo thời gian.",
+    "scrollHint": "Cuộn để khám phá",
+    "worldsEyebrow": "Bốn thế giới của Carbonado",
+    "worldsTitle": "Nơi đẳng cấp hiện diện",
+    "worldsIntro": "Không chỉ là một viên đá quý. Carbonado là ngôn ngữ chung của những biểu tượng xa xỉ đỉnh cao — nơi mỗi chi tiết đều kể một câu chuyện về quyền lực và gu thẩm mỹ.",
+    "items": [
+      {
+        "tag": "Du thuyền · Máy bay riêng",
+        "title": "Elite Lifestyle",
+        "body": "Du thuyền, máy bay riêng và không gian sống thượng lưu — nơi Carbonado trở thành biểu tượng của tự do và tầm ảnh hưởng tuyệt đối."
+      },
+      {
+        "tag": "Siêu xe · Hiệu năng",
+        "title": "Performance Engineering",
+        "body": "Với độ cứng vượt trội và cấu trúc tinh thể siêu bền, Carbonado mang lại hiệu suất tối ưu cho những cỗ máy tốc độ đỉnh cao."
+      },
+      {
+        "tag": "Trang sức cao cấp",
+        "title": "Fine Jewelry",
+        "body": "Biểu tượng của quý tộc và quyền lực — mỗi tuyệt tác trang sức Carbonado là tuyên ngôn của đẳng cấp và gu thẩm mỹ tinh tế."
+      },
+      {
+        "tag": "Đồng hồ · Chế tác",
+        "title": "Haute Horlogerie",
+        "body": "Precision. Power. Timeless. Carbonado là vật liệu lý tưởng cho những cỗ máy thời gian đỉnh cao, chính xác và vượt thời gian."
+      }
+    ],
+    "ctaTitle": "Bước vào thế giới của giới tinh hoa",
+    "ctaBody": "Sở hữu một tuyệt phẩm Carbonado là bước vào một phong cách sống — nơi đẳng cấp được cảm nhận qua từng chi tiết.",
+    "teaserEyebrow": "Phong cách sống",
+    "teaserTitle": "Đẳng cấp không phô trương",
+    "teaserBody": "Từ siêu xe, du thuyền, máy bay riêng đến đồng hồ và trang sức cao cấp — khám phá thế giới nơi Carbonado là dấu ấn của tầng lớp tinh hoa.",
+    "teaserCta": "Khám phá phong cách sống"
   },
   "footer": {
     "quickLinks": "Liên kết nhanh",

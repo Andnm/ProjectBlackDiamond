@@ -4,12 +4,10 @@ import { localizedPath, locales, type Locale, type RouteKey } from "@/i18n/routi
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
-/** Convert locale to BCP-47 / OG format */
 function ogLocale(locale: Locale) {
   return locale === "vi" ? "vi_VN" : "en_US";
 }
 
-/** Alternate locales for OG */
 function ogLocaleAlternates(locale: Locale) {
   return locales.filter((l) => l !== locale).map(ogLocale);
 }

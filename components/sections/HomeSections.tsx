@@ -5,6 +5,8 @@ import { remoteImages } from "@/lib/assets";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { CollectionPiece } from "@/lib/collection";
+import { PosterShowcase } from "@/components/PosterShowcase";
+import { informationImages } from "@/lib/information-assets";
 import homeBg from "@/assets/images/background/home_background.png";
 
 type Props = {
@@ -19,7 +21,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
 
   return (
     <main>
-      {/* ── Editorial Hero ─────────────────────────────────── */}
       <section className="relative flex min-h-screen items-center overflow-hidden py-20 md:py-0">
         <div className="absolute inset-0 bg-surface">
           <Image
@@ -62,7 +63,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
           </div>
         </div>
 
-        {/* EST. MCMLXXXIV decoration */}
         <div className="absolute bottom-12 right-12 hidden lg:block">
           <div className="flex items-center gap-4">
             <div className="h-px w-20 bg-outline/50" />
@@ -73,11 +73,9 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
         </div>
       </section>
 
-      {/* ── Brand Narrative ────────────────────────────────── */}
       <section className="bg-surface py-24 md:py-40">
         <div className="section-shell">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-24">
-            {/* Image — left col */}
             <div className="relative order-2 aspect-[3/4] bg-surface-container-low lg:order-1 lg:col-span-5">
               <Image
                 alt={d.legacyTitle}
@@ -86,7 +84,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 src={remoteImages.story}
               />
-              {/* Decorative nested border + diamond icon */}
               <div className="absolute -bottom-8 -right-8 hidden h-48 w-48 border border-primary/20 p-2 xl:block">
                 <div className="flex h-full w-full items-center justify-center border border-primary/40 bg-surface">
                   <svg className="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -96,7 +93,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
               </div>
             </div>
 
-            {/* Text — right col */}
             <div className="order-1 lg:order-2 lg:col-span-7">
               <p className="eyebrow mb-5">{d.legacyEyebrow}</p>
               <h2 className="mb-10 font-headline text-4xl leading-tight md:text-5xl lg:text-6xl">
@@ -125,7 +121,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
         </div>
       </section>
 
-      {/* ── Bento Vault Grid ───────────────────────────────── */}
       <section className="bg-surface-container-lowest py-24 md:py-40">
         <div className="section-shell">
           <div className="mb-16 flex flex-col items-end justify-between gap-8 md:flex-row">
@@ -147,7 +142,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-6">
-            {/* Card 1 — large, signature piece #1 */}
             {featuredPieces[0] ? (
               <BentoImageCard
                 category={featuredPieces[0].line[locale]}
@@ -164,7 +158,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
                 name={d.vaultItems[0].name}
               />
             )}
-            {/* Card 2 — large, signature piece #2 */}
             {featuredPieces[1] ? (
               <BentoImageCard
                 category={featuredPieces[1].line[locale]}
@@ -181,7 +174,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
                 name={d.vaultItems[1].name}
               />
             )}
-            {/* Card 3 — Bespoke info (center, dark bg) */}
             <div className="relative flex flex-col items-center justify-center bg-surface-container-high p-10 text-center md:col-span-4 lg:col-span-2">
               <Image
                 alt=""
@@ -198,7 +190,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
                 <p className="mx-auto max-w-xs text-sm text-on-surface-variant">{d.vaultBespokeBody}</p>
               </div>
             </div>
-            {/* Card 4 — medium image, signature piece #3 */}
             {featuredPieces[2] ? (
               <BentoImageCard
                 category={featuredPieces[2].line[locale]}
@@ -217,7 +208,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
                 small
               />
             )}
-            {/* Card 5 — Join the Circle CTA */}
             <div className="flex flex-col items-center justify-center border border-primary/20 bg-gradient-to-br from-surface-container to-surface-container-highest p-12 text-center md:col-span-2 lg:col-span-2">
               <span className="mb-6 block font-label text-sm uppercase tracking-[0.3em] text-primary">
                 {d.vaultCtaTitle}
@@ -234,7 +224,19 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
         </div>
       </section>
 
-      {/* ── Education Teaser ───────────────────────────────── */}
+      <section className="bg-surface py-24 md:py-32">
+        <div className="section-shell">
+          <PosterShowcase
+            alt={dictionary.posters.overviewTitle}
+            caption={dictionary.posters.overviewCaption}
+            eyebrow={dictionary.posters.overviewEyebrow}
+            image={informationImages.overview}
+            title={dictionary.posters.overviewTitle}
+            variant="banner"
+          />
+        </div>
+      </section>
+
       <section className="bg-surface-container py-24 md:py-32">
         <div className="section-shell">
           <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -270,7 +272,41 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
         </div>
       </section>
 
-      {/* ── Trust pillars ──────────────────────────────────── */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover"
+            fill
+            sizes="100vw"
+            src="/images/lifestyle-background.png"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
+        <div className="section-shell relative z-10 py-32 md:py-44">
+          <div className="max-w-xl">
+            <p className="eyebrow mb-5">{dictionary.lifestyle.teaserEyebrow}</p>
+            <h2 className="mb-6 font-headline text-4xl leading-[1.05] md:text-6xl">
+              {dictionary.lifestyle.teaserTitle}
+            </h2>
+            <p className="mb-10 max-w-lg text-lg leading-relaxed text-on-surface-variant">
+              {dictionary.lifestyle.teaserBody}
+            </p>
+            <Link
+              className="group inline-flex items-center gap-3 border border-primary px-10 py-4 font-label text-xs uppercase tracking-[0.2em] text-primary transition hover:bg-primary hover:text-on-primary"
+              href={localizedPath(locale, "lifestyle")}
+            >
+              {dictionary.lifestyle.teaserCta}
+              <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                <path d="M17 8l4 4-4 4M3 12h18" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-surface py-24">
         <div className="section-shell border-y border-outline/10 py-20">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
@@ -287,8 +323,6 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
     </main>
   );
 }
-
-/* ── Sub-components ─────────────────────────────────────── */
 
 function BentoImageCard({
   image,

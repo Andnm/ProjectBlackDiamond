@@ -26,10 +26,6 @@ const EyeOffIcon = () => (
   </svg>
 );
 
-/**
- * Password input with a show/hide toggle so the admin can verify what they
- * typed before submitting (instead of guessing behind dots/asterisks).
- */
 export function PasswordField({ id, name, label, autoComplete, required, defaultValue }: Props) {
   const generatedId = useId();
   const inputId = id ?? generatedId;
