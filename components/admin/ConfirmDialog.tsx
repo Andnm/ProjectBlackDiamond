@@ -16,10 +16,10 @@ type Props = {
 
 export function ConfirmDialog({
   open,
-  title = "Xác nhận",
+  title = "ยืนยัน",
   message,
-  confirmLabel = "Xoá",
-  cancelLabel = "Huỷ",
+  confirmLabel = "ลบ",
+  cancelLabel = "ยกเลิก",
   danger = true,
   pending = false,
   onConfirm,
@@ -59,7 +59,7 @@ export function ConfirmDialog({
             onClick={onConfirm}
             type="button"
           >
-            {pending ? "Đang xử lý…" : confirmLabel}
+            {pending ? "กำลังดำเนินการ…" : confirmLabel}
           </button>
         </div>
       </div>

@@ -228,11 +228,11 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
                 </h2>
                 <div className="space-y-4 text-[11px] font-bold uppercase tracking-[0.12em]">
                   <div className="flex justify-between border-b border-outline/50 py-2">
-                    <span className="text-on-muted">Min</span>
+                    <span className="text-on-muted">ต่ำสุด</span>
                     <span>$7,800</span>
                   </div>
                   <div className="flex justify-between border-b border-outline/50 py-2">
-                    <span className="text-on-muted">Max</span>
+                    <span className="text-on-muted">สูงสุด</span>
                     <span>$50,000+</span>
                   </div>
                 </div>
@@ -335,7 +335,7 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
 
       <section className="relative overflow-hidden bg-surface-low py-28">
         <div className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 select-none font-headline text-[18rem] leading-none text-on-surface/[0.03] md:text-[22rem]">
-          VOID
+          ว่างเปล่า
         </div>
         <div className="section-shell grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
@@ -371,7 +371,7 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
           </div>
           <div className="relative aspect-[4/5] overflow-hidden bg-surface">
             <Image
-              alt="Curated black diamond collection on dark velvet"
+              alt="คอลเลกชันเพชรดำคัดสรรบนกำมะหยี่สีเข้ม"
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -480,19 +480,19 @@ function CatalogCard({
 
         <dl className="mt-6 grid grid-cols-4 gap-3 border-t border-outline/20 pt-5 text-[10px] uppercase tracking-[0.12em] text-on-muted">
           <div>
-            <dt>{locale === "vi" ? "Carat" : "Carat"}</dt>
+            <dt>{"กะรัต"}</dt>
             <dd className="mt-1 font-bold text-on-surface">{piece.specs.carat}</dd>
           </div>
           <div>
-            <dt>{locale === "vi" ? "Cắt" : "Cut"}</dt>
-            <dd className="mt-1 font-bold text-on-surface">{piece.specs.cut[locale].split(" ")[0]}</dd>
+            <dt>{"การเจียระไน"}</dt>
+            <dd className="mt-1 font-bold text-on-surface">{piece.specs.cut[locale]}</dd>
           </div>
           <div>
-            <dt>{locale === "vi" ? "Kim loại" : "Metal"}</dt>
-            <dd className="mt-1 font-bold text-on-surface">{piece.specs.metal[locale].split(" ").slice(0, 2).join(" ")}</dd>
+            <dt>{"โลหะ"}</dt>
+            <dd className="mt-1 font-bold text-on-surface">{piece.specs.metal[locale]}</dd>
           </div>
           <div>
-            <dt>{locale === "vi" ? "Hiếm" : "Rarity"}</dt>
+            <dt>{"ความหายาก"}</dt>
             <dd className="mt-1 font-bold" style={{ color: rarityColor }}>
               {piece.rarityIndex}
             </dd>

@@ -75,7 +75,7 @@ export function MembershipSections({ dictionary }: Props) {
                 <input
                   className="w-full border-b border-outline/50 bg-transparent py-4 text-sm transition-colors focus:border-primary focus:outline-none placeholder:text-surface-container-highest"
                   name="name"
-                  placeholder="ALEXANDER VANCE"
+                  placeholder="ณัฐพล วรรณสิริ"
                   type="text"
                 />
               </div>
@@ -86,7 +86,7 @@ export function MembershipSections({ dictionary }: Props) {
                 <input
                   className="w-full border-b border-outline/50 bg-transparent py-4 text-sm transition-colors focus:border-primary focus:outline-none placeholder:text-surface-container-highest"
                   name="email"
-                  placeholder="VANCE@ARCHIVE.CO"
+                  placeholder="NATTAPON@ARCHIVE.CO"
                   type="email"
                 />
               </div>
@@ -126,7 +126,7 @@ export function MembershipSections({ dictionary }: Props) {
         <div className="section-shell">
           <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
             <div className="max-w-xl">
-              <p className="eyebrow mb-6">Commission</p>
+              <p className="eyebrow mb-6">การสั่งทำ</p>
               <h2 className="font-headline text-4xl md:text-5xl">{d.bespokeTitle}</h2>
               <p className="mt-6 text-on-surface-variant">{d.bespokeBody}</p>
             </div>
@@ -159,7 +159,7 @@ export function MembershipSections({ dictionary }: Props) {
                       <div className="absolute left-1/4 top-[23px] -mt-2 h-4 w-4 border-4 border-surface bg-primary" />
                       <div className="mt-6 flex justify-between font-label text-[10px] tracking-tighter text-outline">
                         <span>0.5ct</span>
-                        <span className="font-bold text-primary">2.5ct Selected</span>
+                        <span className="font-bold text-primary">2.5 กะรัต ที่เลือก</span>
                         <span>15.0ct+</span>
                       </div>
                     </div>
@@ -181,7 +181,7 @@ export function MembershipSections({ dictionary }: Props) {
                       ))}
                     </div>
                     <span className="mt-3 block font-body text-[10px] italic text-outline">
-                      Deep Obsidian (Matte)
+                      ออบซิเดียนเข้ม (ด้าน)
                     </span>
                   </div>
                 </div>
@@ -192,10 +192,10 @@ export function MembershipSections({ dictionary }: Props) {
                       {d.cutLabel}
                     </label>
                     <select className="w-full appearance-none border-b border-outline/50 bg-transparent py-4 text-sm focus:outline-none">
-                      <option>Asymmetric Raw</option>
-                      <option>Emerald Architectural</option>
-                      <option>Brilliant Void</option>
-                      <option>Cushion Carbon</option>
+                      <option>ทรงดิบไม่สมมาตร</option>
+                      <option>เอเมอรัลด์เชิงสถาปัตยกรรม</option>
+                      <option>เบรียนท์แห่งความว่างเปล่า</option>
+                      <option>คุชชั่นคาร์บอน</option>
                     </select>
                   </div>
                   <div>
@@ -226,7 +226,7 @@ export function MembershipSections({ dictionary }: Props) {
                 <div className="mb-12 flex items-center gap-6">
                   <div className="h-20 w-20 shrink-0 overflow-hidden border border-outline/30 grayscale">
                     <Image
-                      alt="Concierge"
+                      alt="คอนเซียร์จ"
                       className="h-full w-full object-cover"
                       height={80}
                       src={remoteImages.concierge}
@@ -236,19 +236,11 @@ export function MembershipSections({ dictionary }: Props) {
                   <div>
                     <span className="block text-sm font-semibold">BlackDiamond</span>
                     <span className="font-label text-[10px] uppercase tracking-widest text-outline">
-                      Sr. Procurement Director
+                      ผู้อำนวยการฝ่ายจัดหาอาวุโส
                     </span>
                   </div>
                 </div>
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <p className="text-xs leading-relaxed text-on-surface-variant">
-                      Direct encrypted line available for diamond procurement over 10 carats.
-                    </p>
-                  </div>
                   <div className="flex items-start gap-4">
                     <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
@@ -262,8 +254,8 @@ export function MembershipSections({ dictionary }: Props) {
                 <span className="mb-4 block font-label text-[10px] uppercase tracking-widest text-outline">
                   {d.contactTitle}
                 </span>
-                <p className="mb-1 text-sm">contact@blackdiamondluxury.org</p>
-                <p className="text-sm">+41 44 212 4000</p>
+                <p className="mb-1 text-sm">{dictionary.common.email}</p>
+                <p className="text-sm">{dictionary.common.phone}</p>
               </div>
             </div>
           </div>

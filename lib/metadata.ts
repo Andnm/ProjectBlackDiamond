@@ -4,8 +4,12 @@ import { localizedPath, locales, type Locale, type RouteKey } from "@/i18n/routi
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
+const OG_LOCALE_TAGS: Record<Locale, string> = {
+  th: "th_TH",
+};
+
 function ogLocale(locale: Locale) {
-  return locale === "vi" ? "vi_VN" : "en_US";
+  return OG_LOCALE_TAGS[locale];
 }
 
 function ogLocaleAlternates(locale: Locale) {

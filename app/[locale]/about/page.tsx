@@ -10,7 +10,7 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const typedLocale: Locale = isLocale(locale) ? locale : "vi";
+  const typedLocale: Locale = isLocale(locale) ? locale : "th";
   const dictionary = await getDictionary(typedLocale);
 
   return createPageMetadata(typedLocale, "about", dictionary);
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function AboutPage({ params }: PageProps) {
   const { locale } = await params;
-  const typedLocale: Locale = isLocale(locale) ? locale : "vi";
+  const typedLocale: Locale = isLocale(locale) ? locale : "th";
   const dictionary = await getDictionary(typedLocale);
 
   return <AboutSections dictionary={dictionary} locale={typedLocale} />;

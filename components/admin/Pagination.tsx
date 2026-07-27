@@ -32,14 +32,14 @@ export function Pagination({ page, pageCount, basePath, searchParams }: Props) {
   const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
 
   return (
-    <nav aria-label="Phân trang" className="flex flex-wrap items-center justify-center gap-2">
+    <nav aria-label="แบ่งหน้า" className="flex flex-wrap items-center justify-center gap-2">
       {page > 1 ? (
         <Link className={linkClass} href={buildHref(basePath, page - 1, searchParams)}>
-          ‹ Trước
+          ‹ ก่อนหน้า
         </Link>
       ) : (
         <span aria-disabled="true" className={disabledClass}>
-          ‹ Trước
+          ‹ ก่อนหน้า
         </span>
       )}
 
@@ -57,11 +57,11 @@ export function Pagination({ page, pageCount, basePath, searchParams }: Props) {
 
       {page < pageCount ? (
         <Link className={linkClass} href={buildHref(basePath, page + 1, searchParams)}>
-          Sau ›
+          ถัดไป ›
         </Link>
       ) : (
         <span aria-disabled="true" className={disabledClass}>
-          Sau ›
+          ถัดไป ›
         </span>
       )}
     </nav>

@@ -21,22 +21,22 @@ export default async function AdminDashboardPage() {
 
   const cards = [
     {
-      label: "Sản phẩm trong bộ sưu tập",
+      label: "สินค้าในคอลเลกชัน",
       value: collectionCount ?? 0,
       href: "/admin/collection",
-      cta: "Quản lý bộ sưu tập",
+      cta: "จัดการคอลเลกชัน",
     },
     {
-      label: "Bài viết blog",
+      label: "บทความบล็อก",
       value: blogCount ?? 0,
       href: "/admin/blog",
-      cta: "Quản lý blog",
+      cta: "จัดการบทความ",
     },
     {
-      label: "Bài viết đã xuất bản",
+      label: "บทความที่เผยแพร่แล้ว",
       value: publishedBlogCount ?? 0,
       href: "/admin/blog",
-      cta: "Xem danh sách",
+      cta: "ดูรายการ",
     },
   ];
 
@@ -44,11 +44,11 @@ export default async function AdminDashboardPage() {
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="font-bold uppercase tracking-[0.3em] text-amber-400">
-          Tổng quan
+          ภาพรวม
         </h1>
         <p className="mt-2 max-w-2xl text-sm text-neutral-400">
-          Quản lý nội dung bộ sưu tập kim cương đen và blog của BlackDiamond.
-          Mọi thay đổi sẽ tự động cập nhật trên trang công khai sau ít phút.
+          จัดการเนื้อหาคอลเลกชันเพชรดำและบทความของ BlackDiamond
+          การเปลี่ยนแปลงทั้งหมดจะอัปเดตบนหน้าเว็บสาธารณะโดยอัตโนมัติภายในไม่กี่นาที
         </p>
       </div>
 

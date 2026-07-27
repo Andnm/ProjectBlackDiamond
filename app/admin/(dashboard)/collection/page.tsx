@@ -21,32 +21,32 @@ export default async function AdminCollectionListPage({ searchParams }: Props) {
     <div className="flex flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">Bộ sưu tập</p>
-          <h1 className="mt-2 font-headline text-3xl text-white">Sản phẩm ({total})</h1>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">คอลเลกชัน</p>
+          <h1 className="mt-2 font-headline text-3xl text-white">สินค้า ({total})</h1>
         </div>
         <Link
           className="bg-amber-400 px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-neutral-950 transition hover:bg-amber-300"
           href="/admin/collection/new"
         >
-          + Thêm sản phẩm
+          + เพิ่มสินค้า
         </Link>
       </div>
 
       {pieces.length === 0 ? (
         <p className="border border-dashed border-neutral-800 px-6 py-12 text-center text-sm text-neutral-500">
-          Chưa có sản phẩm nào. Bấm “Thêm sản phẩm” để bắt đầu.
+          ยังไม่มีสินค้า กดปุ่ม "เพิ่มสินค้า" เพื่อเริ่มต้น
         </p>
       ) : (
         <div className="overflow-x-auto border border-neutral-800">
           <table className="w-full min-w-[640px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-neutral-800 text-left text-xs font-bold uppercase tracking-[0.14em] text-neutral-500">
-                <th className="px-4 py-3">Hình ảnh</th>
-                <th className="px-4 py-3">Tên</th>
-                <th className="px-4 py-3">Slug</th>
-                <th className="px-4 py-3">Giá</th>
-                <th className="px-4 py-3">Trạng thái</th>
-                <th className="px-4 py-3 text-right">Hành động</th>
+                <th className="px-4 py-3">รูปภาพ</th>
+                <th className="px-4 py-3">ชื่อ</th>
+                <th className="px-4 py-3">ตัวระบุ URL</th>
+                <th className="px-4 py-3">ราคา</th>
+                <th className="px-4 py-3">สถานะ</th>
+                <th className="px-4 py-3 text-right">การจัดการ</th>
               </tr>
             </thead>
             <tbody>
@@ -63,7 +63,7 @@ export default async function AdminCollectionListPage({ searchParams }: Props) {
                       />
                     ) : (
                       <div className="flex h-14 w-14 items-center justify-center border border-neutral-800 bg-neutral-900 text-[10px] uppercase tracking-[0.1em] text-neutral-600">
-                        Không có
+                        ไม่มีรูป
                       </div>
                     )}
                   </td>
@@ -80,7 +80,7 @@ export default async function AdminCollectionListPage({ searchParams }: Props) {
                         piece.published ? "bg-emerald-950/60 text-emerald-300" : "bg-neutral-800 text-neutral-400"
                       }`}
                     >
-                      {piece.published ? "Đang hiển thị" : "Bản nháp"}
+                      {piece.published ? "เผยแพร่แล้ว" : "ฉบับร่าง"}
                     </span>
                   </td>
                   <td className="px-4 py-3">
@@ -89,7 +89,7 @@ export default async function AdminCollectionListPage({ searchParams }: Props) {
                         className="border border-neutral-700 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-neutral-300 transition hover:border-amber-400 hover:text-amber-400"
                         href={`/admin/collection/${piece.id}/edit`}
                       >
-                        Sửa
+                        แก้ไข
                       </Link>
                       <DeletePieceButton id={piece.id} name={fromLocalizedJson(piece.name) || piece.slug} />
                     </div>

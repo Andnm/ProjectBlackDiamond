@@ -24,7 +24,7 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
       <section className="relative flex min-h-screen items-center overflow-hidden py-20 md:py-0">
         <div className="absolute inset-0 bg-surface">
           <Image
-            alt="Macro shot of a rare dark gemstone reflecting minimal light"
+            alt="ภาพระยะใกล้ของอัญมณีสีเข้มหายากสะท้อนแสงเพียงเล็กน้อย"
             className="h-full w-full object-cover opacity-60"
             fill
             priority
@@ -127,9 +127,9 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
             <div>
               <p className="eyebrow mb-4 opacity-70">{d.vaultEyebrow}</p>
               <h2 className="font-headline text-4xl md:text-5xl">
-                {d.vaultTitle.split(" ").slice(0, -1).join(" ")}{" "}
+                {d.vaultTitleHead}{" "}
                 <span className="italic font-normal">
-                  {d.vaultTitle.split(" ").slice(-1)[0]}
+                  {d.vaultTitleTail}
                 </span>
               </h2>
             </div>

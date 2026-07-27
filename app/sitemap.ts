@@ -3,7 +3,7 @@ import { defaultLocale, localizedPath, pathnames } from "@/i18n/routing";
 import { getPublishedCollectionPieces } from "@/lib/data/collection";
 import { getPublishedBlogPosts } from "@/lib/data/blog";
 
-// Vietnamese-only for now: only list the "vi" locale tree in the sitemap.
+// Thai-only for now: only list the "th" locale tree in the sitemap.
 const locales = [defaultLocale] as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

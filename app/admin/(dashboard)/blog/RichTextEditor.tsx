@@ -60,7 +60,7 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
           onClick={() => editor.chain().focus().toggleBold().run()}
           type="button"
         >
-          Đậm
+          ตัวหนา
         </button>
         <button
           className={toolbarButtonClass}
@@ -68,7 +68,7 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
           onClick={() => editor.chain().focus().toggleItalic().run()}
           type="button"
         >
-          Nghiêng
+          ตัวเอียง
         </button>
         <button
           className={toolbarButtonClass}
@@ -76,7 +76,7 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
           type="button"
         >
-          Tiêu đề H2
+          หัวข้อ H2
         </button>
         <button
           className={toolbarButtonClass}
@@ -84,7 +84,7 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
           type="button"
         >
-          Tiêu đề H3
+          หัวข้อ H3
         </button>
         <button
           className={toolbarButtonClass}
@@ -92,7 +92,7 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           type="button"
         >
-          Danh sách
+          รายการ
         </button>
         <button
           className={toolbarButtonClass}
@@ -100,27 +100,27 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           type="button"
         >
-          Trích dẫn
+          คำพูดอ้างอิง
         </button>
         <button
           className={toolbarButtonClass}
           onClick={() => setActivePrompt("link")}
           type="button"
         >
-          Liên kết
+          ลิงก์
         </button>
         <button
           className={toolbarButtonClass}
           onClick={() => setActivePrompt("image")}
           type="button"
         >
-          Chèn ảnh
+          แทรกรูปภาพ
         </button>
         <button className={toolbarButtonClass} onClick={() => editor.chain().focus().undo().run()} type="button">
-          Hoàn tác
+          ย้อนกลับ
         </button>
         <button className={toolbarButtonClass} onClick={() => editor.chain().focus().redo().run()} type="button">
-          Làm lại
+          ทำซ้ำ
         </button>
       </div>
 
@@ -128,8 +128,8 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
       <input defaultValue={defaultValue} id={`${name}__hidden`} name={name} type="hidden" />
 
       <PromptDialog
-        confirmLabel="Chèn liên kết"
-        label="URL liên kết"
+        confirmLabel="แทรกลิงก์"
+        label="URL ลิงก์"
         onCancel={() => setActivePrompt(null)}
         onConfirm={(url) => {
           setActivePrompt(null);
@@ -137,11 +137,11 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
         }}
         open={activePrompt === "link"}
         placeholder="https://..."
-        title="Chèn liên kết"
+        title="แทรกลิงก์"
       />
       <PromptDialog
-        confirmLabel="Chèn ảnh"
-        label="URL hình ảnh"
+        confirmLabel="แทรกรูปภาพ"
+        label="URL รูปภาพ"
         onCancel={() => setActivePrompt(null)}
         onConfirm={(url) => {
           setActivePrompt(null);
@@ -149,7 +149,7 @@ export function RichTextEditor({ name, defaultValue = "" }: Props) {
         }}
         open={activePrompt === "image"}
         placeholder="https://..."
-        title="Chèn hình ảnh"
+        title="แทรกรูปภาพ"
       />
     </div>
   );

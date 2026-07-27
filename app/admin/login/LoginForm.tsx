@@ -14,7 +14,7 @@ export function LoginForm() {
     <form action={formAction} className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <label className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-400" htmlFor="email">
-          Email
+          อีเมล
         </label>
         <input
           autoComplete="email"
@@ -26,7 +26,7 @@ export function LoginForm() {
         />
       </div>
 
-      <PasswordField autoComplete="current-password" id="password" label="Mật khẩu" name="password" required />
+      <PasswordField autoComplete="current-password" id="password" label="รหัสผ่าน" name="password" required />
 
       {state?.error ? (
         <p className="border border-red-900/60 bg-red-950/40 px-4 py-3 text-sm text-red-300">{state.error}</p>
@@ -39,10 +39,10 @@ export function LoginForm() {
       >
         {isPending ? (
           <span className="inline-flex items-center gap-2">
-            <Spinner /> Đang đăng nhập…
+            <Spinner /> กำลังเข้าสู่ระบบ…
           </span>
         ) : (
-          "Đăng nhập"
+          "เข้าสู่ระบบ"
         )}
       </button>
     </form>

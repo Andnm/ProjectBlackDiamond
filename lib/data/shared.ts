@@ -1,24 +1,20 @@
 import type { Locale } from "@/i18n/routing";
 
 /**
- * The site is Vietnamese-only for now: every localized JSONB column from
- * Supabase only carries a "vi" key (e.g. `{ "vi": "..." }`). These helpers
- * fan that single value out into the `Record<Locale, T>` shape that the
- * existing components/schema functions expect — falling back to "vi" for
- * "en" so nothing breaks if/when English content is reintroduced later
- * (at which point the JSONB can simply gain an "en" key, no migration).
+ * The site is Thai-only for now: every localized JSONB column from Supabase
+ * only carries a "th" key (e.g. `{ "th": "..." }`). These helpers read that
+ * single value into the `Record<Locale, T>` shape the existing
+ * components/schema functions expect. Once more locale keys are added to the
+ * JSONB (vi/lo/zh/en...), this should read the requested locale directly
+ * instead of always reading "th".
  */
 
 export function localizedText(value: unknown): Record<Locale, string> {
   const record = (value ?? {}) as Partial<Record<Locale, string>>;
-  const vi = record.vi ?? record.en ?? "";
-  const en = record.en ?? record.vi ?? "";
-  return { vi, en };
+  return { th: record.th ?? "" };
 }
 
 export function localizedStringArray(value: unknown): Record<Locale, string[]> {
   const record = (value ?? {}) as Partial<Record<Locale, string[]>>;
-  const vi = Array.isArray(record.vi) ? record.vi : Array.isArray(record.en) ? record.en : [];
-  const en = Array.isArray(record.en) ? record.en : vi;
-  return { vi, en };
+  return { th: Array.isArray(record.th) ? record.th : [] };
 }

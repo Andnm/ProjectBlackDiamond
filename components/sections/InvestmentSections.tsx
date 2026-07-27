@@ -138,7 +138,7 @@ export function InvestmentSections({ dictionary, locale }: Props) {
         <div className="section-shell">
           <div className="grid items-center gap-24 lg:grid-cols-2">
             <div>
-              <p className="eyebrow mb-6">Verification Architecture</p>
+              <p className="eyebrow mb-6">โครงสร้างการตรวจสอบ</p>
               <h2 className="mb-8 font-headline text-4xl md:text-5xl">{d.standardsTitle}</h2>
               <p className="mb-12 text-lg font-light leading-relaxed text-on-surface-variant">
                 {d.standardsBody}
@@ -205,7 +205,7 @@ export function InvestmentSections({ dictionary, locale }: Props) {
 
       <section className="bg-surface-container-lowest py-32">
         <div className="section-shell text-center">
-          <p className="eyebrow mb-6">The Inner Circle</p>
+          <p className="eyebrow mb-6">วงในผู้คัดสรร</p>
           <h2 className="mb-16 font-headline text-4xl md:text-5xl">{d.channelsTitle}</h2>
           <div className="grid gap-px md:grid-cols-3">
             {d.channels.map((channel, i) => (

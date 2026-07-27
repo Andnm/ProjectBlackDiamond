@@ -1,5 +1,5 @@
-export const locales = ["vi", "en"] as const;
-export const defaultLocale = "vi";
+export const locales = ["th"] as const;
+export const defaultLocale = "th";
 
 export type Locale = (typeof locales)[number];
 
@@ -22,14 +22,4 @@ export function isLocale(value: string | undefined): value is Locale {
 export function localizedPath(locale: Locale, route: RouteKey = "home") {
   const segment = pathnames[route];
   return segment ? `/${locale}/${segment}` : `/${locale}`;
-}
-
-export function switchLocalePath(pathname: string, nextLocale: Locale) {
-  const segments = pathname.split("/");
-  if (isLocale(segments[1])) {
-    segments[1] = nextLocale;
-    return segments.join("/") || `/${nextLocale}`;
-  }
-
-  return `/${nextLocale}${pathname === "/" ? "" : pathname}`;
 }

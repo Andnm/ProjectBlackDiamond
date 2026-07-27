@@ -1,12 +1,12 @@
 export function toLocalizedJson(value: FormDataEntryValue | null | undefined) {
   const text = String(value ?? "").trim();
-  return text ? { vi: text } : {};
+  return text ? { th: text } : {};
 }
 
 export function fromLocalizedJson(value: unknown): string {
-  if (value && typeof value === "object" && "vi" in (value as Record<string, unknown>)) {
-    const vi = (value as Record<string, unknown>).vi;
-    return typeof vi === "string" ? vi : "";
+  if (value && typeof value === "object" && "th" in (value as Record<string, unknown>)) {
+    const th = (value as Record<string, unknown>).th;
+    return typeof th === "string" ? th : "";
   }
   return "";
 }
@@ -16,13 +16,13 @@ export function toLocalizedLines(value: FormDataEntryValue | null | undefined) {
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean);
-  return lines.length ? { vi: lines } : {};
+  return lines.length ? { th: lines } : {};
 }
 
 export function fromLocalizedLines(value: unknown): string {
-  if (value && typeof value === "object" && "vi" in (value as Record<string, unknown>)) {
-    const vi = (value as Record<string, unknown>).vi;
-    if (Array.isArray(vi)) return vi.filter((item) => typeof item === "string").join("\n");
+  if (value && typeof value === "object" && "th" in (value as Record<string, unknown>)) {
+    const th = (value as Record<string, unknown>).th;
+    if (Array.isArray(th)) return th.filter((item) => typeof item === "string").join("\n");
   }
   return "";
 }

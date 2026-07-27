@@ -71,7 +71,7 @@ export async function getPublishedCollectionPieces(): Promise<CollectionPiece[]>
 /**
  * Returns a small set of "signature" pieces for homepage teasers — the
  * rarest (highest `rarity_index`) and, as a tiebreaker, the most recently
- * added pieces. Used by the "Kho tàng dấu ấn" bento grid on the homepage.
+ * added pieces. Used by the bento grid on the homepage.
  */
 export async function getFeaturedCollectionPieces(limit = 3): Promise<CollectionPiece[]> {
   const supabase = createPublicClient();

@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
-import { Manrope, Noto_Serif } from "next/font/google";
+import { Manrope, Noto_Serif, Noto_Sans_Thai, Noto_Serif_Thai } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-body",
+  variable: "--font-body-latin",
   display: "swap",
 });
 
 const notoSerif = Noto_Serif({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-headline",
+  variable: "--font-headline-latin",
+  display: "swap",
+});
+
+const notoSansThai = Noto_Sans_Thai({
+  subsets: ["thai"],
+  variable: "--font-body-thai",
+  display: "swap",
+});
+
+const notoSerifThai = Noto_Serif_Thai({
+  subsets: ["thai"],
+  variable: "--font-headline-thai",
   display: "swap",
 });
 
@@ -20,15 +32,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "BlackDiamond",
   title: {
-    default: "BlackDiamond Luxury | Rare Black Diamonds",
+    default: "BlackDiamond Luxury | เพชรดำหายาก",
     template: "%s | BlackDiamond",
   },
   description:
-    "A refined destination for natural black diamonds — certified collector-grade stones, architectural jewelry, and authenticated provenance.",
+    "จุดหมายปลายทางระดับสูงสำหรับเพชรดำธรรมชาติ — อัญมณีระดับสะสมที่ได้รับการรับรอง เครื่องประดับเชิงสถาปัตยกรรม และแหล่งที่มาที่ตรวจสอบได้",
   authors: [{ name: "BlackDiamond", url: siteUrl }],
   creator: "BlackDiamond",
   publisher: "BlackDiamond",
-  category: "Luxury Jewelry",
+  category: "เครื่องประดับหรูหรา",
   robots: {
     index: true,
     follow: true,
@@ -47,7 +59,7 @@ export const metadata: Metadata = {
         url: "/images/education-background.png",
         width: 1200,
         height: 630,
-        alt: "BlackDiamond — Rare Natural Black Diamonds",
+        alt: "BlackDiamond — เพชรดำธรรมชาติหายาก",
       },
     ],
   },
@@ -72,7 +84,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      className={`${manrope.variable} ${notoSerif.variable}`}
+      className={`${manrope.variable} ${notoSerif.variable} ${notoSansThai.variable} ${notoSerifThai.variable}`}
+      lang="th"
       suppressHydrationWarning
     >
       <body>{children}</body>

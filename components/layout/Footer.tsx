@@ -46,7 +46,7 @@ export function Footer({ dictionary, locale }: Props) {
               </a>
             </li>
             <li>
-              <a className="transition hover:text-primary" href="tel:+84123456789">
+              <a className="transition hover:text-primary" href="tel:+6621234567">
                 {dictionary.common.phone}
               </a>
             </li>
@@ -64,7 +64,7 @@ export function Footer({ dictionary, locale }: Props) {
               type="email"
             />
             <button className="px-3 text-primary" type="submit" aria-label={dictionary.common.requestConsultation}>
-              Go
+              ส่ง
             </button>
           </form>
         </section>

@@ -20,9 +20,6 @@ const BANNERS = [
 
 export function LifestyleSections({ dictionary, locale }: Props) {
   const d = dictionary.lifestyle;
-  const titleWords = d.title.split(" ");
-  const titleHead = titleWords.slice(0, -2).join(" ");
-  const titleTail = titleWords.slice(-2).join(" ");
 
   return (
     <main>
@@ -45,7 +42,7 @@ export function LifestyleSections({ dictionary, locale }: Props) {
           <div className="max-w-2xl">
             <p className="eyebrow mb-6">{d.eyebrow}</p>
             <h1 className="mb-8 font-headline text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
-              {titleHead} <span className="italic text-primary">{titleTail}</span>
+              {d.titleHead} <span className="italic text-primary">{d.titleTail}</span>
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-on-surface-variant md:text-xl">{d.intro}</p>
           </div>

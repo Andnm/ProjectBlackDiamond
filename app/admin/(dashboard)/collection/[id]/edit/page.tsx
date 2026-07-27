@@ -18,12 +18,12 @@ export default async function EditCollectionPiecePage({ params }: Props) {
     <div className="flex flex-col gap-8">
       <div>
         <Link className="text-xs font-bold uppercase tracking-[0.16em] text-neutral-500 hover:text-amber-400" href="/admin/collection">
-          ← Quay lại danh sách
+          ← กลับไปยังรายการ
         </Link>
-        <h1 className="mt-3 font-headline text-3xl text-white">Sửa: {fromLocalizedJson(piece.name) || piece.slug}</h1>
+        <h1 className="mt-3 font-headline text-3xl text-white">แก้ไข: {fromLocalizedJson(piece.name) || piece.slug}</h1>
       </div>
 
-      <PieceForm action={updateWithId} piece={piece} submitLabel="Lưu thay đổi" />
+      <PieceForm action={updateWithId} piece={piece} submitLabel="บันทึกการเปลี่ยนแปลง" />
     </div>
   );
 }

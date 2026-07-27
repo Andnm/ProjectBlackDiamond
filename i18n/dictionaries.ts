@@ -1,11 +1,10 @@
 import "server-only";
-import en from "@/messages/en.json";
-import vi from "@/messages/vi.json";
+import th from "@/messages/th.json";
 import { defaultLocale, isLocale, type Locale } from "./routing";
 
-const dictionaries = { en, vi };
+const dictionaries = { th };
 
-export type Dictionary = typeof en;
+export type Dictionary = typeof th;
 
 export async function getDictionary(locale: string): Promise<Dictionary> {
   const normalizedLocale: Locale = isLocale(locale) ? locale : defaultLocale;

@@ -47,7 +47,7 @@ export function PasswordField({ id, name, label, autoComplete, required, default
           type={visible ? "text" : "password"}
         />
         <button
-          aria-label={visible ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+          aria-label={visible ? "ซ่อนรหัสผ่าน" : "แสดงรหัสผ่าน"}
           aria-pressed={visible}
           className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-neutral-400 transition hover:text-amber-400"
           onClick={() => setVisible((current) => !current)}
