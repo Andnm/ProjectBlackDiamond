@@ -16,11 +16,11 @@ export function DeletePostButton({ id, title }: { id: string; title: string }) {
         onClick={() => setConfirmOpen(true)}
         type="button"
       >
-        {isPending ? "Đang xoá…" : "Xoá"}
+        {isPending ? "กำลังลบ…" : "ลบ"}
       </button>
 
       <ConfirmDialog
-        message={`Xoá bài viết "${title}"? Hành động này không thể hoàn tác.`}
+        message={`ลบบทความ "${title}"? การกระทำนี้ไม่สามารถย้อนกลับได้`}
         onCancel={() => setConfirmOpen(false)}
         onConfirm={() => {
           setConfirmOpen(false);
@@ -30,7 +30,7 @@ export function DeletePostButton({ id, title }: { id: string; title: string }) {
         }}
         open={confirmOpen}
         pending={isPending}
-        title="Xoá bài viết"
+        title="ลบบทความ"
       />
     </>
   );

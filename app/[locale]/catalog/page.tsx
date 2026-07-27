@@ -17,14 +17,14 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const typedLocale: Locale = isLocale(locale) ? locale : "vi";
+  const typedLocale: Locale = isLocale(locale) ? locale : "th";
   const dictionary = await getDictionary(typedLocale);
   return createPageMetadata(typedLocale, "catalog", dictionary);
 }
 
 export default async function CatalogPage({ params }: PageProps) {
   const { locale } = await params;
-  const typedLocale: Locale = isLocale(locale) ? locale : "vi";
+  const typedLocale: Locale = isLocale(locale) ? locale : "th";
   const dictionary = await getDictionary(typedLocale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
   const collectionPieces = await getPublishedCollectionPieces();

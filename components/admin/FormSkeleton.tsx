@@ -2,7 +2,7 @@ const pulseBlock = "animate-pulse rounded-sm bg-neutral-800";
 
 export function FormSkeleton({ sections = 3 }: { sections?: number }) {
   return (
-    <div className="flex flex-col gap-8" role="status" aria-label="Đang tải dữ liệu…">
+    <div className="flex flex-col gap-8" role="status" aria-label="กำลังโหลดข้อมูล…">
       <div className="flex flex-col gap-3">
         <div className={`h-3 w-32 ${pulseBlock}`} />
         <div className={`h-8 w-72 ${pulseBlock}`} />

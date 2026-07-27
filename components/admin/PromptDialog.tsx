@@ -21,8 +21,8 @@ export function PromptDialog({
   label,
   placeholder,
   defaultValue = "",
-  confirmLabel = "Chèn",
-  cancelLabel = "Huỷ",
+  confirmLabel = "แทรก",
+  cancelLabel = "ยกเลิก",
   onConfirm,
   onCancel,
 }: Props) {

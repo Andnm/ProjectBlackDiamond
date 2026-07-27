@@ -20,7 +20,7 @@ body {
     radial-gradient(circle at top left, rgba(233, 193, 118, 0.08), transparent 34rem),
     #131313;
   color: #e5e2e1;
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-body-latin), var(--font-body-thai), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -16,11 +16,11 @@ export function DeletePieceButton({ id, name }: { id: string; name: string }) {
         onClick={() => setConfirmOpen(true)}
         type="button"
       >
-        {isPending ? "Đang xoá…" : "Xoá"}
+        {isPending ? "กำลังลบ…" : "ลบ"}
       </button>
 
       <ConfirmDialog
-        message={`Xoá sản phẩm "${name}"? Hành động này không thể hoàn tác.`}
+        message={`ลบสินค้า "${name}"? การกระทำนี้ไม่สามารถย้อนกลับได้`}
         onCancel={() => setConfirmOpen(false)}
         onConfirm={() => {
           setConfirmOpen(false);
@@ -30,7 +30,7 @@ export function DeletePieceButton({ id, name }: { id: string; name: string }) {
         }}
         open={confirmOpen}
         pending={isPending}
-        title="Xoá sản phẩm"
+        title="ลบสินค้า"
       />
     </>
   );

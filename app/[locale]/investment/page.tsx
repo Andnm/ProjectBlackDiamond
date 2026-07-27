@@ -7,6 +7,6 @@ type PageProps = {
 
 export default async function InvestmentPage({ params }: PageProps) {
   const { locale } = await params;
-  const typedLocale = isLocale(locale) ? locale : "vi";
+  const typedLocale = isLocale(locale) ? locale : "th";
   redirect(`/${typedLocale}/blog`);
 }

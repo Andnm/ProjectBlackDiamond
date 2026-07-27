@@ -11,14 +11,14 @@ export async function login(_prevState: LoginState, formData: FormData): Promise
   const password = String(formData.get("password") ?? "");
 
   if (!email || !password) {
-    return { error: "Vui lòng nhập đầy đủ email và mật khẩu." };
+    return { error: "กรุณากรอกอีเมลและรหัสผ่านให้ครบถ้วน" };
   }
 
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
-    return { error: "Email hoặc mật khẩu không đúng." };
+    return { error: "อีเมลหรือรหัสผ่านไม่ถูกต้อง" };
   }
 
   revalidatePath("/admin", "layout");

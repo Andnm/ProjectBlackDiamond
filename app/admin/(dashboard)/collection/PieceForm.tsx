@@ -86,27 +86,23 @@ export function PieceForm({ piece, action, submitLabel }: Props) {
 
   return (
     <form action={formAction} className="flex flex-col gap-6">
-      <Section title="Thông tin cơ bản">
+      <Section title="ข้อมูลพื้นฐาน">
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={piece?.slug} label="Slug (URL định danh)" name="slug" placeholder="obsidian-radiant" required />
-          <Field defaultValue={piece?.display_order ?? 0} label="Thứ tự hiển thị" name="display_order" type="number" />
+          <Field defaultValue={piece?.slug} label="ตัวระบุ URL" name="slug" placeholder="obsidian-radiant" required />
+          <Field defaultValue={piece?.display_order ?? 0} label="ลำดับการแสดงผล" name="display_order" type="number" />
         </div>
-        <label className="flex items-center gap-2.5 text-sm text-neutral-300">
-          <input defaultChecked={piece?.published ?? true} name="published" type="checkbox" />
-          Hiển thị công khai (published)
-        </label>
       </Section>
 
-      <Section title="Hình ảnh">
+      <Section title="รูปภาพ">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
           {imagePreview ? (
             <div className="relative h-40 w-40 shrink-0 overflow-hidden border border-neutral-800 bg-neutral-900">
-              <Image alt="Xem trước" className="object-cover" fill src={imagePreview} unoptimized />
+              <Image alt="ตัวอย่าง" className="object-cover" fill src={imagePreview} unoptimized />
             </div>
           ) : null}
           <div className="flex-1 flex flex-col gap-4">
             <label className="flex flex-col gap-1.5">
-              <span className={labelClass}>Tải ảnh lên (để trống nếu giữ ảnh hiện tại)</span>
+              <span className={labelClass}>อัปโหลดรูปภาพ (เว้นว่างหากต้องการใช้รูปเดิม)</span>
               <input
                 accept="image/*"
                 className="text-sm text-neutral-300"
@@ -121,125 +117,122 @@ export function PieceForm({ piece, action, submitLabel }: Props) {
             <input name="existing_image_url" type="hidden" value={piece?.image_url ?? ""} />
             <Field
               defaultValue={fromLocalizedJson(piece?.image_alt)}
-              label="Mô tả ảnh (alt text)"
+          label="คำอธิบายรูปภาพสำหรับการเข้าถึง"
               name="image_alt"
             />
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field defaultValue={piece?.source_label ?? ""} label="Nguồn ảnh — tên" name="source_label" placeholder="Pexels" />
-              <Field defaultValue={piece?.source_url ?? ""} label="Nguồn ảnh — URL" name="source_url" />
+              <Field defaultValue={piece?.source_label ?? ""} label="แหล่งที่มารูปภาพ — ชื่อ" name="source_label" placeholder="Pexels" />
+              <Field defaultValue={piece?.source_url ?? ""} label="แหล่งที่มารูปภาพ — URL" name="source_url" />
             </div>
           </div>
         </div>
       </Section>
 
-      <Section title="Nội dung chính">
+      <Section title="เนื้อหาหลัก">
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={fromLocalizedJson(piece?.name)} label="Tên sản phẩm" name="name" required />
-          <Field defaultValue={fromLocalizedJson(piece?.line)} label="Dòng sản phẩm" name="line" />
+          <Field defaultValue={fromLocalizedJson(piece?.name)} label="ชื่อสินค้า" name="name" required />
+          <Field defaultValue={fromLocalizedJson(piece?.line)} label="ไลน์สินค้า" name="line" />
         </div>
-        <TextAreaField defaultValue={fromLocalizedJson(piece?.summary)} label="Mô tả tóm tắt" name="summary" rows={4} />
+        <TextAreaField defaultValue={fromLocalizedJson(piece?.summary)} label="คำอธิบายโดยย่อ" name="summary" rows={4} />
         <div className="grid gap-4 sm:grid-cols-[2fr_1fr_2fr]">
           <label className="flex flex-col gap-1.5">
-            <span className={labelClass}>Giá khởi điểm</span>
+            <span className={labelClass}>ราคาเริ่มต้น (บาท)</span>
             <input
               className={fieldClass}
               defaultValue={piece?.price_amount ?? ""}
               inputMode="decimal"
               min={0}
               name="price_amount"
-              placeholder="18400"
+              placeholder="660000"
               step="any"
               type="number"
             />
           </label>
           <label className="flex flex-col gap-1.5">
-            <span className={labelClass}>Đơn vị tiền tệ</span>
-            <select className={fieldClass} defaultValue={piece?.price_currency ?? "USD"} name="price_currency">
-              <option value="USD">USD ($)</option>
-              <option value="VND">VND (VNĐ)</option>
-            </select>
+            <span className={labelClass}>สกุลเงิน</span>
+            <input className={`${fieldClass} text-neutral-500`} disabled value="บาท (THB)" />
+            <input name="price_currency" type="hidden" value="THB" />
           </label>
-          <Field defaultValue={fromLocalizedJson(piece?.price_note)} label="Ghi chú giá" name="price_note" />
+          <Field defaultValue={fromLocalizedJson(piece?.price_note)} label="หมายเหตุราคา" name="price_note" />
         </div>
         <p className="text-xs text-neutral-500">
-          Giá hiển thị công khai sẽ tự động ghép tiền tố “Từ”/“From” theo ngôn ngữ — chỉ cần nhập số tiền và chọn đơn vị
-          tệ ở đây.
+          ราคาที่แสดงต่อสาธารณะจะเติมคำนำหน้า “เริ่มต้น” ให้อัตโนมัติ — เพียงกรอกจำนวนเงินเป็นสกุลบาทที่นี่
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={piece?.rarity_index ?? ""} label="Chỉ số hiếm (0–100)" name="rarity_index" type="number" />
-          <Field defaultValue={fromLocalizedJson(piece?.origin)} label="Xuất xứ" name="origin" />
+          <Field defaultValue={piece?.rarity_index ?? ""} label="ดัชนีความหายาก (0–100)" name="rarity_index" type="number" />
+          <Field defaultValue={fromLocalizedJson(piece?.origin)} label="แหล่งที่มา" name="origin" />
         </div>
-        <Field defaultValue={(piece?.tags ?? []).join(", ")} label="Tags (phân cách bằng dấu phẩy)" name="tags" />
+        <Field defaultValue={(piece?.tags ?? []).join(", ")} label="แท็ก (คั่นด้วยเครื่องหมายจุลภาค)" name="tags" />
       </Section>
 
-      <Section title="Chứng nhận (tuỳ chọn)">
+      <Section title="ใบรับรอง (ไม่บังคับ)">
         <label className="flex flex-col gap-1.5">
-          <span className={labelClass}>Đơn vị cấp chứng nhận</span>
+          <span className={labelClass}>หน่วยงานผู้ออกใบรับรอง</span>
           <select className={fieldClass} defaultValue={certificate?.authority ?? "none"} name="certificate_authority">
-            <option value="none">Không có</option>
+            <option value="none">ไม่มี</option>
             <option value="GIA">GIA</option>
             <option value="IGI">IGI</option>
-            <option value="Internal">Internal</option>
+            <option value="Internal">ภายใน</option>
           </select>
         </label>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={certificate?.reportNumber ?? ""} label="Số báo cáo" name="certificate_report_number" />
-          <Field defaultValue={certificate?.reportType ?? ""} label="Loại báo cáo" name="certificate_report_type" />
+          <Field defaultValue={certificate?.reportNumber ?? ""} label="หมายเลขรายงาน" name="certificate_report_number" />
+          <Field defaultValue={certificate?.reportType ?? ""} label="ประเภทรายงาน" name="certificate_report_type" />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={certificate?.issueDate ?? ""} label="Ngày cấp" name="certificate_issue_date" placeholder="2024-01-01" />
-          <Field defaultValue={certificate?.verifyUrl ?? ""} label="Link xác thực" name="certificate_verify_url" />
+          <Field defaultValue={certificate?.issueDate ?? ""} label="วันที่ออก" name="certificate_issue_date" placeholder="2024-01-01" />
+          <Field defaultValue={certificate?.verifyUrl ?? ""} label="ลิงก์ตรวจสอบ" name="certificate_verify_url" />
         </div>
-        <Field defaultValue={certificate?.pdfUrl ?? ""} label="Link PDF chứng nhận (tuỳ chọn)" name="certificate_pdf_url" />
+        <Field defaultValue={certificate?.pdfUrl ?? ""} label="ลิงก์ PDF ใบรับรอง (ไม่บังคับ)" name="certificate_pdf_url" />
       </Section>
 
-      <Section title="Thông số kỹ thuật (specs)">
+      <Section title="ข้อมูลทางเทคนิค">
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={"carat" in specs ? specs.carat : ""} label="Carat" name="specs_carat" />
-          <Field defaultValue={"dimensions" in specs ? specs.dimensions : ""} label="Kích thước" name="specs_dimensions" />
+          <Field defaultValue={"carat" in specs ? specs.carat : ""} label="กะรัต" name="specs_carat" />
+          <Field defaultValue={"dimensions" in specs ? specs.dimensions : ""} label="ขนาด" name="specs_dimensions" />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={fromLocalizedJson("cut" in specs ? specs.cut : undefined)} label="Giác cắt (cut)" name="specs_cut" />
-          <Field defaultValue={fromLocalizedJson("setting" in specs ? specs.setting : undefined)} label="Ổ đá (setting)" name="specs_setting" />
+          <Field defaultValue={fromLocalizedJson("cut" in specs ? specs.cut : undefined)} label="การเจียระไน" name="specs_cut" />
+          <Field defaultValue={fromLocalizedJson("setting" in specs ? specs.setting : undefined)} label="ตัวเรือน" name="specs_setting" />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={fromLocalizedJson("metal" in specs ? specs.metal : undefined)} label="Kim loại" name="specs_metal" />
-          <Field defaultValue={fromLocalizedJson("origin" in specs ? specs.origin : undefined)} label="Xuất xứ (specs)" name="specs_origin" />
+          <Field defaultValue={fromLocalizedJson("metal" in specs ? specs.metal : undefined)} label="โลหะ" name="specs_metal" />
+          <Field defaultValue={fromLocalizedJson("origin" in specs ? specs.origin : undefined)} label="แหล่งที่มาตามข้อมูลทางเทคนิค" name="specs_origin" />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={"certification" in specs ? specs.certification : ""} label="Chứng nhận (mã)" name="specs_certification" />
-          <Field defaultValue={"hardness" in specs ? specs.hardness : ""} label="Độ cứng" name="specs_hardness" />
+          <Field defaultValue={"certification" in specs ? specs.certification : ""} label="รหัสใบรับรอง" name="specs_certification" />
+          <Field defaultValue={"hardness" in specs ? specs.hardness : ""} label="ความแข็ง" name="specs_hardness" />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={fromLocalizedJson("luster" in specs ? specs.luster : undefined)} label="Độ bóng (luster)" name="specs_luster" />
-          <Field defaultValue={fromLocalizedJson("treatment" in specs ? specs.treatment : undefined)} label="Xử lý (treatment)" name="specs_treatment" />
+          <Field defaultValue={fromLocalizedJson("luster" in specs ? specs.luster : undefined)} label="ความวาว" name="specs_luster" />
+          <Field defaultValue={fromLocalizedJson("treatment" in specs ? specs.treatment : undefined)} label="การปรับปรุงคุณภาพ" name="specs_treatment" />
         </div>
       </Section>
 
-      <Section title="Phân tích &amp; Thu mua">
+      <Section title="การวิเคราะห์และการจัดหา">
         <TextAreaField
           defaultValue={fromLocalizedLines(piece?.analysis)}
-          hint="Mỗi dòng là một gạch đầu dòng."
-          label="Phân tích chuyên sâu (mỗi dòng 1 ý)"
+          hint="แต่ละบรรทัดคือหนึ่งหัวข้อย่อย"
+          label="การวิเคราะห์เชิงลึก (หนึ่งบรรทัดต่อหนึ่งประเด็น)"
           name="analysis"
           rows={4}
         />
         <TextAreaField
           defaultValue={fromLocalizedLines(piece?.acquisition)}
-          hint="Mỗi dòng là một gạch đầu dòng."
-          label="Quy trình thu mua (mỗi dòng 1 ý)"
+          hint="แต่ละบรรทัดคือหนึ่งหัวข้อย่อย"
+          label="ขั้นตอนการจัดหา (หนึ่งบรรทัดต่อหนึ่งประเด็น)"
           name="acquisition"
           rows={4}
         />
       </Section>
 
-      <Section title="Mô tả chi tiết">
-        <TextAreaField defaultValue={fromLocalizedJson(piece?.inclusion_profile)} label="Đặc điểm tạp chất (inclusion profile)" name="inclusion_profile" />
-        <TextAreaField defaultValue={fromLocalizedJson(piece?.light_behavior)} label="Phản ứng ánh sáng" name="light_behavior" />
-        <TextAreaField defaultValue={fromLocalizedJson(piece?.provenance)} label="Nguồn gốc xuất xứ (provenance)" name="provenance" />
-        <TextAreaField defaultValue={fromLocalizedJson(piece?.wearability)} label="Khả năng đeo" name="wearability" />
-        <TextAreaField defaultValue={fromLocalizedJson(piece?.care)} label="Hướng dẫn bảo quản" name="care" />
-        <TextAreaField defaultValue={fromLocalizedJson(piece?.investment_note)} label="Ghi chú đầu tư" name="investment_note" />
+      <Section title="รายละเอียดเพิ่มเติม">
+        <TextAreaField defaultValue={fromLocalizedJson(piece?.inclusion_profile)} label="ลักษณะมลทิน" name="inclusion_profile" />
+        <TextAreaField defaultValue={fromLocalizedJson(piece?.light_behavior)} label="ปฏิกิริยาต่อแสง" name="light_behavior" />
+        <TextAreaField defaultValue={fromLocalizedJson(piece?.provenance)} label="ประวัติแหล่งที่มา" name="provenance" />
+        <TextAreaField defaultValue={fromLocalizedJson(piece?.wearability)} label="การสวมใส่" name="wearability" />
+        <TextAreaField defaultValue={fromLocalizedJson(piece?.care)} label="คำแนะนำการดูแลรักษา" name="care" />
+        <TextAreaField defaultValue={fromLocalizedJson(piece?.investment_note)} label="หมายเหตุการลงทุน" name="investment_note" />
       </Section>
 
       {state?.error ? (
@@ -254,7 +247,7 @@ export function PieceForm({ piece, action, submitLabel }: Props) {
         >
           {isPending ? (
             <span className="inline-flex items-center gap-2">
-              <Spinner /> Đang lưu…
+              <Spinner /> กำลังบันทึก…
             </span>
           ) : (
             submitLabel

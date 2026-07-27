@@ -5,7 +5,7 @@ import type { BlogPost } from "@/lib/blog";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 const BRAND_NAME = "BlackDiamond";
 const BRAND_EMAIL = "contact@blackdiamondluxury.org";
-const BRAND_PHONE = "+84123456789";
+const BRAND_PHONE = "+6621234567";
 
 function abs(path: string) {
   return `${SITE_URL}${path}`;
@@ -25,19 +25,19 @@ export function organizationSchema() {
       height: 630,
     },
     description:
-      "A refined destination for natural black diamonds — certified collector-grade stones, architectural jewelry, and authenticated provenance.",
+      "จุดหมายปลายทางระดับสูงสำหรับเพชรดำธรรมชาติ — อัญมณีระดับสะสมที่ได้รับการรับรอง เครื่องประดับเชิงสถาปัตยกรรม และแหล่งที่มาที่ตรวจสอบได้",
     email: BRAND_EMAIL,
     telephone: BRAND_PHONE,
     foundingLocation: {
       "@type": "Place",
-      name: "Vietnam",
+      name: "Thailand",
     },
     knowsAbout: [
-      "Black diamonds",
+      "เพชรดำ",
       "Carbonado",
-      "GIA certification",
-      "Luxury gemstones",
-      "Diamond investment",
+      "การรับรอง GIA",
+      "อัญมณีหรูหรา",
+      "การลงทุนเพชร",
     ],
   };
 }
@@ -58,7 +58,7 @@ export function webSiteSchema() {
       },
       "query-input": "required name=search_term_string",
     },
-    inLanguage: ["vi-VN", "en-US"],
+    inLanguage: ["th-TH"],
   };
 }
 
@@ -78,7 +78,7 @@ export function breadcrumbSchema(
 }
 
 export function articleSchema(post: BlogPost, locale: Locale) {
-  const localeTag = locale === "vi" ? "vi-VN" : "en-US";
+  const localeTag = "th-TH";
   const url = abs(`/${locale}/blog/${post.slug}`);
 
   return {
@@ -133,7 +133,7 @@ export function gemstoneProductSchema(piece: CollectionPiece, locale: Locale) {
       "@type": "Brand",
       name: BRAND_NAME,
     },
-    material: "Natural Black Diamond",
+    material: "เพชรดำธรรมชาติ",
     keywords: piece.tags.join(", "),
     offers: {
       "@type": "Offer",
@@ -147,22 +147,22 @@ export function gemstoneProductSchema(piece: CollectionPiece, locale: Locale) {
     additionalProperty: [
       {
         "@type": "PropertyValue",
-        name: "Carat",
+        name: "กะรัต",
         value: piece.specs.carat,
       },
       {
         "@type": "PropertyValue",
-        name: "Rarity Index",
+        name: "ดัชนีความหายาก",
         value: piece.rarityIndex.toString(),
       },
       {
         "@type": "PropertyValue",
-        name: "Origin",
+        name: "แหล่งที่มา",
         value: piece.specs.origin[locale],
       },
       {
         "@type": "PropertyValue",
-        name: "Certification",
+        name: "ใบรับรอง",
         value: piece.specs.certification,
       },
     ],
@@ -176,7 +176,7 @@ export function blogListSchema(
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `BlackDiamond Journal — ${locale === "vi" ? "Tạp chí" : "Articles"}`,
+    name: `BlackDiamond Journal — บทความ`,
     url: abs(`/${locale}/blog`),
     itemListElement: posts.map((post, i) => ({
       "@type": "ListItem",
@@ -194,7 +194,7 @@ export function catalogListSchema(
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `BlackDiamond Collection — ${locale === "vi" ? "Bộ sưu tập" : "Catalog"}`,
+    name: `BlackDiamond Collection — คอลเลกชัน`,
     url: abs(`/${locale}/catalog`),
     itemListElement: pieces.map((piece, i) => ({
       "@type": "ListItem",

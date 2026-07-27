@@ -16,17 +16,17 @@ type Props = {
 
 const CATEGORY_COLORS: Record<string, string> = {
   Science: "#c6c6c7",
-  "Khoa học": "#c6c6c7",
+  "วิทยาศาสตร์": "#c6c6c7",
   Guide: "#e9c176",
-  "Hướng dẫn": "#e9c176",
+  "คู่มือ": "#e9c176",
   Certification: "#c5a059",
-  "Chứng nhận": "#c5a059",
+  "การรับรอง": "#c5a059",
   Market: "#9ab4a0",
-  "Thị trường": "#9ab4a0",
+  "ตลาด": "#9ab4a0",
   History: "#b4a09a",
-  "Lịch sử": "#b4a09a",
+  "ประวัติศาสตร์": "#b4a09a",
   Care: "#a09ab4",
-  "Bảo quản": "#a09ab4",
+  "การดูแลรักษา": "#a09ab4",
 };
 
 function categoryColor(cat: string) {
@@ -85,7 +85,7 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
             <div className="mt-8 flex items-center gap-3">
               <span className="h-px w-8 bg-primary" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-on-muted">
-                {posts.length} {locale === "vi" ? "bài viết" : "articles"}
+                {posts.length} บทความ
               </span>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
             <div className="mb-12 flex items-center gap-6">
               <span className="h-px flex-1 bg-outline/20" />
               <span className="eyebrow opacity-50">
-                {locale === "vi" ? "Tất cả bài viết" : "All articles"}
+                บทความทั้งหมด
               </span>
               <span className="h-px flex-1 bg-outline/20" />
             </div>

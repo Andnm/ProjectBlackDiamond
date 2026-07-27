@@ -26,7 +26,7 @@ async function uploadPieceImage(supabase: Awaited<ReturnType<typeof createClient
     upsert: false,
   });
 
-  if (error) throw new Error(`Tải ảnh thất bại: ${error.message}`);
+  if (error) throw new Error(`อัปโหลดรูปภาพล้มเหลว: ${error.message}`);
 
   const { data } = supabase.storage.from("media").getPublicUrl(path);
   return data.publicUrl;
@@ -75,7 +75,7 @@ async function buildPiecePayload(
   existingImageUrl: string | null,
 ) {
   const slug = readText(formData, "slug");
-  if (!slug) throw new Error("Vui lòng nhập slug.");
+  if (!slug) throw new Error("กรุณากรอก slug");
 
   let imageUrl = existingImageUrl;
   const imageFile = formData.get("image");
@@ -96,7 +96,7 @@ async function buildPiecePayload(
     price_amount: readDecimal(formData, "price_amount"),
     price_currency: (() => {
       const raw = String(formData.get("price_currency") ?? "");
-      return isPriceCurrency(raw) ? raw : "USD";
+      return isPriceCurrency(raw) ? raw : "THB";
     })(),
     price_note: toLocalizedJson(formData.get("price_note")),
     rarity_index: readInt(formData, "rarity_index"),
@@ -112,13 +112,13 @@ async function buildPiecePayload(
     care: toLocalizedJson(formData.get("care")),
     investment_note: toLocalizedJson(formData.get("investment_note")),
     tags: parseTags(formData.get("tags")),
-    published: formData.get("published") === "on",
+    published: true,
   };
 }
 
 function revalidatePublicCollection(slug?: string) {
-  revalidatePath("/vi/catalog");
-  if (slug) revalidatePath(`/vi/catalog/${slug}`);
+  revalidatePath("/th/catalog");
+  if (slug) revalidatePath(`/th/catalog/${slug}`);
 }
 
 export async function createCollectionPiece(_prevState: PieceFormState, formData: FormData): Promise<PieceFormState> {
@@ -128,11 +128,11 @@ export async function createCollectionPiece(_prevState: PieceFormState, formData
     const payload = await buildPiecePayload(supabase, formData, null);
     const { error } = await supabase.from("collection_pieces").insert(payload);
     if (error) {
-      if (error.code === "23505") return { error: "Slug này đã tồn tại, vui lòng chọn slug khác." };
+      if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
       return { error: error.message };
     }
   } catch (err) {
-    return { error: err instanceof Error ? err.message : "Đã xảy ra lỗi không xác định." };
+    return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
 
   revalidatePath("/admin/collection");
@@ -152,11 +152,11 @@ export async function updateCollectionPiece(
     const payload = await buildPiecePayload(supabase, formData, existingImageUrl);
     const { error } = await supabase.from("collection_pieces").update(payload).eq("id", id);
     if (error) {
-      if (error.code === "23505") return { error: "Slug này đã tồn tại, vui lòng chọn slug khác." };
+      if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
       return { error: error.message };
     }
   } catch (err) {
-    return { error: err instanceof Error ? err.message : "Đã xảy ra lỗi không xác định." };
+    return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
 
   revalidatePath("/admin/collection");

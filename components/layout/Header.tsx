@@ -71,7 +71,7 @@ export function Header({ dictionary, locale }: Props) {
           >
             {dictionary.brand.name}
           </Link>
-          <nav aria-label="Primary navigation" className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="การนำทางหลัก" className="hidden items-center gap-8 lg:flex">
             {desktopNav}
           </nav>
         </div>
@@ -90,7 +90,7 @@ export function Header({ dictionary, locale }: Props) {
             onClick={() => setIsOpen((value) => !value)}
             type="button"
           >
-            {isOpen ? "Close" : "Menu"}
+            {isOpen ? dictionary.common.closeMenu : dictionary.common.openMenu}
           </button>
         </div>
       </div>

@@ -18,7 +18,7 @@ async function uploadCoverImage(supabase: Awaited<ReturnType<typeof createClient
     upsert: false,
   });
 
-  if (error) throw new Error(`Tải ảnh thất bại: ${error.message}`);
+  if (error) throw new Error(`อัปโหลดรูปภาพล้มเหลว: ${error.message}`);
 
   const { data } = supabase.storage.from("media").getPublicUrl(path);
   return data.publicUrl;
@@ -30,7 +30,7 @@ async function buildPostPayload(
   existingCoverUrl: string | null,
 ) {
   const slug = readText(formData, "slug");
-  if (!slug) throw new Error("Vui lòng nhập slug.");
+  if (!slug) throw new Error("กรุณากรอก slug");
 
   let coverImageUrl = existingCoverUrl;
   const coverFile = formData.get("cover_image");
@@ -48,15 +48,15 @@ async function buildPostPayload(
     title: toLocalizedJson(formData.get("title")),
     excerpt: toLocalizedJson(formData.get("excerpt")),
     cover_image_url: coverImageUrl,
-    body: bodyHtml ? { vi: bodyHtml } : {},
+    body: bodyHtml ? { th: bodyHtml } : {},
     tags: parseTags(formData.get("tags")),
-    published: formData.get("published") === "on",
+    published: true,
   };
 }
 
 function revalidatePublicBlog(slug?: string) {
-  revalidatePath("/vi/blog");
-  if (slug) revalidatePath(`/vi/blog/${slug}`);
+  revalidatePath("/th/blog");
+  if (slug) revalidatePath(`/th/blog/${slug}`);
 }
 
 export async function createBlogPost(_prevState: PostFormState, formData: FormData): Promise<PostFormState> {
@@ -66,11 +66,11 @@ export async function createBlogPost(_prevState: PostFormState, formData: FormDa
     const payload = await buildPostPayload(supabase, formData, null);
     const { error } = await supabase.from("blog_posts").insert(payload);
     if (error) {
-      if (error.code === "23505") return { error: "Slug này đã tồn tại, vui lòng chọn slug khác." };
+      if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
       return { error: error.message };
     }
   } catch (err) {
-    return { error: err instanceof Error ? err.message : "Đã xảy ra lỗi không xác định." };
+    return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
 
   revalidatePath("/admin/blog");
@@ -90,11 +90,11 @@ export async function updateBlogPost(
     const payload = await buildPostPayload(supabase, formData, existingCoverUrl);
     const { error } = await supabase.from("blog_posts").update(payload).eq("id", id);
     if (error) {
-      if (error.code === "23505") return { error: "Slug này đã tồn tại, vui lòng chọn slug khác." };
+      if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
       return { error: error.message };
     }
   } catch (err) {
-    return { error: err instanceof Error ? err.message : "Đã xảy ra lỗi không xác định." };
+    return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
 
   revalidatePath("/admin/blog");

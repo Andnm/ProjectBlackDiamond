@@ -14,13 +14,20 @@ export async function proxy(request: NextRequest) {
   }
 
   if (pathname === "/") {
-    return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url));
+    const target = request.nextUrl.clone();
+    target.pathname = `/${defaultLocale}`;
+    return NextResponse.redirect(target);
   }
 
-  // Temporarily Vietnamese-only: redirect any /en/* path to its /vi/* equivalent.
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
-    const rest = pathname.slice("/en".length);
-    return NextResponse.redirect(new URL(`/${defaultLocale}${rest}`, request.url));
+  // Thai-only for now: redirect any old /vi/* or /en/* path to its /th/* equivalent,
+  // preserving the query string (e.g. /vi/catalog?q=void&page=2).
+  for (const oldLocale of ["vi", "en"]) {
+    if (pathname === `/${oldLocale}` || pathname.startsWith(`/${oldLocale}/`)) {
+      const rest = pathname.slice(`/${oldLocale}`.length);
+      const target = request.nextUrl.clone();
+      target.pathname = `/${defaultLocale}${rest}`;
+      return NextResponse.redirect(target);
+    }
   }
 
   return NextResponse.next();

@@ -22,8 +22,8 @@ const config: Config = {
         outline: "#5d5345",
       },
       fontFamily: {
-        headline: ["var(--font-headline)", "serif"],
-        body: ["var(--font-body)", "sans-serif"],
+        headline: ["var(--font-headline-latin)", "var(--font-headline-thai)", "serif"],
+        body: ["var(--font-body-latin)", "var(--font-body-thai)", "sans-serif"],
       },
       borderRadius: {
         sm: "2px",

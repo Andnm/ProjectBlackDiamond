@@ -12,8 +12,8 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  // Vietnamese-only for now: only pre-render the "vi" locale tree.
-  // (proxy.ts redirects any /en/* request to its /vi/* equivalent.)
+  // Thai-only for now: only pre-render the "th" locale tree.
+  // (proxy.ts redirects any old /vi/* or /en/* request to its /th/* equivalent.)
   return [{ locale: defaultLocale }];
 }
 

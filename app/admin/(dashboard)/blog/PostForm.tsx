@@ -55,42 +55,37 @@ export function PostForm({ post, action, submitLabel }: Props) {
   return (
     <form action={formAction} className="flex flex-col gap-6">
       <fieldset className="flex flex-col gap-4 border border-neutral-800 p-5">
-        <legend className="px-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400">Thông tin bài viết</legend>
+        <legend className="px-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400">ข้อมูลบทความ</legend>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field defaultValue={post?.slug} label="Slug (URL định danh)" name="slug" placeholder="cosmic-origin-theory" required />
-          <Field defaultValue={fromLocalizedJson(post?.category)} label="Chuyên mục" name="category" placeholder="Khoa học" />
+          <Field defaultValue={post?.slug} label="ตัวระบุ URL" name="slug" placeholder="cosmic-origin-theory" required />
+          <Field defaultValue={fromLocalizedJson(post?.category)} label="หมวดหมู่" name="category" placeholder="วิทยาศาสตร์" />
         </div>
 
-        <Field defaultValue={fromLocalizedJson(post?.title)} label="Tiêu đề" name="title" required />
+        <Field defaultValue={fromLocalizedJson(post?.title)} label="หัวข้อ" name="title" required />
         <label className="flex flex-col gap-1.5">
-          <span className={labelClass}>Mô tả ngắn (excerpt)</span>
+          <span className={labelClass}>คำอธิบายโดยย่อ</span>
           <textarea className={fieldClass} defaultValue={fromLocalizedJson(post?.excerpt)} name="excerpt" rows={3} />
         </label>
 
         <div className="grid gap-4 sm:grid-cols-3">
-          <Field defaultValue={post?.date ?? ""} label="Ngày đăng" name="date" type="date" />
-          <Field defaultValue={post?.read_minutes ?? 5} label="Thời gian đọc (phút)" name="read_minutes" type="number" />
-          <Field defaultValue={(post?.tags ?? []).join(", ")} label="Tags (phân cách bằng dấu phẩy)" name="tags" />
+          <Field defaultValue={post?.date ?? ""} label="วันที่เผยแพร่" name="date" type="date" />
+          <Field defaultValue={post?.read_minutes ?? 5} label="เวลาในการอ่าน (นาที)" name="read_minutes" type="number" />
+          <Field defaultValue={(post?.tags ?? []).join(", ")} label="แท็ก (คั่นด้วยเครื่องหมายจุลภาค)" name="tags" />
         </div>
-
-        <label className="flex items-center gap-2.5 text-sm text-neutral-300">
-          <input defaultChecked={post?.published ?? true} name="published" type="checkbox" />
-          Xuất bản công khai (published)
-        </label>
       </fieldset>
 
       <fieldset className="flex flex-col gap-4 border border-neutral-800 p-5">
-        <legend className="px-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400">Ảnh bìa</legend>
+        <legend className="px-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400">ภาพปก</legend>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
           {coverPreview ? (
             <div className="relative h-40 w-full max-w-xs shrink-0 overflow-hidden border border-neutral-800 bg-neutral-900 sm:w-64">
-              <Image alt="Xem trước ảnh bìa" className="object-cover" fill src={coverPreview} unoptimized />
+              <Image alt="ตัวอย่างภาพปก" className="object-cover" fill src={coverPreview} unoptimized />
             </div>
           ) : null}
           <div className="flex-1">
             <label className="flex flex-col gap-1.5">
-              <span className={labelClass}>Tải ảnh bìa lên (để trống nếu giữ ảnh hiện tại)</span>
+              <span className={labelClass}>อัปโหลดภาพปก (เว้นว่างหากต้องการใช้รูปเดิม)</span>
               <input
                 accept="image/*"
                 className="text-sm text-neutral-300"
@@ -108,7 +103,7 @@ export function PostForm({ post, action, submitLabel }: Props) {
       </fieldset>
 
       <fieldset className="flex flex-col gap-4 border border-neutral-800 p-5">
-        <legend className="px-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400">Nội dung bài viết</legend>
+        <legend className="px-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-400">เนื้อหาบทความ</legend>
         <RichTextEditor defaultValue={fromLocalizedJson(post?.body)} name="body" />
       </fieldset>
 
@@ -124,7 +119,7 @@ export function PostForm({ post, action, submitLabel }: Props) {
         >
           {isPending ? (
             <span className="inline-flex items-center gap-2">
-              <Spinner /> Đang lưu…
+              <Spinner /> กำลังบันทึก…
             </span>
           ) : (
             submitLabel

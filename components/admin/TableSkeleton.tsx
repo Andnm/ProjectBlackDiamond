@@ -7,7 +7,7 @@ const pulseBlock = "animate-pulse rounded-sm bg-neutral-800";
 
 export function TableSkeleton({ rows = 8, columns = 6 }: Props) {
   return (
-    <div className="flex flex-col gap-8" role="status" aria-label="Đang tải dữ liệu…">
+    <div className="flex flex-col gap-8" role="status" aria-label="กำลังโหลดข้อมูล…">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-col gap-2">
           <div className={`h-3 w-28 ${pulseBlock}`} />

@@ -1,12 +1,14 @@
+import type { Locale } from "@/i18n/routing";
+
 /**
  * Row shapes for the Supabase-backed admin CRUD area.
  *
  * Localized text columns are stored as JSONB keyed by locale, e.g.
- * `{ "vi": "Tên sản phẩm" }`. The site is Vietnamese-only for now, so the
- * admin UI only edits the "vi" key — but the column can hold an "en" key
- * later (for re-enabling English) without any schema migration.
+ * `{ "th": "ชื่อสินค้า" }`. The site is Thai-only for now, so the admin UI
+ * only edits the "th" key — but the column can hold more locale keys later
+ * (vi/lo/zh/en...) without any schema migration.
  */
-export type LocalizedJson = Partial<Record<"vi" | "en", string>>;
+export type LocalizedJson = Partial<Record<Locale, string>>;
 
 export type Certificate = {
   authority: "GIA" | "IGI" | "Internal";
@@ -45,15 +47,15 @@ export type CollectionPieceRow = {
   summary: LocalizedJson;
 
   price_amount: number | null;
-  price_currency: "VND" | "USD" | null;
+  price_currency: "THB" | null;
   price_note: LocalizedJson;
   rarity_index: number | null;
   origin: LocalizedJson;
 
   certificate: Certificate | null;
   specs: CollectionPieceSpecs | Record<string, never>;
-  analysis: Partial<Record<"vi" | "en", string[]>>;
-  acquisition: Partial<Record<"vi" | "en", string[]>>;
+  analysis: Partial<Record<Locale, string[]>>;
+  acquisition: Partial<Record<Locale, string[]>>;
 
   inclusion_profile: LocalizedJson;
   light_behavior: LocalizedJson;
@@ -70,7 +72,7 @@ export type CollectionPieceRow = {
 
 /**
  * Rich-text content authored in the admin's WYSIWYG (Tiptap) editor,
- * persisted as sanitized HTML and keyed by locale — e.g. `{ "vi": "<p>…</p>" }`.
+ * persisted as sanitized HTML and keyed by locale — e.g. `{ "th": "<p>…</p>" }`.
  */
 export type BlogBodyJson = LocalizedJson;
 

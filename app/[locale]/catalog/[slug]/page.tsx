@@ -16,20 +16,19 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  // Vietnamese-only for now: only pre-render the "vi" locale tree.
+  // Thai-only for now: only pre-render the "th" locale tree.
   const slugs = await getPublishedCollectionSlugs();
   return slugs.map((slug) => ({ locale: defaultLocale, slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const typedLocale: Locale = isLocale(locale) ? locale : "vi";
+  const typedLocale: Locale = isLocale(locale) ? locale : "th";
   const dictionary = await getDictionary(typedLocale);
   const piece = await getPublishedCollectionPiece(slug);
 
   if (!piece) return { title: dictionary.seo.catalog.title };
 
-  const ogLocale = typedLocale === "vi" ? "vi_VN" : "en_US";
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
   const url = `${siteUrl}/${typedLocale}/catalog/${slug}`;
   const imageUrl = typeof piece.image === "string" ? piece.image : piece.image.src;
@@ -41,8 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: url,
       languages: {
-        vi: `${siteUrl}/vi/catalog/${slug}`,
-        en: `${siteUrl}/en/catalog/${slug}`,
+        th: `${siteUrl}/th/catalog/${slug}`,
       },
     },
     openGraph: {
@@ -50,8 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: piece.summary[typedLocale],
       url,
       siteName: dictionary.brand.name,
-      locale: ogLocale,
-      alternateLocale: typedLocale === "vi" ? ["en_US"] : ["vi_VN"],
+      locale: "th_TH",
       type: "website",
       images: [
         {
