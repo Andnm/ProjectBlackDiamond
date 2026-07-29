@@ -4,7 +4,7 @@ import { remoteImages } from "@/lib/assets";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import { type Dictionary } from "@/i18n/dictionaries";
 import { PosterShowcase } from "@/components/PosterShowcase";
-import { informationImages } from "@/lib/information-assets";
+import { getInformationImages } from "@/lib/information-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -13,6 +13,7 @@ type Props = {
 
 export function EducationSections({ dictionary, locale }: Props) {
   const d = dictionary.education;
+  const informationImages = getInformationImages(locale);
 
   return (
     <main className="pt-20">

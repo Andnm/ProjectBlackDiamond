@@ -21,5 +21,5 @@ export default async function MembershipPage({ params }: PageProps) {
   const typedLocale: Locale = isLocale(locale) ? locale : "th";
   const dictionary = await getDictionary(typedLocale);
 
-  return <MembershipSections dictionary={dictionary} />;
+  return <MembershipSections dictionary={dictionary} locale={typedLocale} />;
 }

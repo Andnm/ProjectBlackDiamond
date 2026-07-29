@@ -6,7 +6,7 @@ import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { CollectionPiece } from "@/lib/collection";
 import { PosterShowcase } from "@/components/PosterShowcase";
-import { informationImages } from "@/lib/information-assets";
+import { getInformationImages } from "@/lib/information-assets";
 import homeBg from "@/assets/images/background/home_background.png";
 
 type Props = {
@@ -17,6 +17,7 @@ type Props = {
 
 export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
   const d = dictionary.home;
+  const informationImages = getInformationImages(locale);
   const fallbackImages = [remoteImages.catalog, remoteImages.catalog2, remoteImages.catalog3];
 
   return (

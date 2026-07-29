@@ -2,14 +2,17 @@ import Image from "next/image";
 import { remoteImages } from "@/lib/assets";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { PosterShowcase } from "@/components/PosterShowcase";
-import { informationImages } from "@/lib/information-assets";
+import { getInformationImages } from "@/lib/information-assets";
+import type { Locale } from "@/i18n/routing";
 
 type Props = {
   dictionary: Dictionary;
+  locale: Locale;
 };
 
-export function MembershipSections({ dictionary }: Props) {
+export function MembershipSections({ dictionary, locale }: Props) {
   const d = dictionary.membership;
+  const informationImages = getInformationImages(locale);
 
   return (
     <main>

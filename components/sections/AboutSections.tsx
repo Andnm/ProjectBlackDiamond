@@ -5,7 +5,7 @@ import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import storyBg from "@/assets/images/background/story_background.png";
 import { PosterShowcase } from "@/components/PosterShowcase";
-import { informationImages } from "@/lib/information-assets";
+import { getInformationImages } from "@/lib/information-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -15,6 +15,7 @@ type Props = {
 export function AboutSections({ dictionary, locale }: Props) {
   const d = dictionary.about;
   const trust = dictionary.home.trustItems;
+  const informationImages = getInformationImages(locale);
 
   return (
     <main className="pt-20">

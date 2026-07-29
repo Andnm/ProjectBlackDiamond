@@ -9,7 +9,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { formatPriceFrom } from "@/lib/format-price";
 import collectionBg from "@/assets/images/background/collection_background.png";
 import { PosterShowcase } from "@/components/PosterShowcase";
-import { informationImages } from "@/lib/information-assets";
+import { getInformationImages } from "@/lib/information-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -22,6 +22,7 @@ const CUT_FILTERS = ["Emerald", "Radiant", "Cushion", "Asscher", "Marquise", "Br
 const PAGE_SIZE = 9;
 
 export function CatalogSections({ dictionary, locale, pieces }: Props) {
+  const informationImages = getInformationImages(locale);
   const [activeTab, setActiveTab] = useState<"retail" | "wholesale">("retail");
   const [selectedCuts, setSelectedCuts] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);

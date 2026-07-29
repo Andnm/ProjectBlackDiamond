@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PosterShowcase } from "@/components/PosterShowcase";
-import { informationImages } from "@/lib/information-assets";
+import { getInformationImages } from "@/lib/information-assets";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -10,16 +10,16 @@ type Props = {
   locale: Locale;
 };
 
-/** The four wide lifestyle banners, in dictionary order. */
-const BANNERS = [
-  informationImages.eliteLifestyle,
-  informationImages.performance,
-  informationImages.fineJewelry,
-  informationImages.hauteHorlogerie,
-] as const;
-
 export function LifestyleSections({ dictionary, locale }: Props) {
   const d = dictionary.lifestyle;
+  const informationImages = getInformationImages(locale);
+  /** The four wide lifestyle banners, in dictionary order. */
+  const BANNERS = [
+    informationImages.eliteLifestyle,
+    informationImages.performance,
+    informationImages.fineJewelry,
+    informationImages.hauteHorlogerie,
+  ] as const;
 
   return (
     <main>

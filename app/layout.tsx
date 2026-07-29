@@ -69,10 +69,6 @@ export const metadata: Metadata = {
     creator: "@blackdiamondluxury",
     images: ["/images/education-background.png"],
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  },
   verification: {
     // Add your Google Search Console verification code here:
     // google: "YOUR_GOOGLE_VERIFICATION_CODE",

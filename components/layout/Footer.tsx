@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getBrandLogo } from "@/lib/brand-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -20,8 +22,8 @@ export function Footer({ dictionary, locale }: Props) {
     <footer className="border-t border-outline/30 bg-surface-low py-16">
       <div className="section-shell grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <section>
-          <Link className="font-headline text-3xl text-primary" href={localizedPath(locale)}>
-            {dictionary.brand.name}
+          <Link className="focus-ring inline-flex items-center" href={localizedPath(locale)}>
+            <Image alt={dictionary.brand.name} className="h-12 w-auto" src={getBrandLogo(locale)} />
           </Link>
           <p className="mt-6 max-w-sm text-sm leading-7 text-on-muted">{dictionary.brand.tagline}</p>
         </section>

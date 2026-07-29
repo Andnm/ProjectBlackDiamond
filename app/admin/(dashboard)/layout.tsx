@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { defaultBrandLogo } from "@/lib/brand-assets";
 import { logout } from "@/app/admin/actions";
 
 const navItems = [
@@ -27,8 +29,8 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
       <div className="flex min-h-screen flex-col lg:flex-row">
         <aside className="flex shrink-0 flex-col gap-8 border-b border-neutral-800 px-6 py-6 lg:w-64 lg:border-b-0 lg:border-r lg:px-8 lg:py-10">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400">BlackDiamond</p>
-            <p className="mt-1 font-headline text-xl text-white">ผู้ดูแลระบบ</p>
+            <Image alt="BlackDiamond" className="h-8 w-auto" src={defaultBrandLogo} />
+            <p className="mt-2 font-headline text-xl text-white">ผู้ดูแลระบบ</p>
           </div>
 
           <nav className="flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-1">

@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { localizedPath, type Locale, type RouteKey } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getBrandLogo } from "@/lib/brand-assets";
 
 type Props = {
   dictionary: Dictionary;
@@ -65,11 +67,11 @@ export function Header({ dictionary, locale }: Props) {
       <div className="section-shell flex h-20 items-center justify-between">
         <div className="flex items-center gap-10">
           <Link
-            className="focus-ring font-headline text-2xl tracking-tight text-primary"
+            className="focus-ring flex items-center"
             href={localizedPath(locale)}
             onClick={() => setIsOpen(false)}
           >
-            {dictionary.brand.name}
+            <Image alt={dictionary.brand.name} className="h-10 w-auto" priority src={getBrandLogo(locale)} />
           </Link>
           <nav aria-label="การนำทางหลัก" className="hidden items-center gap-8 lg:flex">
             {desktopNav}
