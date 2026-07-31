@@ -1,10 +1,7 @@
 import type { MetadataRoute } from "next";
-import { defaultLocale, localizedPath, pathnames } from "@/i18n/routing";
+import { locales, localizedPath, pathnames } from "@/i18n/routing";
 import { getPublishedCollectionPieces } from "@/lib/data/collection";
 import { getPublishedBlogPosts } from "@/lib/data/blog";
-
-// Thai-only for now: only list the "th" locale tree in the sitemap.
-const locales = [defaultLocale] as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";

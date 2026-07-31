@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Noto_Serif, Noto_Sans_Thai, Noto_Serif_Thai } from "next/font/google";
+import { defaultLocale } from "@/i18n/routing";
+import "flag-icons/css/flag-icons.min.css";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -78,10 +80,15 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // The root layout sits above the [locale] segment, so it can't read
+  // params.locale (and reading it via headers()/cookies() here would force
+  // every route to render dynamically, losing static generation site-wide).
+  // Default to defaultLocale statically; [locale]/layout.tsx corrects the
+  // <html lang> client-side once it knows the real locale (see SyncHtmlLang).
   return (
     <html
       className={`${manrope.variable} ${notoSerif.variable} ${notoSansThai.variable} ${notoSerifThai.variable}`}
-      lang="th"
+      lang={defaultLocale}
       suppressHydrationWarning
     >
       <body>{children}</body>

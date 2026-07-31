@@ -14,6 +14,7 @@ import {
 } from "@/lib/admin/form-utils";
 import { isPriceCurrency } from "@/lib/format-price";
 import type { Certificate, CollectionPieceRow } from "@/lib/admin/types";
+import { syncTranslations } from "@/lib/translation/translate-content";
 
 export type PieceFormState = { error?: string } | null;
 
@@ -124,16 +125,20 @@ function revalidatePublicCollection(slug?: string) {
 export async function createCollectionPiece(_prevState: PieceFormState, formData: FormData): Promise<PieceFormState> {
   const supabase = await createClient();
 
+  let newId: string | null = null;
   try {
     const payload = await buildPiecePayload(supabase, formData, null);
-    const { error } = await supabase.from("collection_pieces").insert(payload);
+    const { data, error } = await supabase.from("collection_pieces").insert(payload).select("id").single();
     if (error) {
       if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
       return { error: error.message };
     }
+    newId = data.id;
   } catch (err) {
     return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
+
+  if (newId) await syncTranslations("collection_piece", newId);
 
   revalidatePath("/admin/collection");
   revalidatePublicCollection();
@@ -158,6 +163,8 @@ export async function updateCollectionPiece(
   } catch (err) {
     return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
+
+  await syncTranslations("collection_piece", id);
 
   revalidatePath("/admin/collection");
   revalidatePublicCollection();

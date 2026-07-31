@@ -4,9 +4,10 @@ import type { Locale } from "@/i18n/routing";
  * Row shapes for the Supabase-backed admin CRUD area.
  *
  * Localized text columns are stored as JSONB keyed by locale, e.g.
- * `{ "th": "ชื่อสินค้า" }`. The site is Thai-only for now, so the admin UI
- * only edits the "th" key — but the column can hold more locale keys later
- * (vi/lo/zh/en...) without any schema migration.
+ * `{ "th": "ชื่อสินค้า", "en": "..." }`. Admin still only authors the "th"
+ * key directly — the other locale keys (vi/lo/zh/en) are meant to be filled
+ * in by the translation pipeline (see MULTILINGUAL_TRANSLATION_PROJECT.md),
+ * not yet wired in. No schema migration is needed as those keys appear.
  */
 export type LocalizedJson = Partial<Record<Locale, string>>;
 

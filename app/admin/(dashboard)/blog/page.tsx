@@ -3,6 +3,8 @@ import Link from "next/link";
 import { listBlogPosts } from "@/lib/admin/blog-queries";
 import { fromLocalizedJson } from "@/lib/admin/form-utils";
 import { Pagination } from "@/components/admin/Pagination";
+import { Tooltip } from "@/components/admin/Tooltip";
+import { EditIcon, GlobeIcon } from "@/components/admin/icons";
 import { DeletePostButton } from "./DeletePostButton";
 
 type Props = {
@@ -80,12 +82,24 @@ export default async function AdminBlogListPage({ searchParams }: Props) {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-end gap-2">
-                      <Link
-                        className="border border-neutral-700 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-neutral-300 transition hover:border-amber-400 hover:text-amber-400"
-                        href={`/admin/blog/${post.id}/edit`}
-                      >
-                        แก้ไข
-                      </Link>
+                      <Tooltip label="แก้ไข">
+                        <Link
+                          aria-label="แก้ไข"
+                          className="inline-flex h-9 w-9 items-center justify-center border border-neutral-700 text-neutral-300 transition hover:border-amber-400 hover:text-amber-400"
+                          href={`/admin/blog/${post.id}/edit`}
+                        >
+                          <EditIcon />
+                        </Link>
+                      </Tooltip>
+                      <Tooltip label="คำแปล">
+                        <Link
+                          aria-label="คำแปล"
+                          className="inline-flex h-9 w-9 items-center justify-center border border-neutral-700 text-neutral-300 transition hover:border-amber-400 hover:text-amber-400"
+                          href={`/admin/blog/${post.id}/translations`}
+                        >
+                          <GlobeIcon />
+                        </Link>
+                      </Tooltip>
                       <DeletePostButton id={post.id} title={fromLocalizedJson(post.title) || post.slug} />
                     </div>
                   </td>

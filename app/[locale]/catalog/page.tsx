@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPublishedCollectionPieces } from "@/lib/data/collection";
+import { getDisplayRateForLocale } from "@/lib/data/exchange-rates";
 import { catalogListSchema, breadcrumbSchema } from "@/lib/schema";
 
 // Re-fetch from Supabase at most once per minute so admin edits show up
@@ -28,6 +29,7 @@ export default async function CatalogPage({ params }: PageProps) {
   const dictionary = await getDictionary(typedLocale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
   const collectionPieces = await getPublishedCollectionPieces();
+  const { currency, rate } = await getDisplayRateForLocale(typedLocale);
 
   return (
     <>
@@ -38,7 +40,7 @@ export default async function CatalogPage({ params }: PageProps) {
           { name: dictionary.seo.catalog.title },
         ]),
       ]} />
-      <CatalogSections dictionary={dictionary} locale={typedLocale} pieces={collectionPieces} />
+      <CatalogSections currency={currency} dictionary={dictionary} locale={typedLocale} pieces={collectionPieces} rate={rate} />
     </>
   );
 }

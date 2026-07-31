@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { SyncHtmlLang } from "@/components/SyncHtmlLang";
 import { getDictionary } from "@/i18n/dictionaries";
-import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
+import { isLocale, locales, type Locale } from "@/i18n/routing";
 import { organizationSchema } from "@/lib/schema";
 
 type Props = {
@@ -12,9 +13,7 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  // Thai-only for now: only pre-render the "th" locale tree.
-  // (proxy.ts redirects any old /vi/* or /en/* request to its /th/* equivalent.)
-  return [{ locale: defaultLocale }];
+  return locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -29,6 +28,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <>
+      <SyncHtmlLang locale={typedLocale} />
       <JsonLd schema={organizationSchema()} />
       <Header dictionary={dictionary} locale={typedLocale} />
       {children}

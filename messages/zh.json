@@ -1,0 +1,634 @@
+{
+  "brand": {
+    "name": "BlackDiamond",
+    "tagline": "献给收藏家的稀世黑钻——定制珠宝与另类投资资产"
+  },
+  "nav": {
+    "story": "品牌故事",
+    "education": "知识",
+    "catalog": "典藏",
+    "blog": "杂志",
+    "lifestyle": "生活方式",
+    "membership": "会员"
+  },
+  "common": {
+    "viewCatalog": "浏览典藏",
+    "joinMembership": "申请会员",
+    "requestConsultation": "预约咨询",
+    "learnMore": "了解更多",
+    "email": "contact@blackdiamondluxury.org",
+    "phone": "+66 2 123 4567",
+    "language": "语言",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "newsletterPlaceholder": "电子邮箱地址"
+  },
+  "seo": {
+    "home": {
+      "title": "BlackDiamond Luxury | 稀世黑钻",
+      "description": "探索经权威认证的稀世黑钻、可追溯来源、定制珠宝与投资级宝石——尽在 BlackDiamond Luxury",
+      "keywords": [
+        "黑钻",
+        "奢华珠宝",
+        "定制钻石",
+        "投资钻石"
+      ]
+    },
+    "about": {
+      "title": "BlackDiamond 的故事 | 源起、工艺与稀有",
+      "description": "了解 BlackDiamond 对黑钻的独到见解——从矿源、切割工艺到为收藏家精心甄选的每一环节",
+      "keywords": [
+        "黑钻故事",
+        "钻石源起",
+        "奢华珠宝品牌"
+      ]
+    },
+    "education": {
+      "title": "黑钻知识 | 源起、特性与切割工艺",
+      "description": "深入了解黑钻的成因、结构、稀有性、原石形态、切割工艺与克拉重量的独特价值",
+      "keywords": [
+        "黑钻知识",
+        "carbonado",
+        "黑钻特性"
+      ]
+    },
+    "catalog": {
+      "title": "BlackDiamond 典藏 | 经认证的黑钻",
+      "description": "浏览经认证黑钻典藏,专为珠宝定制、私人收藏与传承珍藏而生",
+      "keywords": [
+        "黑钻典藏",
+        "GIA黑钻",
+        "钻石典藏"
+      ]
+    },
+    "blog": {
+      "title": "BlackDiamond 杂志 | 黑钻知识与观点",
+      "description": "深度解读黑钻的源起、分级、投资价值、历史与保养之道,由 BlackDiamond 团队倾力撰写",
+      "keywords": [
+        "黑钻博客",
+        "黑钻指南",
+        "carbonado",
+        "钻石投资",
+        "钻石保养"
+      ]
+    },
+    "membership": {
+      "title": "BlackDiamond 会员 | 专属货源与私人定制",
+      "description": "加入 BlackDiamond 会员,尊享优先货源、礼宾服务与黑钻私人定制",
+      "keywords": [
+        "钻石会员",
+        "黑钻定制",
+        "私人钻石货源"
+      ]
+    },
+    "lifestyle": {
+      "title": "Carbonado 生活方式 | 超级跑车、游艇、腕表与珠宝",
+      "description": "Carbonado 遍布上流社会的世界——从超级跑车、游艇、私人飞机,到名贵腕表与定制珠宝",
+      "keywords": [
+        "奢华生活方式",
+        "carbonado 超级跑车",
+        "黑钻腕表",
+        "carbonado 珠宝"
+      ]
+    }
+  },
+  "about": {
+    "eyebrow": "品牌传承",
+    "heroTitle": "超越光谱之上",
+    "heroCopy": "黑钻并非诞生于地球寻常的压力之下。这神秘的多晶结构承载着宇宙起源的重量——吞噬光线的深邃,重新定义了何为璀璨。",
+    "narrativeTitle": "另一种稀有",
+    "narrativeBody": [
+      "典藏中的每一颗宝石,皆精选自地壳深处的变质岩地带,确保每颗宝石内在的纯粹密度与其源起的深度相匹配。",
+      "我们追求的从不是耀眼的光芒,而是重量与价值的坚守。BlackDiamond 诞生的初衷,正是将世间最纯粹的黑钻,带给真正懂得其意义的收藏家。",
+      "每一笔交易,皆有宝石学报告、产地文件,以及历经十五年实地积累的鉴赏眼光作为支撑。"
+    ],
+    "manifestoTitle": "BlackDiamond 宣言",
+    "manifesto": "光几乎能穿透万物,唯独黑钻将其尽数吞没。在这个崇尚闪耀的世界里,我们崇尚的是重量与价值——那历经数十亿年光阴、终抵达你手中、不可削减的物质存在。",
+    "statsItems": [
+      {
+        "value": "15+",
+        "label": "年实地深耕"
+      },
+      {
+        "value": "2,400+",
+        "label": "颗甄选宝石"
+      },
+      {
+        "value": "6",
+        "label": "个矿源国家"
+      },
+      {
+        "value": "100%",
+        "label": "认证保障"
+      }
+    ],
+    "processEyebrow": "我们的方法",
+    "processTitle": "从地心深处到您的典藏",
+    "processSteps": [
+      {
+        "step": "01",
+        "title": "实地勘察",
+        "body": "我们的宝石学专家亲赴巴西与中非的矿源现场,在原石流入商业市场前完成甄选。"
+      },
+      {
+        "step": "02",
+        "title": "地质评估",
+        "body": "每颗宝石均经过内部包裹体测绘、密度测定与结构完整性检测,以确认其符合收藏级标准。"
+      },
+      {
+        "step": "03",
+        "title": "精工切割",
+        "body": "精通黑钻工艺的匠人依循多晶结构精雕细琢,在不损及宝石完整性的前提下,尽显其最大光泽。"
+      },
+      {
+        "step": "04",
+        "title": "权威认证",
+        "body": "每颗宝石均配备完整文件,包括 GIA 或 IGI 证书、产地文件,以及 BlackDiamond 的专业鉴赏分析。"
+      }
+    ],
+    "ctaLabel": "探索典藏"
+  },
+  "home": {
+    "heroEyebrow": "BlackDiamond Luxury",
+    "heroTitle": "夜色中的稀世之珍",
+    "heroCopy": "极致地质与藏家品味在此交汇。天然黑钻,从矿源到认证,每一步皆有据可循。",
+    "legacyEyebrow": "传承的印记",
+    "legacyTitle": "超越光谱之上",
+    "legacyBody": [
+      "黑钻拥有吞噬光线的深邃,以前所未见的方式重新书写了璀璨的定义。",
+      "与依靠折射评判价值的透明宝石不同,黑钻的价值取决于重量、光泽与结构完整性——这是截然不同维度的价值体系。",
+      "每颗宝石均按产地与独特性精心甄选,并配备完整文件,让您安心珍藏、代代相传。"
+    ],
+    "eduTeaserEyebrow": "知识宝库",
+    "eduTeaserTitle": "读懂您所拥有的珍宝",
+    "eduTeaserItems": [
+      {
+        "title": "宇宙起源",
+        "body": "黑钻或许诞生于太阳系形成之前——源自超新星的剧烈撞击,而非地幔深处的压力。"
+      },
+      {
+        "title": "截然不同的结构",
+        "body": "多晶结构,而非单一晶体——一种本质上截然不同、拥有独特性质的材质。"
+      },
+      {
+        "title": "截然不同的标准",
+        "body": "以光泽、完整性与纹理评判——而非璀璨程度,这是独一无二的评判体系。"
+      }
+    ],
+    "eduTeaserCta": "探索知识宝库",
+    "vaultEyebrow": "限量甄选",
+    "vaultTitleHead": "典藏",
+    "vaultTitleTail": "自成一格",
+    "heroTitleLine1": "夜色中的",
+    "heroTitleLine2": "稀世之珍",
+    "legacyLink": "探索起源",
+    "vaultItems": [
+      {
+        "name": "日蚀",
+        "category": "奢华珠宝"
+      },
+      {
+        "name": "子夜誓言",
+        "category": "订婚系列"
+      },
+      {
+        "name": "星辰耳环",
+        "category": "日常华彩"
+      }
+    ],
+    "vaultBespokeTitle": "专属定制服务",
+    "vaultBespokeBody": "为顶级藏家量身打造的专属尺寸设计",
+    "vaultCtaTitle": "申请成为会员",
+    "vaultCtaBody": "尊享私人典藏鉴赏与优先购藏权",
+    "vaultCtaBtn": "立即申请",
+    "trustItems": [
+      {
+        "title": "来源认证保障",
+        "body": "每颗宝石均配备真实性、产地及合乎道德开采流程的证明文件。"
+      },
+      {
+        "title": "精湛工艺传承",
+        "body": "资深匠人深谙暗色调钻石的密度与吸光特性。"
+      },
+      {
+        "title": "投资级标准",
+        "body": "收藏级宝石依据稀有度、耐久性与长期投资组合价值精心甄选。"
+      }
+    ]
+  },
+  "education": {
+    "eyebrow": "专业知识系列",
+    "title": "暗黑的炼金术",
+    "intro": "黑钻是一种地质学上的异数——不透光、多晶结构,由极端压力、悠久岁月与神秘力量共同铸就。",
+    "originTitle": "起源之谜:宇宙抑或地心?",
+    "originBody": [
+      "与在地幔深处结晶的普通钻石不同,黑钻的起源故事至今仍众说纷纭。",
+      "其多孔结构与独特纹理,同时激发了地球成因说与外太空成因说两种假说。"
+    ],
+    "propertiesTitle": "超越常规的结构",
+    "properties": [
+      {
+        "title": "卓越的耐久性",
+        "body": "多晶结构使众多黑钻具备出色的抗解理性能。"
+      },
+      {
+        "title": "内部孔隙",
+        "body": "内部孔隙造就了黑钻独有的密度与质感。"
+      },
+      {
+        "title": "纯粹的黑",
+        "body": "石墨与矿物包裹体共同塑造了鲜明可辨的深邃黑色。"
+      }
+    ],
+    "originQuote": "黑钻是地球上唯一与金伯利岩无关的钻石——金伯利岩正是将钻石从地幔深处带至地表的火山通道。",
+    "originEvidenceLabel": "证据 #04",
+    "originEvidenceBody": "红外光谱分析显示,黑钻含有微量多环芳香烃化合物——这正是构成恒星的基础成分。",
+    "rarityCardTitle": "无与伦比的稀有性",
+    "rarityCardBody": "黑钻仅见于中非共和国与巴西,从未与普通钻石共存于同一矿源。",
+    "catalogCtaLabel": "浏览典藏",
+    "rawTitle": "原始形态",
+    "rawBody": "黑钻的天然形态令人联想到煤炭——没有固定形状,质地粗粝,诉说着它历经磨砺的形成历史。",
+    "cutTitle": "切割的美学",
+    "cutBody": "经过打磨后,黑钻会呈现出与透明宝石截然不同的金属光泽。",
+    "caratTitle": "找到属于您的风格",
+    "caratBody": "黑钻吸引目光的,不是璀璨的光芒,而是它的重量与纹理。",
+    "geographyEyebrow": "起源的地理版图",
+    "geographyTitle": "两大产地,两种个性",
+    "regions": [
+      {
+        "name": "巴西——碳玻黑钻之都",
+        "location": "Minas Gerais & Bahia",
+        "body": "巴西的碳玻黑钻(carbonado)是已知规模最大的天然黑钻矿源,发现于与金伯利岩管无关的冲积矿床中。这些宝石拥有更为致密的多晶质地和更浓郁的石墨包裹体,造就了吞噬光线的深邃黑色。",
+        "stats": [
+          {
+            "label": "平均密度",
+            "value": "3.1 g/cm³"
+          },
+          {
+            "label": "核心产区",
+            "value": "Bahia"
+          },
+          {
+            "label": "形成年代",
+            "value": "38亿年"
+          }
+        ]
+      },
+      {
+        "name": "中非共和国",
+        "location": "Lobaye & Sangha-Mbaéré",
+        "body": "中非的宝石表面孔隙度更高,光泽从暗淡到金属光泽不等,极具特色。其冲积分布模式与地外天体撞击理论高度吻合,造就了世间独一无二的起源故事。",
+        "stats": [
+          {
+            "label": "平均密度",
+            "value": "2.9 g/cm³"
+          },
+          {
+            "label": "核心产区",
+            "value": "Sangha-Mbaéré"
+          },
+          {
+            "label": "表面特征",
+            "value": "暗淡多孔"
+          }
+        ]
+      }
+    ],
+    "gradingEyebrow": "分级标准",
+    "gradingTitle": "黑钻品质如何评定",
+    "gradingIntro": "与以4C标准评估的无色钻石不同,黑钻依循一套专属体系评定,核心在于不透光度、结构与表面特征。",
+    "gradingCriteria": [
+      {
+        "title": "表面光泽",
+        "body": "从暗淡到钻石光泽,再到金属光泽——金属光泽最为稀有,在藏家市场中也最具价值。"
+      },
+      {
+        "title": "包裹体密度",
+        "body": "石墨与赤铁矿包裹体的分布决定了黑色的均匀程度。均匀致密的分布,远比斑驳或透光区域更受青睐。"
+      },
+      {
+        "title": "结构完整性",
+        "body": "与单晶钻石不同,黑钻依据其多晶结构的连贯性评定——放大镜下不应出现分离的晶界。"
+      },
+      {
+        "title": "表面特征",
+        "body": "记录微孔结构的可见程度。高等级宝石在10倍放大镜下呈现最少的表面孔隙,并能从切割刻面反射出最强的光泽。"
+      }
+    ],
+    "cuttingEyebrow": "切割工艺",
+    "cuttingTitle": "顺纹而琢",
+    "cuttingIntro": "黑钻的切割从本质上就比无色宝石更为复杂,其多晶结构需要一套截然不同的处理方法。",
+    "cuttingSteps": [
+      {
+        "step": "01",
+        "title": "结构测绘",
+        "body": "在任何锯具接触宝石之前,宝石学专家会用偏振光对多晶晶界进行测绘。切穿晶界可能导致裂纹蔓延至整颗宝石。"
+      },
+      {
+        "step": "02",
+        "title": "激光塑形",
+        "body": "初步塑形采用激光取代机械锯切。这种精度可降低热应力,并减少多晶材质常见的开裂风险。"
+      },
+      {
+        "step": "03",
+        "title": "刻面设计",
+        "body": "与透明宝石不同,黑钻的切割旨在最大限度展现纹理与表面光泽——而非折射光线。每一个造型决策,都纯粹关乎美学与结构上的建筑感。"
+      },
+      {
+        "step": "04",
+        "title": "金属光泽抛光",
+        "body": "专用的含钻石粉铁质抛光盘,将每个刻面打磨至完美的金属光泽。这一过程耗时,是同等大小无色钻石抛光时间的3至4倍。"
+      }
+    ]
+  },
+  "catalog": {
+    "eyebrow": "臻选典藏",
+    "heroLine1": "诞于暗黑",
+    "heroLine2": "献给敢于与众不同的你",
+    "title": "诞于暗黑,献给敢于与众不同的你",
+    "intro": "经认证黑钻宝库——开采自极端地质区域,依藏家标准严格检验,每一道锋利纹理皆经精雕细琢。",
+    "heroStats": [
+      {
+        "label": "现有宝石",
+        "value": "118+"
+      },
+      {
+        "label": "最低重量",
+        "value": "3 克拉"
+      },
+      {
+        "label": "认证机构",
+        "value": "GIA · IGI"
+      }
+    ],
+    "contextPills": [
+      {
+        "label": "硬度",
+        "value": "10 莫氏——自然界最坚硬的物质"
+      },
+      {
+        "label": "产地",
+        "value": "巴西 · 中非 · 俄罗斯"
+      },
+      {
+        "label": "致色机理",
+        "value": "石墨与赤铁矿包裹体"
+      },
+      {
+        "label": "光泽",
+        "value": "钻石光泽至金属光泽"
+      },
+      {
+        "label": "认证机构",
+        "value": "GIA · IGI · 内部分级"
+      }
+    ],
+    "filtersTitle": "精选筛选",
+    "filterCarat": "克拉重量",
+    "filterCut": "切割形状",
+    "filterPrice": "投资级别",
+    "priceFrom": "起价",
+    "stonesLabel": "颗",
+    "clearFilters": "清除筛选",
+    "noResults": "未找到符合所选条件的宝石",
+    "rarityLegendTitle": "稀有度指数",
+    "rarityLegend": [
+      {
+        "label": "极致稀有 (90–100)",
+        "color": "#e9c176"
+      },
+      {
+        "label": "收藏级 (80–89)",
+        "color": "#c5a059"
+      },
+      {
+        "label": "精选级 (70–79)",
+        "color": "#9a8f80"
+      }
+    ],
+    "retailTab": "展示厅",
+    "wholesaleTab": "战略合作伙伴",
+    "showing": "显示 118 颗中的 8 颗",
+    "loadMore": "查看更多",
+    "researchEyebrow": "宝石学视角",
+    "researchTitle": "黑钻诞生于压力之下,而非光芒之中",
+    "researchBody": "顶级黑钻典藏,需要完美的保护性镶嵌、克制内敛的造型,以及足以支撑私人珍藏的可靠文件。每一件作品都依据不透光度、表面光泽、包裹体稳定性、克拉重量的独特性,以及宝石与建筑感珠宝之间的呼应而精心甄选。",
+    "researchPillars": [
+      {
+        "title": "结构稳定性",
+        "body": "每颗多晶宝石在镶嵌前,均经过结构连续性检测。"
+      },
+      {
+        "title": "建筑感光泽",
+        "body": "从钻石光泽到金属光泽——依纹理甄选,而非依璀璨程度。"
+      },
+      {
+        "title": "产地文件",
+        "body": "每颗宝石均配备可追溯文件,为保险与长期投资提供支持。"
+      }
+    ],
+    "collectionTitle": "藏家典藏",
+    "viewDetail": "查看详情",
+    "bespokeEyebrow": "专属特别甄选",
+    "bespokeTitle": "尚未找到心仪的宝石?",
+    "bespokeBody": "我们的甄选团队与矿区直接合作,为您寻觅心仪的克拉重量、稀有切割与投资级宝石批次。每一项私人定制搜寻请求,均以最高的审慎与保密标准悉心处理。",
+    "bespokeFeatures": [
+      {
+        "title": "专属货源渠道",
+        "body": "覆盖巴西、非洲与俄罗斯的全球网络"
+      },
+      {
+        "title": "定制切割服务",
+        "body": "依藏家专属需求量身定制的几何造型"
+      },
+      {
+        "title": "托管与保险服务",
+        "body": "安全存储设施,配备完整的保险估值服务"
+      }
+    ],
+    "ethicalLabel": "透明来源 · 无冲突碳源",
+    "requestSearch": "申请专属搜寻",
+    "downloadCatalog": "下载典藏目录",
+    "detailBack": "返回典藏",
+    "detailSpecs": "技术参数",
+    "detailAnalysis": "专家分析",
+    "detailAcquisition": "购藏流程",
+    "detailSource": "参考图片来源",
+    "detailRarity": "稀有度",
+    "detailInclusion": "包裹体特征",
+    "detailLight": "光线反应",
+    "detailProvenance": "来源与认证",
+    "detailWearability": "佩戴体验",
+    "detailCare": "保养与存放",
+    "detailWhy": "为何这是一件 BlackDiamond 之作",
+    "detailPricing": "价格区间",
+    "detailPriceNote": "价格说明",
+    "detailInvestment": "投资价值",
+    "detailDimensions": "尺寸",
+    "detailHardness": "硬度",
+    "detailLuster": "表面光泽",
+    "detailTreatment": "优化处理",
+    "detailCertificate": "宝石证书",
+    "detailCertAuthority": "发证机构",
+    "detailCertNumber": "报告编号",
+    "detailCertType": "证书类型",
+    "detailCertDate": "签发日期",
+    "detailCertVerify": "官方系统验证",
+    "detailCertView": "查看证书",
+    "detailCertDownload": "下载 PDF",
+    "detailCertNote": "此报告编号可通过发证机构的公开系统独立验证。",
+    "detailCertNone": "此宝石附有内部分级记录,可依需求另行申请官方 GIA 或 IGI 证书。",
+    "priceApproxNote": "所示价格为泰铢的近似换算，实际价格可能因汇率变动而有所不同。"
+  },
+  "blog": {
+    "eyebrow": "BlackDiamond 杂志",
+    "title": "关于世上最稀有碳元素的思考",
+    "intro": "关于黑钻的起源、分级、市场与收藏之道的深度见解宝库。",
+    "allLabel": "全部",
+    "readMore": "阅读全文",
+    "minRead": "分钟阅读",
+    "loadMore": "查看更多文章"
+  },
+  "investment": {
+    "eyebrow": "守护资产价值",
+    "title": "BlackDiamond 标准",
+    "intro": "投资级黑钻依据密度、产地、市场稀缺性与证书可信度精心甄选。",
+    "performanceTitle": "投资表现",
+    "stats": [
+      {
+        "label": "稀缺指数",
+        "value": "98.4/100",
+        "body": "年复合价格增长趋势:+14.2%"
+      },
+      {
+        "label": "全球供应量",
+        "value": "有限",
+        "body": "仅有少数产地能产出收藏级黑钻。"
+      },
+      {
+        "label": "风险等级",
+        "value": "低波动性",
+        "body": "实物宝石可为投资组合带来股票之外的多元配置。"
+      }
+    ],
+    "standardsTitle": "不容妥协的标准",
+    "standardsBody": "每一笔交易都应配备宝石学证书、产地文件、安全托管选项,以及透明的所有权文件。",
+    "vaultSectionTitle": "安全存储方案",
+    "vaultSectionBody": "自主持有,亦可选择瑞士或新加坡的恒温托管服务。所有资产均由劳合社(Lloyd's of London)提供全面承保。",
+    "vaultSectionBtn": "联系专家顾问",
+    "channelsTitle": "购藏渠道",
+    "channels": [
+      {
+        "title": "私人典藏",
+        "body": "为个人藏家精选5至10克拉宝石。"
+      },
+      {
+        "title": "机构配置",
+        "body": "为家族办公室与投资基金提供的战略性配置方案。"
+      },
+      {
+        "title": "礼宾寻源服务",
+        "body": "为博物馆级孤品全球寻源。"
+      }
+    ]
+  },
+  "membership": {
+    "eyebrow": "重新定义尊享特权",
+    "title": "尊享圈层",
+    "intro": "会员身份开启优先货源权益,以及建筑感珠宝定制设计服务。",
+    "requestTitle": "申请邀请",
+    "requestBody": "会员申请将逐一审核,请提供您的职业相关信息。",
+    "form": {
+      "name": "法定姓名",
+      "email": "电子邮箱地址",
+      "submit": "提交申请"
+    },
+    "heroTitleLine1": "上流阶层",
+    "heroTitleLine2": "专属圈层",
+    "heroStats": [
+      {
+        "value": "0.01%",
+        "label": "全球供应量"
+      },
+      {
+        "value": "24/7",
+        "label": "礼宾服务"
+      }
+    ],
+    "heroInfoLabel": "真实性验证",
+    "heroInfoBody": "每颗宝石均经 BlackDiamond 产地登记系统认证。",
+    "retailTab": "零售",
+    "wholesaleTab": "批发",
+    "sizeLabel": "规格:尺寸(克拉)",
+    "shadeLabel": "黑色色调",
+    "cutLabel": "切割形状",
+    "quantityLabel": "所需数量",
+    "quotationBtn": "申请报价",
+    "bespokeTitle": "专属定制",
+    "bespokeBody": "从大师级零售单品到面向批发合作伙伴的建筑级供应,灵活定制您的购藏需求。",
+    "contactTitle": "专属礼宾顾问",
+    "contactBody": "为超过十克拉的宝石寻源需求提供直接加密联络渠道。会员咨询通常在四小时内获得回复。"
+  },
+  "posters": {
+    "overviewEyebrow": "品牌概览",
+    "overviewTitle": "Black Diamond 的宇宙",
+    "overviewCaption": "从切割工艺到代代相传的传承——纵览碳玻黑钻的世界",
+    "formationEyebrow": "形成之旅",
+    "formationCaption": "历经数十亿年地心深处的孕育,终成顶级珍藏之作——Black Diamond 的起源、稀有性与切割工艺",
+    "legacyEyebrow": "传承",
+    "legacyCaption": "有些价值无法以金钱衡量,而在于留给后人的印记",
+    "collectorEyebrow": "藏家",
+    "collectorCaption": "真正的成功者从不多买——他们只珍藏经得起时间考验的价值",
+    "occasionEyebrow": "华宴之夜",
+    "occasionCaption": "无意夺目,只为最自然地彰显身份",
+    "companionEyebrow": "相伴同行",
+    "companionCaption": "Carbonado 代表着共同分享的生活方式——两个人,同一种愿景",
+    "crownEyebrow": "权力的象征",
+    "crownCaption": "权力无需宣告,却在每一处细节中被感知"
+  },
+  "lifestyle": {
+    "eyebrow": "Carbonado 的世界",
+    "titleHead": "生活方式",
+    "titleTail": "至臻境界",
+    "intro": "无需张扬的格调,无边界的权势。Carbonado 是上流社会的印记——从天空到海洋,从速度机械到制表艺术,无处不在。",
+    "scrollHint": "向下滚动探索",
+    "worldsEyebrow": "Carbonado 的四大世界",
+    "worldsTitle": "格调所在之处",
+    "worldsIntro": "它不仅仅是一颗宝石。Carbonado 是极致奢华符号的共通语言——每一处细节,都在诉说权势与品味的故事。",
+    "items": [
+      {
+        "tag": "游艇 · 私人飞机",
+        "title": "上流生活方式",
+        "body": "游艇、私人飞机与顶级生活空间——Carbonado 在此化身为自由与绝对影响力的象征。"
+      },
+      {
+        "tag": "超级跑车 · 性能",
+        "title": "性能工程",
+        "body": "凭借超凡的硬度与高耐久性晶体结构,Carbonado 为顶级速度机械赋予极致性能。"
+      },
+      {
+        "tag": "奢华珠宝",
+        "title": "奢华珠宝",
+        "body": "上流阶层与权势的象征——每一件 Carbonado 珠宝,都是格调与精致品味的宣言。"
+      },
+      {
+        "tag": "腕表 · 匠心工艺",
+        "title": "高级腕表",
+        "body": "精准、恒久、超越时间。Carbonado 是顶级计时器的理想材质,精准无比,历久弥新。"
+      }
+    ],
+    "ctaTitle": "步入上流世界",
+    "ctaBody": "拥有一件 Carbonado 作品,即是步入一种生活方式——在这里,格调于每一处细节中被感知。",
+    "teaserEyebrow": "生活方式",
+    "teaserTitle": "无需张扬的格调",
+    "teaserBody": "从超级跑车、游艇、私人飞机,到腕表与奢华珠宝——探索 Carbonado 作为上流阶层印记的世界。",
+    "teaserCta": "探索生活方式"
+  },
+  "footer": {
+    "quickLinks": "快速链接",
+    "support": "客户支持",
+    "newsletter": "订阅通讯",
+    "newsletterCopy": "获取专属邀请,率先参与展览与限量典藏发布",
+    "copyright": "© 2026 BlackDiamond Luxury 版权所有"
+  }
+}

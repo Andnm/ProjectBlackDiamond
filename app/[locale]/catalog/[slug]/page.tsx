@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { CatalogDetailSections } from "@/components/sections/CatalogDetailSections";
 import { JsonLd } from "@/components/JsonLd";
 import { getDictionary } from "@/i18n/dictionaries";
-import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
+import { isLocale, locales, type Locale } from "@/i18n/routing";
 import { getPublishedCollectionPiece, getPublishedCollectionSlugs } from "@/lib/data/collection";
+import { getDisplayRateForLocale } from "@/lib/data/exchange-rates";
 import { gemstoneProductSchema, breadcrumbSchema } from "@/lib/schema";
 
 // Re-fetch from Supabase at most once per minute so admin edits show up
@@ -16,9 +17,8 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  // Thai-only for now: only pre-render the "th" locale tree.
   const slugs = await getPublishedCollectionSlugs();
-  return slugs.map((slug) => ({ locale: defaultLocale, slug }));
+  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -39,16 +39,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: piece.tags,
     alternates: {
       canonical: url,
-      languages: {
-        th: `${siteUrl}/th/catalog/${slug}`,
-      },
+      languages: Object.fromEntries(locales.map((l) => [l, `${siteUrl}/${l}/catalog/${slug}`])),
     },
     openGraph: {
       title: piece.name[typedLocale],
       description: piece.summary[typedLocale],
       url,
       siteName: dictionary.brand.name,
-      locale: "th_TH",
       type: "website",
       images: [
         {
@@ -77,6 +74,7 @@ export default async function CatalogDetailPage({ params }: PageProps) {
 
   const dictionary = await getDictionary(locale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
+  const { currency, rate } = await getDisplayRateForLocale(locale);
 
   return (
     <>
@@ -88,7 +86,7 @@ export default async function CatalogDetailPage({ params }: PageProps) {
           { name: piece.name[locale] },
         ]),
       ]} />
-      <CatalogDetailSections dictionary={dictionary} locale={locale} piece={piece} />
+      <CatalogDetailSections currency={currency} dictionary={dictionary} locale={locale} piece={piece} rate={rate} />
     </>
   );
 }

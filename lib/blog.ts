@@ -17,9 +17,19 @@ export type BlogPost = {
   tags: string[];
 };
 
+const DATE_LOCALE_TAGS: Record<Locale, string> = {
+  th: "th-TH",
+  vi: "vi-VN",
+  lo: "lo-LA",
+  zh: "zh-CN",
+  en: "en-GB",
+};
+
 export function formatDate(dateString: string, locale: string): string {
-  return new Date(dateString).toLocaleDateString(
-    locale === "th" ? "th-TH" : "en-GB",
-    { day: "2-digit", month: "long", year: "numeric" }
-  );
+  const tag = DATE_LOCALE_TAGS[locale as Locale] ?? DATE_LOCALE_TAGS.en;
+  return new Date(dateString).toLocaleDateString(tag, {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
 }
