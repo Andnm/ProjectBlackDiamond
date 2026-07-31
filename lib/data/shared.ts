@@ -1,20 +1,23 @@
-import type { Locale } from "@/i18n/routing";
+import { locales, type Locale } from "@/i18n/routing";
 
 /**
- * The site is Thai-only for now: every localized JSONB column from Supabase
- * only carries a "th" key (e.g. `{ "th": "..." }`). These helpers read that
- * single value into the `Record<Locale, T>` shape the existing
- * components/schema functions expect. Once more locale keys are added to the
- * JSONB (vi/lo/zh/en...), this should read the requested locale directly
- * instead of always reading "th".
+ * Localized JSONB columns from Supabase are keyed by locale (e.g.
+ * `{ "th": "...", "en": "..." }`), but a given row may not have every
+ * locale key yet — content is authored in Thai first and translated into
+ * the others afterward. Any locale missing its own key falls back to "th",
+ * the always-complete source language.
  */
 
 export function localizedText(value: unknown): Record<Locale, string> {
   const record = (value ?? {}) as Partial<Record<Locale, string>>;
-  return { th: record.th ?? "" };
+  const th = record.th ?? "";
+  return Object.fromEntries(locales.map((l) => [l, record[l] ?? th])) as Record<Locale, string>;
 }
 
 export function localizedStringArray(value: unknown): Record<Locale, string[]> {
   const record = (value ?? {}) as Partial<Record<Locale, string[]>>;
-  return { th: Array.isArray(record.th) ? record.th : [] };
+  const th = Array.isArray(record.th) ? record.th : [];
+  return Object.fromEntries(
+    locales.map((l) => [l, Array.isArray(record[l]) ? (record[l] as string[]) : th]),
+  ) as Record<Locale, string[]>;
 }

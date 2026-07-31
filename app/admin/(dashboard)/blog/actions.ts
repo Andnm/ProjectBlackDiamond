@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { parseTags, readInt, readText, toLocalizedJson } from "@/lib/admin/form-utils";
 import type { BlogPostRow } from "@/lib/admin/types";
+import { syncTranslations } from "@/lib/translation/translate-content";
 
 export type PostFormState = { error?: string } | null;
 
@@ -62,16 +63,20 @@ function revalidatePublicBlog(slug?: string) {
 export async function createBlogPost(_prevState: PostFormState, formData: FormData): Promise<PostFormState> {
   const supabase = await createClient();
 
+  let newId: string | null = null;
   try {
     const payload = await buildPostPayload(supabase, formData, null);
-    const { error } = await supabase.from("blog_posts").insert(payload);
+    const { data, error } = await supabase.from("blog_posts").insert(payload).select("id").single();
     if (error) {
       if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
       return { error: error.message };
     }
+    newId = data.id;
   } catch (err) {
     return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
+
+  if (newId) await syncTranslations("blog_post", newId);
 
   revalidatePath("/admin/blog");
   revalidatePublicBlog();
@@ -96,6 +101,8 @@ export async function updateBlogPost(
   } catch (err) {
     return { error: err instanceof Error ? err.message : "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ" };
   }
+
+  await syncTranslations("blog_post", id);
 
   revalidatePath("/admin/blog");
   revalidatePublicBlog();

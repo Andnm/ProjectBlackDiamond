@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import type { CollectionPiece } from "@/lib/collection";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { formatPriceFrom } from "@/lib/format-price";
+import { convertPrice, formatPriceFrom, type DisplayCurrency } from "@/lib/format-price";
 import collectionBg from "@/assets/images/background/collection_background.png";
 import { PosterShowcase } from "@/components/PosterShowcase";
 import { getInformationImages } from "@/lib/information-assets";
@@ -15,13 +15,15 @@ type Props = {
   dictionary: Dictionary;
   locale: Locale;
   pieces: CollectionPiece[];
+  currency: DisplayCurrency;
+  rate: number | null;
 };
 
 const CUT_FILTERS = ["Emerald", "Radiant", "Cushion", "Asscher", "Marquise", "Brilliant", "Cabochon"];
 
 const PAGE_SIZE = 9;
 
-export function CatalogSections({ dictionary, locale, pieces }: Props) {
+export function CatalogSections({ dictionary, locale, pieces, currency, rate }: Props) {
   const informationImages = getInformationImages(locale);
   const [activeTab, setActiveTab] = useState<"retail" | "wholesale">("retail");
   const [selectedCuts, setSelectedCuts] = useState<string[]>([]);
@@ -265,7 +267,14 @@ export function CatalogSections({ dictionary, locale, pieces }: Props) {
               <>
                 <div className="grid grid-cols-1 gap-px overflow-hidden bg-outline/10 md:grid-cols-2 xl:grid-cols-3">
                   {visiblePieces.map((piece) => (
-                    <CatalogCard dictionary={dictionary} key={piece.slug} locale={locale} piece={piece} />
+                    <CatalogCard
+                      currency={currency}
+                      dictionary={dictionary}
+                      key={piece.slug}
+                      locale={locale}
+                      piece={piece}
+                      rate={rate}
+                    />
                   ))}
                 </div>
                 <p className="mt-8 text-center text-[11px] font-bold uppercase tracking-[0.16em] text-on-muted">
@@ -396,11 +405,16 @@ function CatalogCard({
   piece,
   locale,
   dictionary,
+  currency,
+  rate,
 }: {
   piece: CollectionPiece;
   locale: Locale;
   dictionary: Dictionary;
+  currency: DisplayCurrency;
+  rate: number | null;
 }) {
+  const displayPrice = piece.price ? convertPrice(piece.price, currency, rate) : null;
   const rarityColor =
     piece.rarityIndex >= 90
       ? "#e9c176"
@@ -470,9 +484,14 @@ function CatalogCard({
             </p>
             <h2 className="font-headline text-2xl leading-tight">{piece.name[locale]}</h2>
           </div>
-          {piece.price ? (
-            <span className="whitespace-nowrap text-sm font-bold text-primary">
-              {formatPriceFrom(piece.price, dictionary.catalog.priceFrom)}
+          {displayPrice ? (
+            <span className="flex flex-col items-end whitespace-nowrap text-right">
+              <span className="text-sm font-bold text-primary">
+                {formatPriceFrom(displayPrice, dictionary.catalog.priceFrom)}
+              </span>
+              {displayPrice.isConverted ? (
+                <span className="text-[10px] text-on-muted/70">{dictionary.catalog.priceApproxNote}</span>
+              ) : null}
             </span>
           ) : null}
         </div>

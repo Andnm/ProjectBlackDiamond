@@ -4,7 +4,7 @@ import { BlogPostSections } from "@/components/sections/BlogPostSections";
 import { JsonLd } from "@/components/JsonLd";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublishedBlogPost, getPublishedBlogSlugs } from "@/lib/data/blog";
-import { defaultLocale, isLocale, type Locale } from "@/i18n/routing";
+import { isLocale, locales, type Locale } from "@/i18n/routing";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 // Re-fetch from Supabase at most once per minute so admin edits show up
@@ -16,9 +16,8 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  // Thai-only for now: only pre-render the "th" locale tree.
   const slugs = await getPublishedBlogSlugs();
-  return slugs.map((slug) => ({ locale: defaultLocale, slug }));
+  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

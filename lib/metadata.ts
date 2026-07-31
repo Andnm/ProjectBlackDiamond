@@ -6,6 +6,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondlux
 
 const OG_LOCALE_TAGS: Record<Locale, string> = {
   th: "th_TH",
+  vi: "vi_VN",
+  lo: "lo_LA",
+  zh: "zh_CN",
+  en: "en_US",
 };
 
 function ogLocale(locale: Locale) {

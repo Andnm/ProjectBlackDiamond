@@ -19,17 +19,6 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(target);
   }
 
-  // Thai-only for now: redirect any old /vi/* or /en/* path to its /th/* equivalent,
-  // preserving the query string (e.g. /vi/catalog?q=void&page=2).
-  for (const oldLocale of ["vi", "en"]) {
-    if (pathname === `/${oldLocale}` || pathname.startsWith(`/${oldLocale}/`)) {
-      const rest = pathname.slice(`/${oldLocale}`.length);
-      const target = request.nextUrl.clone();
-      target.pathname = `/${defaultLocale}${rest}`;
-      return NextResponse.redirect(target);
-    }
-  }
-
   return NextResponse.next();
 }
 

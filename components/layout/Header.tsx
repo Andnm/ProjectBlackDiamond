@@ -7,6 +7,7 @@ import { useState } from "react";
 import { localizedPath, type Locale, type RouteKey } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { getBrandLogo } from "@/lib/brand-assets";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 
 type Props = {
   dictionary: Dictionary;
@@ -79,6 +80,7 @@ export function Header({ dictionary, locale }: Props) {
         </div>
 
         <div className="flex items-center gap-3">
+          <LanguageSwitcher label={dictionary.common.language} locale={locale} />
           <Link
             className="focus-ring hidden bg-primary px-6 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-on-primary transition hover:bg-primary-muted lg:inline-flex"
             href={localizedPath(locale, "membership")}

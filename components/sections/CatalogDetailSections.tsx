@@ -3,17 +3,20 @@ import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { CollectionPiece } from "@/lib/collection";
 import { localizedPath, type Locale } from "@/i18n/routing";
-import { formatPriceFrom } from "@/lib/format-price";
+import { convertPrice, formatPriceFrom, type DisplayCurrency } from "@/lib/format-price";
 import { CertificateViewer, NoCertificatePlaceholder } from "@/components/CertificateViewer";
 
 type Props = {
   dictionary: Dictionary;
   locale: Locale;
   piece: CollectionPiece;
+  currency: DisplayCurrency;
+  rate: number | null;
 };
 
-export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
+export function CatalogDetailSections({ dictionary, locale, piece, currency, rate }: Props) {
   const d = dictionary.catalog;
+  const displayPrice = piece.price ? convertPrice(piece.price, currency, rate) : null;
 
   const rarityColor =
     piece.rarityIndex >= 90
@@ -111,8 +114,11 @@ export function CatalogDetailSections({ dictionary, locale, piece }: Props) {
                     {d.detailPricing}
                   </p>
                   <p className="font-headline text-3xl text-primary">
-                    {piece.price ? formatPriceFrom(piece.price, d.priceFrom) : "—"}
+                    {displayPrice ? formatPriceFrom(displayPrice, d.priceFrom) : "—"}
                   </p>
+                  {displayPrice?.isConverted ? (
+                    <p className="mt-1 text-[11px] text-on-muted/70">{d.priceApproxNote}</p>
+                  ) : null}
                   <p className="mt-2 text-xs leading-5 text-on-muted">{piece.priceNote[locale]}</p>
                 </div>
                 <div className="bg-surface p-7">

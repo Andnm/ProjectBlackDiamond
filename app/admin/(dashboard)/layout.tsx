@@ -1,15 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { defaultBrandLogo } from "@/lib/brand-assets";
+import { AdminSidebarNav } from "@/components/admin/AdminSidebarNav";
 import { logout } from "@/app/admin/actions";
-
-const navItems = [
-  { href: "/admin", label: "ภาพรวม" },
-  { href: "/admin/collection", label: "คอลเลกชัน" },
-  { href: "/admin/blog", label: "บทความ" },
-];
 
 export default async function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -33,17 +27,7 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
             <p className="mt-2 font-headline text-xl text-white">ผู้ดูแลระบบ</p>
           </div>
 
-          <nav className="flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-1">
-            {navItems.map((item) => (
-              <Link
-                className="border border-transparent px-4 py-2.5 text-xs font-bold uppercase tracking-[0.16em] text-neutral-300 transition hover:border-neutral-700 hover:text-amber-400"
-                href={item.href}
-                key={item.href}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <AdminSidebarNav />
 
           <div className="mt-auto flex flex-col gap-3 border-t border-neutral-800 pt-6">
             <p className="truncate text-xs text-neutral-500" title={user.email ?? undefined}>

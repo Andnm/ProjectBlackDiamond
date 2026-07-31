@@ -107,24 +107,25 @@ export function PostForm({ post, action, submitLabel }: Props) {
         <RichTextEditor defaultValue={fromLocalizedJson(post?.body)} name="body" />
       </fieldset>
 
-      {state?.error ? (
-        <p className="border border-red-900/60 bg-red-950/40 px-4 py-3 text-sm text-red-300">{state.error}</p>
-      ) : null}
-
-      <div>
-        <button
-          className="bg-amber-400 px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 transition hover:bg-amber-300 disabled:opacity-60"
-          disabled={isPending}
-          type="submit"
-        >
-          {isPending ? (
-            <span className="inline-flex items-center gap-2">
-              <Spinner /> กำลังบันทึก…
-            </span>
-          ) : (
-            submitLabel
-          )}
-        </button>
+      <div className="sticky bottom-0 z-10 flex flex-col gap-3 border-t border-neutral-800 bg-neutral-950/95 py-4 backdrop-blur-xl">
+        {state?.error ? (
+          <p className="border border-red-900/60 bg-red-950/40 px-4 py-3 text-sm text-red-300">{state.error}</p>
+        ) : null}
+        <div>
+          <button
+            className="bg-amber-400 px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 transition hover:bg-amber-300 disabled:opacity-60"
+            disabled={isPending}
+            type="submit"
+          >
+            {isPending ? (
+              <span className="inline-flex items-center gap-2">
+                <Spinner /> กำลังบันทึก…
+              </span>
+            ) : (
+              submitLabel
+            )}
+          </button>
+        </div>
       </div>
     </form>
   );

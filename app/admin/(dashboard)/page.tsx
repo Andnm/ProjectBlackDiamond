@@ -1,5 +1,14 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { getActiveTranslationProvider } from "@/lib/translation/provider";
+import { getQuotaStatus, QUOTA_THRESHOLDS } from "@/lib/translation/quota";
+
+const QUOTA_LEVEL_META = {
+  ok: { label: "ปกติ", bar: "bg-emerald-400", text: "text-emerald-300" },
+  yellow: { label: "เตือนระดับเหลือง", bar: "bg-amber-400", text: "text-amber-300" },
+  red: { label: "เตือนระดับแดง", bar: "bg-red-400", text: "text-red-300" },
+  stop: { label: "หยุดแปลอัตโนมัติชั่วคราว", bar: "bg-red-500", text: "text-red-400" },
+} as const;
 
 export default async function AdminDashboardPage() {
   const supabase = await createClient();
@@ -18,6 +27,11 @@ export default async function AdminDashboardPage() {
       .select("*", { count: "exact", head: true })
       .eq("published", true),
   ]);
+
+  const provider = getActiveTranslationProvider();
+  const quota = await getQuotaStatus(provider);
+  const quotaMeta = QUOTA_LEVEL_META[quota.level];
+  const quotaPercent = Math.min(100, Math.round((quota.used / QUOTA_THRESHOLDS.stop) * 100));
 
   const cards = [
     {
@@ -74,6 +88,26 @@ export default async function AdminDashboardPage() {
             </Link>
           </div>
         ))}
+      </div>
+
+      <div className="border border-neutral-800 bg-neutral-900/40 p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-neutral-400">
+            โควต้าแปลภาษาเดือนนี้ ({provider.id === "unconfigured" ? "ยังไม่ได้ตั้งค่า provider" : provider.id})
+          </p>
+          <span className={`text-xs font-bold uppercase tracking-[0.14em] ${quotaMeta.text}`}>{quotaMeta.label}</span>
+        </div>
+        <div className="mt-4 h-2 w-full overflow-hidden bg-neutral-800">
+          <div className={`h-full ${quotaMeta.bar} transition-all`} style={{ width: `${quotaPercent}%` }} />
+        </div>
+        <p className="mt-3 text-sm text-neutral-400">
+          ใช้ไป {quota.used.toLocaleString("th-TH")} ตัวอักษร จากเพดานเตือน {QUOTA_THRESHOLDS.stop.toLocaleString("th-TH")}{" "}
+          (เหลือ {quota.remaining.toLocaleString("th-TH")})
+        </p>
+        <p className="mt-1 text-xs text-neutral-500">
+          เหลือง {QUOTA_THRESHOLDS.yellow.toLocaleString("th-TH")} · แดง {QUOTA_THRESHOLDS.red.toLocaleString("th-TH")} · หยุดแปลอัตโนมัติที่{" "}
+          {QUOTA_THRESHOLDS.stop.toLocaleString("th-TH")}
+        </p>
       </div>
     </div>
   );

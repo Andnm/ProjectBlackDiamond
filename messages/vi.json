@@ -1,0 +1,634 @@
+{
+  "brand": {
+    "name": "BlackDiamond",
+    "tagline": "Kim cương đen hiếm dành cho nhà sưu tầm, trang sức đặt chế tác riêng và tài sản đầu tư thay thế"
+  },
+  "nav": {
+    "story": "Câu chuyện",
+    "education": "Kiến thức",
+    "catalog": "Bộ sưu tập",
+    "blog": "Tạp chí",
+    "lifestyle": "Phong cách sống",
+    "membership": "Hội viên"
+  },
+  "common": {
+    "viewCatalog": "Xem bộ sưu tập",
+    "joinMembership": "Đăng ký hội viên",
+    "requestConsultation": "Yêu cầu tư vấn",
+    "learnMore": "Tìm hiểu thêm",
+    "email": "contact@blackdiamondluxury.org",
+    "phone": "+66 2 123 4567",
+    "language": "Ngôn ngữ",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "newsletterPlaceholder": "Địa chỉ email"
+  },
+  "seo": {
+    "home": {
+      "title": "BlackDiamond Luxury | Kim Cương Đen Hiếm",
+      "description": "Khám phá kim cương đen hiếm, nguồn gốc được chứng nhận, trang sức đặt chế tác riêng và đá quý cấp độ đầu tư từ BlackDiamond Luxury",
+      "keywords": [
+        "kim cương đen",
+        "trang sức xa xỉ",
+        "kim cương đặt chế tác",
+        "kim cương đầu tư"
+      ]
+    },
+    "about": {
+      "title": "Câu Chuyện BlackDiamond | Nguồn Gốc, Tay Nghề Và Sự Hiếm Có",
+      "description": "Tìm hiểu góc nhìn của BlackDiamond về kim cương đen, nguồn gốc hình thành, nghệ thuật cắt mài và quy trình tuyển chọn dành cho nhà sưu tầm",
+      "keywords": [
+        "câu chuyện kim cương đen",
+        "nguồn gốc kim cương",
+        "thương hiệu đá quý xa xỉ"
+      ]
+    },
+    "education": {
+      "title": "Kiến Thức Về Kim Cương Đen | Nguồn Gốc, Đặc Tính Và Cắt Mài",
+      "description": "Tìm hiểu nguồn gốc, cấu trúc, độ hiếm, hình dạng thô, kỹ thuật cắt mài và đặc điểm nổi bật theo trọng lượng carat của kim cương đen",
+      "keywords": [
+        "kiến thức kim cương đen",
+        "carbonado",
+        "đặc tính kim cương đen"
+      ]
+    },
+    "catalog": {
+      "title": "Bộ Sưu Tập BlackDiamond | Kim Cương Đen Được Chứng Nhận",
+      "description": "Chiêm ngưỡng bộ sưu tập kim cương đen được chứng nhận, phù hợp cho trang sức, sưu tầm và sở hữu cá nhân",
+      "keywords": [
+        "bộ sưu tập kim cương đen",
+        "kim cương đen GIA",
+        "bộ sưu tập kim cương"
+      ]
+    },
+    "blog": {
+      "title": "Tạp Chí BlackDiamond | Kiến Thức Và Góc Nhìn Về Kim Cương Đen",
+      "description": "Những bài viết chuyên sâu về nguồn gốc, phân loại, đầu tư, lịch sử và cách bảo quản kim cương đen, do đội ngũ BlackDiamond biên soạn",
+      "keywords": [
+        "blog kim cương đen",
+        "cẩm nang kim cương đen",
+        "carbonado",
+        "đầu tư kim cương",
+        "bảo quản kim cương"
+      ]
+    },
+    "membership": {
+      "title": "Hội Viên BlackDiamond | Nguồn Cung Đặc Quyền Và Chế Tác Riêng",
+      "description": "Đăng ký hội viên BlackDiamond để được ưu tiên tiếp cận nguồn kim cương, dịch vụ concierge riêng và chế tác kim cương đen theo yêu cầu cá nhân",
+      "keywords": [
+        "hội viên kim cương",
+        "kim cương đen đặt chế tác",
+        "nguồn cung kim cương riêng"
+      ]
+    },
+    "lifestyle": {
+      "title": "Phong Cách Sống Carbonado | Siêu Xe, Du Thuyền, Đồng Hồ Và Trang Sức",
+      "description": "Carbonado hiện diện trong thế giới thượng lưu — từ siêu xe, du thuyền, phi cơ riêng cho đến đồng hồ cao cấp và trang sức chế tác riêng",
+      "keywords": [
+        "phong cách sống xa xỉ",
+        "carbonado siêu xe",
+        "đồng hồ kim cương đen",
+        "trang sức carbonado"
+      ]
+    }
+  },
+  "about": {
+    "eyebrow": "Di sản thương hiệu",
+    "heroTitle": "Vượt Trên Cả Quang Phổ Ánh Sáng",
+    "heroCopy": "Kim cương đen không hình thành từ áp lực thông thường của Trái Đất. Cấu trúc đa tinh thể đầy bí ẩn này mang trong mình trọng lượng của nguồn gốc vũ trụ — một chiều sâu hấp thụ ánh sáng, viết lại định nghĩa của sự lấp lánh.",
+    "narrativeTitle": "Một Hình Thái Khác Của Sự Hiếm Có",
+    "narrativeBody": [
+      "Mỗi viên đá quý trong bộ sưu tập được tuyển chọn tỉ mỉ từ những vùng đá biến chất sâu trong lòng đất, đảm bảo mật độ nội tại của từng viên thuần khiết tương xứng với độ sâu nơi nó hình thành.",
+      "Chúng tôi không theo đuổi sự lấp lánh. Chúng tôi gìn giữ trọng lượng và giá trị đích thực. BlackDiamond ra đời để mang những viên kim cương đen nghiêm túc nhất thế giới đến với những nhà sưu tầm thực sự thấu hiểu ý nghĩa mà chúng đại diện.",
+      "Mọi giao dịch đều được bảo chứng bằng báo cáo giám định đá quý, hồ sơ nguồn gốc và con mắt tuyển chọn được tích lũy qua mười lăm năm hoạt động thực địa."
+    ],
+    "manifestoTitle": "Tuyên Ngôn BlackDiamond",
+    "manifesto": "Ánh sáng xuyên qua hầu hết mọi vật, nhưng kim cương đen thì nuốt trọn nó. Trong một thế giới tôn thờ sự lấp lánh, chúng tôi tôn thờ trọng lượng và giá trị — sự hiện hữu không thể rút gọn của một vật chất đã trải qua hàng tỷ năm để đến được trong tay bạn.",
+    "statsItems": [
+      {
+        "value": "15+",
+        "label": "Năm hoạt động thực địa"
+      },
+      {
+        "value": "2,400+",
+        "label": "Viên đá quý đã tuyển chọn"
+      },
+      {
+        "value": "6",
+        "label": "Quốc gia khai thác"
+      },
+      {
+        "value": "100%",
+        "label": "Được chứng nhận"
+      }
+    ],
+    "processEyebrow": "Phương pháp của chúng tôi",
+    "processTitle": "Từ Lòng Đất Đến Bộ Sưu Tập Của Bạn",
+    "processSteps": [
+      {
+        "step": "01",
+        "title": "Khảo Sát Thực Địa",
+        "body": "Các chuyên gia giám định đá quý của chúng tôi trực tiếp đến các mỏ khai thác tại Brazil và Trung Phi để tuyển chọn đá thô trước khi chúng bước vào thị trường thương mại."
+      },
+      {
+        "step": "02",
+        "title": "Đánh Giá Địa Chất",
+        "body": "Mỗi viên đá quý đều trải qua quá trình lập bản đồ tạp chất bên trong, đo mật độ và kiểm tra tính toàn vẹn cấu trúc để xác nhận đạt tiêu chuẩn sưu tầm."
+      },
+      {
+        "step": "03",
+        "title": "Cắt Mài Chính Xác",
+        "body": "Các nghệ nhân chuyên về kim cương đen làm việc cùng cấu trúc đa tinh thể để khai thác tối đa độ bóng mà không ảnh hưởng đến sự toàn vẹn của viên đá."
+      },
+      {
+        "step": "04",
+        "title": "Chứng Nhận",
+        "body": "Mỗi viên đá quý được cấp đầy đủ hồ sơ, bao gồm chứng nhận GIA hoặc IGI, tài liệu nguồn gốc và phân tích tuyển chọn từ BlackDiamond."
+      }
+    ],
+    "ctaLabel": "Khám phá bộ sưu tập"
+  },
+  "home": {
+    "heroEyebrow": "BlackDiamond Luxury",
+    "heroTitle": "Sự Hiếm Có Của Đêm Tối",
+    "heroCopy": "Nơi địa chất khắc nghiệt hội tụ cùng gu thẩm mỹ tinh tế của nhà sưu tầm. Kim cương đen tự nhiên, từ mỏ khai thác đến hồ sơ chứng nhận.",
+    "legacyEyebrow": "Dấu ấn di sản",
+    "legacyTitle": "Vượt Trên Cả Quang Phổ Ánh Sáng",
+    "legacyBody": [
+      "Kim cương đen sở hữu một chiều sâu hấp thụ ánh sáng, viết lại định nghĩa về sự lấp lánh mà chúng ta từng quen thuộc.",
+      "Khác với đá quý trong suốt được định giá qua độ khúc xạ ánh sáng, kim cương đen được đánh giá dựa trên trọng lượng, độ bóng và tính toàn vẹn cấu trúc — một giá trị hoàn toàn thuộc chiều kích khác.",
+      "Mỗi viên đá quý được tuyển chọn theo nguồn gốc và nét đặc trưng riêng, đi kèm hồ sơ đầy đủ để việc sở hữu được an tâm và có thể lưu truyền qua nhiều thế hệ."
+    ],
+    "eduTeaserEyebrow": "Kho tri thức",
+    "eduTeaserTitle": "Thấu Hiểu Những Gì Bạn Sở Hữu",
+    "eduTeaserItems": [
+      {
+        "title": "Nguồn Gốc Từ Vũ Trụ",
+        "body": "Kim cương đen có thể đã hình thành trước khi hệ mặt trời tồn tại — sinh ra từ chấn động của siêu tân tinh, chứ không phải áp lực từ lớp phủ Trái Đất."
+      },
+      {
+        "title": "Cấu Trúc Khác Biệt",
+        "body": "Đa tinh thể, không phải đơn tinh thể — một loại vật chất khác biệt về bản chất với những đặc tính riêng biệt."
+      },
+      {
+        "title": "Thước Đo Khác Biệt",
+        "body": "Được đánh giá qua độ bóng, độ toàn vẹn và đường nét — không phải sự lấp lánh. Một tiêu chuẩn hoàn toàn riêng biệt."
+      }
+    ],
+    "eduTeaserCta": "Khám phá kho tri thức",
+    "vaultEyebrow": "Tuyển chọn giới hạn",
+    "vaultTitleHead": "Kho báu",
+    "vaultTitleTail": "Của Sự Độc Bản",
+    "heroTitleLine1": "Sự Hiếm Có",
+    "heroTitleLine2": "Của Đêm Tối",
+    "legacyLink": "Khám phá nguồn gốc",
+    "vaultItems": [
+      {
+        "name": "Nhật Thực",
+        "category": "Trang sức xa xỉ"
+      },
+      {
+        "name": "Lời Thề Nửa Đêm",
+        "category": "Đính hôn"
+      },
+      {
+        "name": "Bông Tai Stellar",
+        "category": "Xa xỉ thường nhật"
+      }
+    ],
+    "vaultBespokeTitle": "Chế Tác Riêng Theo Yêu Cầu",
+    "vaultBespokeBody": "Kích thước được thiết kế riêng dành cho những nhà sưu tầm có gu thẩm mỹ tinh tế nhất.",
+    "vaultCtaTitle": "Đăng ký hội viên",
+    "vaultCtaBody": "Tiếp cận buổi trưng bày bộ sưu tập riêng tư và quyền ưu tiên sở hữu.",
+    "vaultCtaBtn": "Đăng ký ngay",
+    "trustItems": [
+      {
+        "title": "Nguồn Gốc Được Chứng Nhận",
+        "body": "Mỗi viên đá quý đều đi kèm hồ sơ xác thực tính chân thực, nguồn gốc và quy trình khai thác có đạo đức."
+      },
+      {
+        "title": "Nghệ Thuật Thủ Công",
+        "body": "Các nghệ nhân am hiểu sâu sắc về mật độ và khả năng hấp thụ ánh sáng của những viên kim cương tối màu."
+      },
+      {
+        "title": "Tiêu Chuẩn Đầu Tư",
+        "body": "Đá quý cấp độ sưu tầm được lựa chọn dựa trên độ hiếm, độ bền và giá trị dài hạn trong danh mục đầu tư."
+      }
+    ]
+  },
+  "education": {
+    "eyebrow": "Chuyên đề kiến thức",
+    "title": "Thuật Giả Kim Của Bóng Tối",
+    "intro": "Kim cương đen là một dị thường địa chất — mờ đục, đa tinh thể, được tôi luyện bởi áp lực khắc nghiệt, thời gian và bí ẩn.",
+    "originTitle": "Nguồn Gốc: Từ Vũ Trụ Hay Từ Lòng Đất?",
+    "originBody": [
+      "Khác với kim cương thông thường kết tinh sâu trong lớp phủ Trái Đất, câu chuyện về nguồn gốc của kim cương đen vẫn còn gây tranh cãi.",
+      "Cấu trúc xốp cùng những dấu vết đặc biệt của nó đã truyền cảm hứng cho cả giả thuyết nguồn gốc trên Trái Đất lẫn ngoài vũ trụ."
+    ],
+    "propertiesTitle": "Cấu Trúc Vượt Chuẩn Mực",
+    "properties": [
+      {
+        "title": "Độ Bền Vượt Trội",
+        "body": "Cấu trúc đa tinh thể giúp nhiều viên kim cương đen có khả năng chống nứt vỡ theo lớp vượt trội."
+      },
+      {
+        "title": "Khoảng Trống Nội Tại",
+        "body": "Độ xốp bên trong tạo nên mật độ và bề mặt đặc trưng riêng biệt của kim cương đen."
+      },
+      {
+        "title": "Sắc Đen Tuyền",
+        "body": "Than chì và các tạp chất khoáng tạo nên sắc đen đậm đặc trưng, dễ dàng nhận thấy."
+      }
+    ],
+    "originQuote": "Kim cương đen là loại kim cương duy nhất trên Trái Đất không liên quan đến kimberlite — ống núi lửa đưa kim cương từ lớp phủ lên bề mặt Trái Đất.",
+    "originEvidenceLabel": "Bằng chứng #04",
+    "originEvidenceBody": "Quang phổ hồng ngoại cho thấy kim cương đen chứa một lượng nhỏ hợp chất hydrocarbon thơm đa vòng — thành phần cơ bản hình thành nên các vì sao.",
+    "rarityCardTitle": "Độ Hiếm Vượt Trội",
+    "rarityCardBody": "Kim cương đen chỉ được tìm thấy tại Cộng hòa Trung Phi và Brazil, chưa từng xuất hiện tại cùng mỏ khai thác với kim cương thông thường.",
+    "catalogCtaLabel": "Xem bộ sưu tập",
+    "rawTitle": "Hình Dạng Nguyên Thủy",
+    "rawBody": "Ở trạng thái tự nhiên, kim cương đen gợi liên tưởng đến than đá — không có hình dạng cố định, thô ráp, và phản ánh lịch sử hình thành đầy khắc nghiệt.",
+    "cutTitle": "Mỹ Học Của Nghệ Thuật Cắt Mài",
+    "cutBody": "Sau khi được đánh bóng, kim cương đen sẽ hé lộ ánh kim loại đặc trưng, khác biệt hoàn toàn so với đá quý trong suốt thông thường.",
+    "caratTitle": "Tìm Phong Cách Phù Hợp Với Bạn",
+    "caratBody": "Kim cương đen thu hút sự chú ý không phải bằng độ lấp lánh, mà bằng trọng lượng và đường nét.",
+    "geographyEyebrow": "Địa lý nguồn gốc",
+    "geographyTitle": "Hai Nguồn Gốc, Hai Bản Sắc",
+    "regions": [
+      {
+        "name": "Brazil — Thủ Phủ Của Carbonado",
+        "location": "Minas Gerais & Bahia",
+        "body": "Carbonado từ Brazil là nguồn kim cương đen tự nhiên lớn nhất được biết đến, tìm thấy tại các mỏ trầm tích phù sa không liên quan đến ống kimberlite. Những viên đá quý này có kết cấu đa tinh thể dày đặc hơn và hàm lượng tạp chất than chì đậm đặc hơn, tạo nên sắc đen sâu thẳm hấp thụ ánh sáng.",
+        "stats": [
+          {
+            "label": "Mật độ trung bình",
+            "value": "3.1 g/cm³"
+          },
+          {
+            "label": "Khu vực chính",
+            "value": "Bahia"
+          },
+          {
+            "label": "Tuổi hình thành",
+            "value": "3,8 tỷ năm"
+          }
+        ]
+      },
+      {
+        "name": "Cộng Hòa Trung Phi",
+        "location": "Lobaye & Sangha-Mbaéré",
+        "body": "Đá quý từ Trung Phi có độ xốp bề mặt cao hơn và dải ánh sáng đặc trưng trải từ mờ đục đến ánh kim. Kiểu phân bố trầm tích phù sa của chúng phù hợp đáng kể với giả thuyết va chạm thiên thạch từ vũ trụ, tạo nên một câu chuyện nguồn gốc không giống bất kỳ loại đá quý nào khác trên thế giới.",
+        "stats": [
+          {
+            "label": "Mật độ trung bình",
+            "value": "2.9 g/cm³"
+          },
+          {
+            "label": "Khu vực chính",
+            "value": "Sangha-Mbaéré"
+          },
+          {
+            "label": "Đặc điểm bề mặt",
+            "value": "Mờ đục - có lỗ xốp"
+          }
+        ]
+      }
+    ],
+    "gradingEyebrow": "Tiêu chí phân hạng",
+    "gradingTitle": "Kim Cương Đen Được Đánh Giá Chất Lượng Như Thế Nào",
+    "gradingIntro": "Khác với kim cương không màu được đánh giá theo nguyên tắc 4C, kim cương đen được thẩm định qua một khung tiêu chí riêng biệt, xây dựng dựa trên độ mờ đục, cấu trúc và đặc điểm bề mặt.",
+    "gradingCriteria": [
+      {
+        "title": "Độ Bóng Bề Mặt",
+        "body": "Từ mờ đục, đến ánh kim cương, và ánh kim loại. Ánh kim loại là hiếm nhất và có giá trị cao nhất trên thị trường sưu tầm."
+      },
+      {
+        "title": "Mật Độ Tạp Chất",
+        "body": "Sự phân bố của tạp chất than chì và hematit quyết định độ đồng đều của sắc đen. Sự phân bố đồng đều và dày đặc được ưa chuộng hơn các đốm loang hay phần trong suốt."
+      },
+      {
+        "title": "Tính Toàn Vẹn Cấu Trúc",
+        "body": "Khác với kim cương đơn tinh thể, kim cương đen được đánh giá qua độ liên kết đa tinh thể — sự vắng mặt của các ranh giới hạt tách rời khi soi dưới kính lúp."
+      },
+      {
+        "title": "Đặc Điểm Bề Mặt",
+        "body": "Ghi nhận mức độ hiển thị của cấu trúc xốp li ti. Đá quý cấp cao cho thấy độ xốp bề mặt tối thiểu khi soi ở độ phóng đại 10 lần, đồng thời phản chiếu ánh sáng từ các mặt cắt ở mức cao nhất."
+      }
+    ],
+    "cuttingEyebrow": "Quy trình cắt mài",
+    "cuttingTitle": "Ngược Chiều Thớ Đá",
+    "cuttingIntro": "Cắt mài kim cương đen phức tạp hơn về bản chất so với đá quý không màu. Cấu trúc đa tinh thể đòi hỏi một phương pháp hoàn toàn khác biệt.",
+    "cuttingSteps": [
+      {
+        "step": "01",
+        "title": "Lập Bản Đồ Cấu Trúc",
+        "body": "Trước khi bất kỳ lưỡi cưa nào chạm vào viên đá, các chuyên gia giám định đá quý sẽ lập bản đồ ranh giới hạt đa tinh thể bằng ánh sáng phân cực. Việc cắt ngang ranh giới hạt có thể khiến vết nứt lan rộng khắp viên đá."
+      },
+      {
+        "step": "02",
+        "title": "Tạo Hình Bằng Laser",
+        "body": "Quá trình tạo hình sơ bộ sử dụng laser thay vì cưa cơ khí. Độ chính xác này giúp giảm ứng suất nhiệt và nguy cơ nứt vỡ thường gặp ở vật liệu đa tinh thể."
+      },
+      {
+        "step": "03",
+        "title": "Thiết Kế Mặt Cắt",
+        "body": "Khác với đá quý trong suốt, kim cương đen được cắt mài để tối đa hóa đường nét và độ bóng bề mặt — chứ không phải sự phản chiếu ánh sáng. Mọi quyết định về hình khối đều thuần túy mang tính thẩm mỹ và kiến trúc cấu trúc."
+      },
+      {
+        "step": "04",
+        "title": "Đánh Bóng Ánh Kim",
+        "body": "Các đĩa thép chuyên dụng phủ bột kim cương sẽ đánh bóng từng mặt cắt cho đến khi đạt ánh kim loại hoàn hảo. Quy trình này mất thời gian gấp 3-4 lần so với việc đánh bóng kim cương không màu có cùng kích thước."
+      }
+    ]
+  },
+  "catalog": {
+    "eyebrow": "Bộ sưu tập tuyển chọn",
+    "heroLine1": "Sinh Ra Từ Bóng Tối",
+    "heroLine2": "Dành Cho Những Ai Dám Khác Biệt",
+    "title": "Sinh Ra Từ Bóng Tối, Dành Cho Những Ai Dám Khác Biệt",
+    "intro": "Kho tàng kim cương đen được chứng nhận — khai thác từ những vùng địa chất khắc nghiệt nhất, kiểm định theo tiêu chuẩn sưu tầm, và cắt mài tỉ mỉ trong từng đường nét sắc sảo.",
+    "heroStats": [
+      {
+        "label": "Đá quý hiện có",
+        "value": "118+"
+      },
+      {
+        "label": "Trọng lượng tối thiểu",
+        "value": "3 carat"
+      },
+      {
+        "label": "Chứng nhận",
+        "value": "GIA · IGI"
+      }
+    ],
+    "contextPills": [
+      {
+        "label": "Độ cứng",
+        "value": "10 Mohs — vật liệu tự nhiên cứng nhất"
+      },
+      {
+        "label": "Nguồn gốc",
+        "value": "Brazil · Trung Phi · Nga"
+      },
+      {
+        "label": "Cơ chế tạo màu",
+        "value": "Tạp chất than chì và hematit"
+      },
+      {
+        "label": "Độ bóng",
+        "value": "Từ ánh kim cương đến ánh kim loại"
+      },
+      {
+        "label": "Chứng nhận",
+        "value": "GIA · IGI · Phân hạng nội bộ"
+      }
+    ],
+    "filtersTitle": "Bộ lọc tuyển chọn",
+    "filterCarat": "Trọng lượng carat",
+    "filterCut": "Kiểu cắt mài",
+    "filterPrice": "Mức đầu tư",
+    "priceFrom": "Bắt đầu từ",
+    "stonesLabel": "viên",
+    "clearFilters": "Xóa bộ lọc",
+    "noResults": "Không tìm thấy đá quý phù hợp với bộ lọc đã chọn",
+    "rarityLegendTitle": "Chỉ số độ hiếm",
+    "rarityLegend": [
+      {
+        "label": "Hiếm nhất (90–100)",
+        "color": "#e9c176"
+      },
+      {
+        "label": "Cấp độ sưu tầm (80–89)",
+        "color": "#c5a059"
+      },
+      {
+        "label": "Tuyển chọn đặc biệt (70–79)",
+        "color": "#9a8f80"
+      }
+    ],
+    "retailTab": "Phòng trưng bày",
+    "wholesaleTab": "Đối tác chiến lược",
+    "showing": "Hiển thị 8 trong số 118 viên",
+    "loadMore": "Xem thêm",
+    "researchEyebrow": "Góc nhìn giám định đá quý",
+    "researchTitle": "Kim Cương Đen Sinh Ra Từ Áp Lực, Không Phải Từ Ánh Sáng",
+    "researchBody": "Bộ sưu tập kim cương đen cao cấp đòi hỏi phần khung bảo vệ hoàn hảo, hình khối có kỷ luật, và hồ sơ đủ tin cậy cho việc sở hữu cá nhân. Mỗi tác phẩm được tuyển chọn dựa trên độ mờ đục, độ bóng bề mặt, độ ổn định của tạp chất, sự nổi bật về trọng lượng carat, và cách mỗi viên đá quý tương tác với thiết kế trang sức mang tính kiến trúc.",
+    "researchPillars": [
+      {
+        "title": "Độ Ổn Định Cấu Trúc",
+        "body": "Mỗi viên đá quý đa tinh thể được kiểm tra tính liên tục của cấu trúc trước khi gắn vào khung."
+      },
+      {
+        "title": "Độ Bóng Kiến Trúc",
+        "body": "Độ sáng bóng trải từ ánh kim cương đến ánh kim loại — được lựa chọn theo đường nét, không phải độ lấp lánh."
+      },
+      {
+        "title": "Hồ Sơ Nguồn Gốc",
+        "body": "Tài liệu truy xuất nguồn gốc đi kèm mọi viên đá quý, hỗ trợ cho bảo hiểm và đầu tư dài hạn."
+      }
+    ],
+    "collectionTitle": "Bộ Sưu Tập Dành Cho Nhà Sưu Tầm",
+    "viewDetail": "Xem chi tiết",
+    "bespokeEyebrow": "Tuyển chọn riêng biệt",
+    "bespokeTitle": "Chưa Tìm Thấy Viên Đá Quý Ưng Ý?",
+    "bespokeBody": "Đội ngũ tuyển chọn của chúng tôi hợp tác trực tiếp với các mỏ khai thác để tìm kiếm trọng lượng carat ưng ý, kiểu cắt mài hiếm và các lô đá quý cấp độ đầu tư. Mọi yêu cầu tìm kiếm riêng tư đều được xử lý với sự thận trọng và bảo mật tuyệt đối.",
+    "bespokeFeatures": [
+      {
+        "title": "Nguồn Cung Đặc Quyền",
+        "body": "Mạng lưới toàn cầu tại Brazil, Châu Phi và Nga"
+      },
+      {
+        "title": "Cắt Mài Theo Yêu Cầu",
+        "body": "Hình khối hình học được tùy chỉnh theo nhu cầu riêng của từng nhà sưu tầm"
+      },
+      {
+        "title": "Ký Gửi Và Bảo Hiểm",
+        "body": "Kho lưu trữ an toàn cùng dịch vụ định giá bảo hiểm trọn gói"
+      }
+    ],
+    "ethicalLabel": "Nguồn gốc minh bạch · Carbon phi xung đột",
+    "requestSearch": "Yêu cầu tìm kiếm riêng",
+    "downloadCatalog": "Tải catalogue",
+    "detailBack": "Quay lại bộ sưu tập",
+    "detailSpecs": "Thông số kỹ thuật",
+    "detailAnalysis": "Phân tích chuyên gia",
+    "detailAcquisition": "Quy trình sở hữu",
+    "detailSource": "Nguồn hình ảnh tham khảo",
+    "detailRarity": "Độ hiếm",
+    "detailInclusion": "Đặc điểm tạp chất",
+    "detailLight": "Phản ứng với ánh sáng",
+    "detailProvenance": "Nguồn gốc và chứng nhận",
+    "detailWearability": "Trải nghiệm đeo",
+    "detailCare": "Bảo quản và chăm sóc",
+    "detailWhy": "Vì sao tác phẩm này mang tinh thần BlackDiamond",
+    "detailPricing": "Mức giá",
+    "detailPriceNote": "Ghi chú về giá",
+    "detailInvestment": "Giá trị đầu tư",
+    "detailDimensions": "Kích thước",
+    "detailHardness": "Độ cứng",
+    "detailLuster": "Độ bóng bề mặt",
+    "detailTreatment": "Xử lý cải thiện chất lượng",
+    "detailCertificate": "Chứng nhận đá quý",
+    "detailCertAuthority": "Cơ quan cấp chứng nhận",
+    "detailCertNumber": "Số báo cáo",
+    "detailCertType": "Loại chứng nhận",
+    "detailCertDate": "Ngày cấp",
+    "detailCertVerify": "Xác minh qua hệ thống chính thức",
+    "detailCertView": "Xem chứng nhận",
+    "detailCertDownload": "Tải PDF",
+    "detailCertNote": "Số báo cáo này có thể được xác minh độc lập thông qua hệ thống công khai của cơ quan cấp chứng nhận.",
+    "detailCertNone": "Tác phẩm này đi kèm hồ sơ phân hạng nội bộ. Chứng nhận GIA hoặc IGI chính thức có thể được yêu cầu cấp theo nhu cầu.",
+    "priceApproxNote": "Giá hiển thị chỉ mang tính tham khảo, được quy đổi gần đúng từ Baht Thái — có thể khác với giá thực tế tùy theo tỷ giá hối đoái."
+  },
+  "blog": {
+    "eyebrow": "Tạp chí BlackDiamond",
+    "title": "Góc Nhìn Về Loại Carbon Hiếm Nhất Thế Giới",
+    "intro": "Kho tư liệu chuyên sâu về nguồn gốc, phân loại, thị trường và phương pháp sưu tầm kim cương đen.",
+    "allLabel": "Tất cả",
+    "readMore": "Đọc bài viết",
+    "minRead": "phút đọc",
+    "loadMore": "Xem thêm bài viết"
+  },
+  "investment": {
+    "eyebrow": "Bảo toàn giá trị tài sản",
+    "title": "Tiêu Chuẩn BlackDiamond",
+    "intro": "Kim cương đen cấp độ đầu tư được lựa chọn dựa trên mật độ, nguồn gốc, mức độ khan hiếm trên thị trường và độ tin cậy của chứng nhận.",
+    "performanceTitle": "Hiệu suất đầu tư",
+    "stats": [
+      {
+        "label": "Chỉ số khan hiếm",
+        "value": "98.4/100",
+        "body": "Xu hướng tăng giá kép hàng năm: +14.2%"
+      },
+      {
+        "label": "Nguồn cung toàn cầu",
+        "value": "Hạn chế",
+        "body": "Chỉ một số ít nơi có thể sản xuất kim cương đen đạt tiêu chuẩn sưu tầm."
+      },
+      {
+        "label": "Mức độ rủi ro",
+        "value": "Biến động thấp",
+        "body": "Đá quý thực thể có thể giúp đa dạng hóa danh mục đầu tư bên ngoài cổ phiếu thông thường."
+      }
+    ],
+    "standardsTitle": "Tiêu Chuẩn Không Thỏa Hiệp",
+    "standardsBody": "Mọi giao dịch cần có chứng nhận giám định đá quý, hồ sơ nguồn gốc, phương án ký gửi an toàn và tài liệu sở hữu minh bạch.",
+    "vaultSectionTitle": "Giải Pháp Lưu Trữ An Toàn",
+    "vaultSectionBody": "Sở hữu trực tiếp cùng lựa chọn ký gửi kiểm soát nhiệt độ tại Thụy Sĩ hoặc Singapore. Toàn bộ tài sản được bảo hiểm toàn diện bởi Lloyd's of London.",
+    "vaultSectionBtn": "Liên hệ chuyên gia",
+    "channelsTitle": "Kênh Sở Hữu",
+    "channels": [
+      {
+        "title": "Kho Riêng Tư",
+        "body": "Tuyển chọn đá quý từ 5-10 carat dành cho nhà sưu tầm cá nhân"
+      },
+      {
+        "title": "Phân Bổ Tổ Chức",
+        "body": "Phân bổ chiến lược dành cho văn phòng gia đình và quỹ đầu tư"
+      },
+      {
+        "title": "Dịch Vụ Concierge Tìm Nguồn",
+        "body": "Tìm kiếm toàn cầu cho những tác phẩm đơn lẻ đạt tiêu chuẩn bảo tàng"
+      }
+    ]
+  },
+  "membership": {
+    "eyebrow": "Định nghĩa mới về đặc quyền",
+    "title": "Vòng Trong Của Đặc Quyền",
+    "intro": "Tư cách hội viên mở ra quyền ưu tiên tiếp cận nguồn đá quý và dịch vụ thiết kế trang sức mang tính kiến trúc theo yêu cầu riêng.",
+    "requestTitle": "Yêu cầu thư mời",
+    "requestBody": "Đơn đăng ký hội viên sẽ được xem xét theo từng trường hợp cụ thể. Vui lòng cung cấp thông tin nghề nghiệp của quý khách.",
+    "form": {
+      "name": "Họ tên pháp lý",
+      "email": "Địa chỉ email",
+      "submit": "Gửi đơn đăng ký"
+    },
+    "heroTitleLine1": "Thượng Lưu",
+    "heroTitleLine2": "Độc Quyền",
+    "heroStats": [
+      {
+        "value": "0.01%",
+        "label": "Nguồn cung toàn cầu"
+      },
+      {
+        "value": "24/7",
+        "label": "Dịch vụ concierge"
+      }
+    ],
+    "heroInfoLabel": "Xác thực tính chân thực",
+    "heroInfoBody": "Mỗi viên đá quý đều được xác nhận bởi hệ thống đăng ký nguồn gốc của BlackDiamond.",
+    "retailTab": "Bán lẻ",
+    "wholesaleTab": "Bán sỉ",
+    "sizeLabel": "Thông số kỹ thuật: Kích thước (carat)",
+    "shadeLabel": "Sắc độ đen",
+    "cutLabel": "Kiểu dáng cắt mài",
+    "quantityLabel": "Số lượng cần cung ứng",
+    "quotationBtn": "Yêu cầu báo giá",
+    "bespokeTitle": "Chế Tác Riêng",
+    "bespokeBody": "Tùy chỉnh nhu cầu sở hữu, từ những tác phẩm bán lẻ đẳng cấp kiệt tác cho đến nguồn cung mang tính kiến trúc dành cho đối tác bán sỉ.",
+    "contactTitle": "Concierge Phụ Trách",
+    "contactBody": "Kênh liên hệ được mã hóa trực tiếp dành cho các yêu cầu tìm nguồn đá quý trên mười carat. Thời gian phản hồi cho hội viên thông thường không quá bốn giờ."
+  },
+  "posters": {
+    "overviewEyebrow": "Tổng quan thương hiệu",
+    "overviewTitle": "Vũ Trụ Của Black Diamond",
+    "overviewCaption": "Từ công nghệ cắt mài đến di sản lưu truyền — toàn cảnh thế giới kim cương đen Carbonado",
+    "formationEyebrow": "Hành trình hình thành",
+    "formationCaption": "Từ lòng đất hàng tỷ năm đến tác phẩm sưu tầm đỉnh cao — nguồn gốc, sự hiếm có và nghệ thuật cắt mài của Black Diamond",
+    "legacyEyebrow": "Di sản",
+    "legacyCaption": "Có những giá trị không thể đo bằng tiền bạc, mà bằng những gì được lưu truyền cho thế hệ sau",
+    "collectorEyebrow": "Nhà sưu tầm",
+    "collectorCaption": "Người thành công không mua nhiều — họ chỉ sưu tầm những giá trị trường tồn",
+    "occasionEyebrow": "Đêm dạ tiệc",
+    "occasionCaption": "Không phải để thu hút sự chú ý, mà để khẳng định vị thế một cách tự nhiên nhất",
+    "companionEyebrow": "Sự đồng hành",
+    "companionCaption": "Carbonado là biểu tượng của một phong cách sống được sẻ chia — hai người, một tầm nhìn",
+    "crownEyebrow": "Biểu tượng quyền lực",
+    "crownCaption": "Quyền lực không cần tuyên bố, mà được cảm nhận qua từng chi tiết"
+  },
+  "lifestyle": {
+    "eyebrow": "Thế giới Carbonado",
+    "titleHead": "Phong Cách Sống",
+    "titleTail": "Đẳng Cấp",
+    "intro": "Đẳng cấp không cần phô trương. Quyền lực không giới hạn. Carbonado hiện diện như biểu tượng của giới thượng lưu — từ bầu trời đến đại dương, từ những cỗ máy tốc độ đến nghệ thuật đo thời gian.",
+    "scrollHint": "Cuộn để khám phá",
+    "worldsEyebrow": "Bốn thế giới của Carbonado",
+    "worldsTitle": "Nơi Đẳng Cấp Hiện Diện",
+    "worldsIntro": "Không đơn thuần chỉ là một viên đá quý, Carbonado là ngôn ngữ chung của những biểu tượng xa xỉ tột bậc — nơi mọi chi tiết đều kể câu chuyện về quyền lực và gu thẩm mỹ.",
+    "items": [
+      {
+        "tag": "Du thuyền · Phi cơ riêng",
+        "title": "Phong Cách Sống Thượng Lưu",
+        "body": "Du thuyền, phi cơ riêng và không gian sống đẳng cấp — nơi Carbonado trở thành biểu tượng của tự do và tầm ảnh hưởng tuyệt đối."
+      },
+      {
+        "tag": "Siêu xe · Hiệu năng",
+        "title": "Kỹ Thuật Hiệu Năng",
+        "body": "Với độ cứng vượt trội và cấu trúc tinh thể bền bỉ, Carbonado mang lại hiệu năng tối đa cho những cỗ máy tốc độ đỉnh cao."
+      },
+      {
+        "tag": "Trang sức xa xỉ",
+        "title": "Trang Sức Xa Xỉ",
+        "body": "Biểu tượng của giới thượng lưu và quyền lực — mỗi tác phẩm trang sức Carbonado là một tuyên ngôn về đẳng cấp và gu thẩm mỹ tinh tế."
+      },
+      {
+        "tag": "Đồng hồ · Nghệ thuật thủ công",
+        "title": "Đồng Hồ Thượng Hạng",
+        "body": "Chính xác, mạnh mẽ, bất diệt. Carbonado là vật liệu lý tưởng cho những cỗ máy đo thời gian đỉnh cao — chuẩn xác và vượt lên trên thời gian."
+      }
+    ],
+    "ctaTitle": "Bước Vào Thế Giới Thượng Lưu",
+    "ctaBody": "Sở hữu một tác phẩm Carbonado là bước chân vào một phong cách sống — nơi đẳng cấp được cảm nhận qua từng chi tiết.",
+    "teaserEyebrow": "Phong cách sống",
+    "teaserTitle": "Đẳng Cấp Không Cần Phô Trương",
+    "teaserBody": "Từ siêu xe, du thuyền, phi cơ riêng cho đến đồng hồ và trang sức xa xỉ — khám phá thế giới nơi Carbonado là biểu tượng của giới thượng lưu.",
+    "teaserCta": "Khám phá phong cách sống"
+  },
+  "footer": {
+    "quickLinks": "Liên kết nhanh",
+    "support": "Hỗ trợ",
+    "newsletter": "Bản tin",
+    "newsletterCopy": "Nhận thư mời đặc biệt tham dự triển lãm và ra mắt các bộ sưu tập phiên bản giới hạn.",
+    "copyright": "© 2026 BlackDiamond Luxury. Bảo lưu mọi quyền."
+  }
+}
