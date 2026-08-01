@@ -231,11 +231,11 @@ export function CatalogSections({ dictionary, locale, pieces, currency, rate }: 
                 </h2>
                 <div className="space-y-4 text-[11px] font-bold uppercase tracking-[0.12em]">
                   <div className="flex justify-between border-b border-outline/50 py-2">
-                    <span className="text-on-muted">ต่ำสุด</span>
+                    <span className="text-on-muted">{dictionary.catalog.priceMinLabel}</span>
                     <span>$7,800</span>
                   </div>
                   <div className="flex justify-between border-b border-outline/50 py-2">
-                    <span className="text-on-muted">สูงสุด</span>
+                    <span className="text-on-muted">{dictionary.catalog.priceMaxLabel}</span>
                     <span>$50,000+</span>
                   </div>
                 </div>
@@ -345,7 +345,7 @@ export function CatalogSections({ dictionary, locale, pieces, currency, rate }: 
 
       <section className="relative overflow-hidden bg-surface-low py-28">
         <div className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 select-none font-headline text-[18rem] leading-none text-on-surface/[0.03] md:text-[22rem]">
-          ว่างเปล่า
+          {dictionary.catalog.bespokeBackgroundWord}
         </div>
         <div className="section-shell grid gap-16 lg:grid-cols-2 lg:items-center">
           <div>
@@ -381,7 +381,7 @@ export function CatalogSections({ dictionary, locale, pieces, currency, rate }: 
           </div>
           <div className="relative aspect-[4/5] overflow-hidden bg-surface">
             <Image
-              alt="คอลเลกชันเพชรดำคัดสรรบนกำมะหยี่สีเข้ม"
+              alt={dictionary.catalog.bespokeImageAlt}
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -478,21 +478,23 @@ function CatalogCard({
 
       <div className="flex flex-1 flex-col p-7">
         <div className="flex items-start justify-between gap-4">
-          <div>
+          <div className="min-w-0 flex-1">
             <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.18em] text-on-muted">
               {piece.line[locale]}
             </p>
             <h2 className="font-headline text-2xl leading-tight">{piece.name[locale]}</h2>
           </div>
           {displayPrice ? (
-            <span className="flex flex-col items-end whitespace-nowrap text-right">
-              <span className="text-sm font-bold text-primary">
+            <div className="flex shrink-0 flex-col items-end text-right">
+              <span className="whitespace-nowrap text-sm font-bold text-primary">
                 {formatPriceFrom(displayPrice, dictionary.catalog.priceFrom)}
               </span>
               {displayPrice.isConverted ? (
-                <span className="text-[10px] text-on-muted/70">{dictionary.catalog.priceApproxNote}</span>
+                <span className="mt-0.5 max-w-[8rem] text-[9px] leading-tight text-on-muted/70">
+                  {dictionary.catalog.priceApproxNote}
+                </span>
               ) : null}
-            </span>
+            </div>
           ) : null}
         </div>
 
@@ -500,19 +502,19 @@ function CatalogCard({
 
         <dl className="mt-6 grid grid-cols-4 gap-3 border-t border-outline/20 pt-5 text-[10px] uppercase tracking-[0.12em] text-on-muted">
           <div>
-            <dt>{"กะรัต"}</dt>
+            <dt>{dictionary.catalog.detailCarat}</dt>
             <dd className="mt-1 font-bold text-on-surface">{piece.specs.carat}</dd>
           </div>
           <div>
-            <dt>{"การเจียระไน"}</dt>
+            <dt>{dictionary.catalog.detailCut}</dt>
             <dd className="mt-1 font-bold text-on-surface">{piece.specs.cut[locale]}</dd>
           </div>
           <div>
-            <dt>{"โลหะ"}</dt>
+            <dt>{dictionary.catalog.detailMetal}</dt>
             <dd className="mt-1 font-bold text-on-surface">{piece.specs.metal[locale]}</dd>
           </div>
           <div>
-            <dt>{"ความหายาก"}</dt>
+            <dt>{dictionary.catalog.detailRarity}</dt>
             <dd className="mt-1 font-bold" style={{ color: rarityColor }}>
               {piece.rarityIndex}
             </dd>

@@ -2,6 +2,7 @@ import { createPublicClient } from "@/lib/supabase/public";
 import type { CollectionPiece } from "@/lib/collection";
 import { isPriceCurrency, type Price } from "@/lib/format-price";
 import { localizedText, localizedStringArray } from "./shared";
+import PLACEHOLDER_IMAGE from "@/assets/images/background/education_background.png";
 
 function mapPrice(row: Record<string, unknown>): Price | null {
   const amount = row.price_amount;
@@ -9,8 +10,6 @@ function mapPrice(row: Record<string, unknown>): Price | null {
   if (typeof amount !== "number" || !isPriceCurrency(currency)) return null;
   return { amount, currency };
 }
-
-const PLACEHOLDER_IMAGE = "/images/education-background.png";
 
 function mapRow(row: Record<string, unknown>): CollectionPiece {
   const specs = (row.specs ?? {}) as Record<string, unknown>;

@@ -3,6 +3,7 @@ import { remoteImages } from "@/lib/assets";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { PosterShowcase } from "@/components/PosterShowcase";
 import { getInformationImages } from "@/lib/information-assets";
+import { MembershipForm } from "@/components/MembershipForm";
 import type { Locale } from "@/i18n/routing";
 
 type Props = {
@@ -69,40 +70,14 @@ export function MembershipSections({ dictionary, locale }: Props) {
             <h2 className="mb-4 font-headline text-4xl">{d.requestTitle}</h2>
             <p className="text-on-surface-variant">{d.requestBody}</p>
           </div>
-          <form action="/api/membership" className="space-y-12">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-              <div className="relative">
-                <label className="mb-2 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
-                  {d.form.name}
-                </label>
-                <input
-                  className="w-full border-b border-outline/50 bg-transparent py-4 text-sm transition-colors focus:border-primary focus:outline-none placeholder:text-surface-container-highest"
-                  name="name"
-                  placeholder="ณัฐพล วรรณสิริ"
-                  type="text"
-                />
-              </div>
-              <div className="relative">
-                <label className="mb-2 block font-label text-[10px] uppercase tracking-[0.2em] text-outline">
-                  {d.form.email}
-                </label>
-                <input
-                  className="w-full border-b border-outline/50 bg-transparent py-4 text-sm transition-colors focus:border-primary focus:outline-none placeholder:text-surface-container-highest"
-                  name="email"
-                  placeholder="NATTAPON@ARCHIVE.CO"
-                  type="email"
-                />
-              </div>
-            </div>
-            <div className="pt-8">
-              <button
-                className="w-full bg-gradient-to-r from-primary to-primary-container py-5 font-label text-sm uppercase tracking-[0.25em] text-on-primary transition hover:brightness-110 active:scale-[0.99]"
-                type="submit"
-              >
-                {d.form.submit}
-              </button>
-            </div>
-          </form>
+          <MembershipForm
+            emailLabel={d.form.email}
+            errorMessage={dictionary.common.genericError}
+            locale={locale}
+            nameLabel={d.form.name}
+            submitLabel={d.form.submit}
+            successMessage={dictionary.common.thankYou}
+          />
         </div>
       </section>
 
@@ -129,7 +104,7 @@ export function MembershipSections({ dictionary, locale }: Props) {
         <div className="section-shell">
           <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
             <div className="max-w-xl">
-              <p className="eyebrow mb-6">การสั่งทำ</p>
+              <p className="eyebrow mb-6">{d.bespokeEyebrow}</p>
               <h2 className="font-headline text-4xl md:text-5xl">{d.bespokeTitle}</h2>
               <p className="mt-6 text-on-surface-variant">{d.bespokeBody}</p>
             </div>
@@ -162,7 +137,7 @@ export function MembershipSections({ dictionary, locale }: Props) {
                       <div className="absolute left-1/4 top-[23px] -mt-2 h-4 w-4 border-4 border-surface bg-primary" />
                       <div className="mt-6 flex justify-between font-label text-[10px] tracking-tighter text-outline">
                         <span>0.5ct</span>
-                        <span className="font-bold text-primary">2.5 กะรัต ที่เลือก</span>
+                        <span className="font-bold text-primary">{d.sizeSelectedLabel}</span>
                         <span>15.0ct+</span>
                       </div>
                     </div>
@@ -184,7 +159,7 @@ export function MembershipSections({ dictionary, locale }: Props) {
                       ))}
                     </div>
                     <span className="mt-3 block font-body text-[10px] italic text-outline">
-                      ออบซิเดียนเข้ม (ด้าน)
+                      {d.shadeName}
                     </span>
                   </div>
                 </div>
@@ -195,10 +170,9 @@ export function MembershipSections({ dictionary, locale }: Props) {
                       {d.cutLabel}
                     </label>
                     <select className="w-full appearance-none border-b border-outline/50 bg-transparent py-4 text-sm focus:outline-none">
-                      <option>ทรงดิบไม่สมมาตร</option>
-                      <option>เอเมอรัลด์เชิงสถาปัตยกรรม</option>
-                      <option>เบรียนท์แห่งความว่างเปล่า</option>
-                      <option>คุชชั่นคาร์บอน</option>
+                      {d.cutOptions.map((option) => (
+                        <option key={option}>{option}</option>
+                      ))}
                     </select>
                   </div>
                   <div>
@@ -229,7 +203,7 @@ export function MembershipSections({ dictionary, locale }: Props) {
                 <div className="mb-12 flex items-center gap-6">
                   <div className="h-20 w-20 shrink-0 overflow-hidden border border-outline/30 grayscale">
                     <Image
-                      alt="คอนเซียร์จ"
+                      alt={d.conciergeAlt}
                       className="h-full w-full object-cover"
                       height={80}
                       src={remoteImages.concierge}
@@ -239,7 +213,7 @@ export function MembershipSections({ dictionary, locale }: Props) {
                   <div>
                     <span className="block text-sm font-semibold">BlackDiamond</span>
                     <span className="font-label text-[10px] uppercase tracking-widest text-outline">
-                      ผู้อำนวยการฝ่ายจัดหาอาวุโส
+                      {d.conciergeRole}
                     </span>
                   </div>
                 </div>

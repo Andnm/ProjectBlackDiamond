@@ -4,6 +4,7 @@ import { PosterShowcase } from "@/components/PosterShowcase";
 import { getInformationImages } from "@/lib/information-assets";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
+import lifestyleBg from "@/assets/images/background/lifestyle_background.png";
 
 type Props = {
   dictionary: Dictionary;
@@ -32,7 +33,7 @@ export function LifestyleSections({ dictionary, locale }: Props) {
             fill
             priority
             sizes="100vw"
-            src="/images/lifestyle-background.png"
+            src={lifestyleBg}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -101,7 +102,7 @@ export function LifestyleSections({ dictionary, locale }: Props) {
             className="h-full w-full object-cover opacity-30"
             fill
             sizes="100vw"
-            src="/images/lifestyle-background.png"
+            src={lifestyleBg}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/70" />
         </div>

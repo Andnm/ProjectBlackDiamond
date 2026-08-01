@@ -22,6 +22,8 @@ export type TranslationCell = {
   locale: TargetLocale;
   /** Display value: plain text as-is, "lines" joined with \n, html as raw markup. */
   value: string;
+  /** The Thai source text for this field, shown read-only alongside the translation for reference. */
+  sourceValue: string;
   status: TranslationStatusValue;
   errorMessage: string | null;
   updatedAt: string | null;
@@ -63,6 +65,7 @@ export async function getTranslationMatrix(contentType: ContentType, contentId: 
   const cells: TranslationCell[] = [];
   for (const field of fields) {
     const localized = getAtPath(row, field.path) as Record<string, unknown> | undefined;
+    const sourceValue = fieldValueToDisplayString(localized?.th, field.kind);
     for (const locale of TARGET_LOCALES) {
       const status = statusMap.get(`${field.name}:${locale}`);
       cells.push({
@@ -70,6 +73,7 @@ export async function getTranslationMatrix(contentType: ContentType, contentId: 
         fieldKind: field.kind,
         locale,
         value: fieldValueToDisplayString(localized?.[locale], field.kind),
+        sourceValue,
         status: (status?.status as TranslationStatusValue | undefined) ?? "untranslated",
         errorMessage: status?.error_message ?? null,
         updatedAt: status?.updated_at ?? null,

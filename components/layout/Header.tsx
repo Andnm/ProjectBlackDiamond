@@ -74,7 +74,7 @@ export function Header({ dictionary, locale }: Props) {
           >
             <Image alt={dictionary.brand.name} className="h-10 w-auto" priority src={getBrandLogo(locale)} />
           </Link>
-          <nav aria-label="การนำทางหลัก" className="hidden items-center gap-8 lg:flex">
+          <nav aria-label={dictionary.common.mainNavLabel} className="hidden items-center gap-8 lg:flex">
             {desktopNav}
           </nav>
         </div>

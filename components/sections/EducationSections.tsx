@@ -5,6 +5,9 @@ import { localizedPath, type Locale } from "@/i18n/routing";
 import { type Dictionary } from "@/i18n/dictionaries";
 import { PosterShowcase } from "@/components/PosterShowcase";
 import { getInformationImages } from "@/lib/information-assets";
+import educationBg from "@/assets/images/background/education_background.png";
+import theRawState from "@/assets/images/education/the_raw_state.png";
+import theCutAesthetic from "@/assets/images/education/the_cut_aesthetic.png";
 
 type Props = {
   dictionary: Dictionary;
@@ -20,7 +23,7 @@ export function EducationSections({ dictionary, locale }: Props) {
 
       <section className="relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-surface">
         <div className="absolute inset-0 opacity-40">
-          <Image alt="" aria-hidden className="h-full w-full object-cover" fill priority sizes="100vw" src="/images/education-background.png" />
+          <Image alt="" aria-hidden className="h-full w-full object-cover" fill priority sizes="100vw" src={educationBg} />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
         <div className="section-shell relative z-10 flex min-h-[90vh] flex-col justify-center py-32">
@@ -29,7 +32,7 @@ export function EducationSections({ dictionary, locale }: Props) {
           <p className="max-w-2xl text-xl leading-relaxed text-on-surface-variant">{d.intro}</p>
           <div className="absolute bottom-12 right-0 hidden items-center gap-4 lg:flex">
             <span className="h-px w-12 bg-primary" />
-            <span className="eyebrow opacity-50">เลื่อนเพื่อสำรวจ</span>
+            <span className="eyebrow opacity-50">{d.scrollHint}</span>
           </div>
         </div>
       </section>
@@ -45,7 +48,7 @@ export function EducationSections({ dictionary, locale }: Props) {
           </div>
           <div className="group relative h-[600px] lg:col-span-7">
             <Image
-              alt="เนบิวลาในห้วงอวกาศลึก"
+              alt={d.nebulaAlt}
               className="h-full w-full object-cover grayscale brightness-50 transition duration-700 group-hover:grayscale-0 group-hover:brightness-75"
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
@@ -63,7 +66,7 @@ export function EducationSections({ dictionary, locale }: Props) {
         <div className="section-shell">
           <div className="mb-24 text-center">
             <h2 className="mb-4 font-headline text-4xl md:text-5xl">{d.propertiesTitle}</h2>
-            <p className="eyebrow opacity-60">รูปลักษณ์ทางกายภาพของเพชรดำ</p>
+            <p className="eyebrow opacity-60">{d.propertiesEyebrow}</p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <div className="border border-outline/5 bg-surface-container p-12 md:col-span-2">
@@ -89,7 +92,7 @@ export function EducationSections({ dictionary, locale }: Props) {
             </div>
             <Link className="group flex cursor-pointer items-center justify-center bg-primary p-8 transition hover:bg-primary-container active:scale-95" href={localizedPath(locale, "catalog")}>
               <div className="text-center">
-                <p className="mb-2 font-label text-xs uppercase tracking-widest text-on-primary">การลงทุน</p>
+                <p className="mb-2 font-label text-xs uppercase tracking-widest text-on-primary">{d.investmentEyebrow}</p>
                 <p className="font-headline text-xl text-on-primary">{d.catalogCtaLabel}</p>
                 <svg className="mx-auto mt-4 h-6 w-6 text-on-primary transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path d="M17 8l4 4-4 4M3 12h18" strokeLinecap="round" strokeLinejoin="round" />
@@ -105,22 +108,22 @@ export function EducationSections({ dictionary, locale }: Props) {
           <div className="flex flex-col items-center gap-12 md:flex-row md:gap-20">
             <div className="w-full md:w-1/2">
               <div className="relative aspect-square">
-                <Image alt={d.rawTitle} className="h-full w-full object-cover" fill sizes="(min-width: 768px) 50vw, 100vw" src="/images/the-raw-state.png" />
+                <Image alt={d.rawTitle} className="h-full w-full object-cover" fill sizes="(min-width: 768px) 50vw, 100vw" src={theRawState} />
                 <div className="absolute inset-0 border-[20px] border-surface-container-highest" />
               </div>
               <div className="mt-8">
-                <p className="eyebrow mb-2">ความดิบเถื่อนจากธรรมชาติ</p>
+                <p className="eyebrow mb-2">{d.rawEyebrow}</p>
                 <h3 className="mb-4 font-headline text-2xl md:text-3xl">{d.rawTitle}</h3>
                 <p className="leading-relaxed text-on-surface-variant">{d.rawBody}</p>
               </div>
             </div>
             <div className="w-full pt-0 md:w-1/2 md:pt-48">
               <div className="relative aspect-square">
-                <Image alt={d.cutTitle} className="h-full w-full object-cover" fill sizes="(min-width: 768px) 50vw, 100vw" src="/images/the-cut-aesthetic.png" />
+                <Image alt={d.cutTitle} className="h-full w-full object-cover" fill sizes="(min-width: 768px) 50vw, 100vw" src={theCutAesthetic} />
                 <div className="absolute inset-0 border-[20px] border-surface-container-highest" />
               </div>
               <div className="mt-8">
-                <p className="eyebrow mb-2">ความแม่นยำจากฝีมือมนุษย์</p>
+                <p className="eyebrow mb-2">{d.cutEyebrow}</p>
                 <h3 className="mb-4 font-headline text-2xl md:text-3xl">{d.cutTitle}</h3>
                 <p className="leading-relaxed text-on-surface-variant">{d.cutBody}</p>
               </div>
@@ -222,15 +225,15 @@ export function EducationSections({ dictionary, locale }: Props) {
               <div className="absolute left-[85%] top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-outline md:left-3/4 md:h-4 md:w-4" />
               <div className="mt-16 flex justify-between md:mt-20">
                 <div className="flex-1 text-center">
-                  <p className="eyebrow mb-1 opacity-60">แผ่วเบา</p>
+                  <p className="eyebrow mb-1 opacity-60">{d.caratLight}</p>
                   <p className="font-headline text-base md:text-lg">1.0 ct</p>
                 </div>
                 <div className="flex-1 scale-105 text-center md:scale-110">
-                  <p className="eyebrow mb-1">โดดเด่น</p>
+                  <p className="eyebrow mb-1">{d.caratNotable}</p>
                   <p className="font-headline text-lg text-primary md:text-xl">5.0 ct</p>
                 </div>
                 <div className="flex-1 text-center">
-                  <p className="eyebrow mb-1 opacity-60">อลังการ</p>
+                  <p className="eyebrow mb-1 opacity-60">{d.caratGrand}</p>
                   <p className="font-headline text-base md:text-lg">15.0+ ct</p>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localizedPath, locales, type Locale, type RouteKey } from "@/i18n/routing";
+import fallbackImage from "@/assets/images/background/education_background.png";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 
@@ -50,7 +51,7 @@ export function createPageMetadata(
       type: "website",
       images: [
         {
-          url: "/images/education-background.png",
+          url: fallbackImage.src,
           width: 1200,
           height: 630,
           alt: pageSeo.title,

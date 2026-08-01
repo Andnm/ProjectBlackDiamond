@@ -21,7 +21,11 @@
     "language": "Ngôn ngữ",
     "openMenu": "Mở menu",
     "closeMenu": "Đóng menu",
-    "newsletterPlaceholder": "Địa chỉ email"
+    "newsletterPlaceholder": "Địa chỉ email",
+    "send": "Gửi",
+    "thankYou": "Cảm ơn! Chúng tôi đã nhận được thông tin của bạn.",
+    "genericError": "Đã có lỗi xảy ra, vui lòng thử lại.",
+    "mainNavLabel": "Điều hướng chính"
   },
   "seo": {
     "home": {
@@ -214,7 +218,8 @@
         "title": "Tiêu Chuẩn Đầu Tư",
         "body": "Đá quý cấp độ sưu tầm được lựa chọn dựa trên độ hiếm, độ bền và giá trị dài hạn trong danh mục đầu tư."
       }
-    ]
+    ],
+    "heroImageAlt": "Cận cảnh một viên đá quý sẫm màu hiếm phản chiếu ánh sáng nhẹ nhàng"
   },
   "education": {
     "eyebrow": "Chuyên đề kiến thức",
@@ -339,7 +344,16 @@
         "title": "Đánh Bóng Ánh Kim",
         "body": "Các đĩa thép chuyên dụng phủ bột kim cương sẽ đánh bóng từng mặt cắt cho đến khi đạt ánh kim loại hoàn hảo. Quy trình này mất thời gian gấp 3-4 lần so với việc đánh bóng kim cương không màu có cùng kích thước."
       }
-    ]
+    ],
+    "scrollHint": "Cuộn để khám phá",
+    "propertiesEyebrow": "Đặc điểm vật lý của kim cương đen",
+    "investmentEyebrow": "Đầu tư",
+    "rawEyebrow": "Sự thô ráp nguyên bản từ thiên nhiên",
+    "cutEyebrow": "Sự chính xác từ bàn tay con người",
+    "caratLight": "Nhẹ nhàng",
+    "caratNotable": "Nổi bật",
+    "caratGrand": "Tráng lệ",
+    "nebulaAlt": "Tinh vân trong không gian sâu thẳm"
   },
   "catalog": {
     "eyebrow": "Bộ sưu tập tuyển chọn",
@@ -478,7 +492,20 @@
     "detailCertDownload": "Tải PDF",
     "detailCertNote": "Số báo cáo này có thể được xác minh độc lập thông qua hệ thống công khai của cơ quan cấp chứng nhận.",
     "detailCertNone": "Tác phẩm này đi kèm hồ sơ phân hạng nội bộ. Chứng nhận GIA hoặc IGI chính thức có thể được yêu cầu cấp theo nhu cầu.",
-    "priceApproxNote": "Giá hiển thị chỉ mang tính tham khảo, được quy đổi gần đúng từ Baht Thái — có thể khác với giá thực tế tùy theo tỷ giá hối đoái."
+    "priceApproxNote": "Giá hiển thị chỉ mang tính tham khảo, được quy đổi gần đúng từ Baht Thái — có thể khác với giá thực tế tùy theo tỷ giá hối đoái.",
+    "detailCarat": "Carat",
+    "detailCut": "Kiểu cắt",
+    "detailMetal": "Kim loại",
+    "detailSetting": "Khung nạm",
+    "detailOrigin": "Xuất xứ",
+    "detailCertLabel": "Chứng nhận",
+    "detailGemSpecs": "Thông số kỹ thuật đá quý",
+    "detailSettingSpecs": "Khung nạm và cách gắn",
+    "priceMinLabel": "Thấp nhất",
+    "priceMaxLabel": "Cao nhất",
+    "bespokeBackgroundWord": "Hư Vô",
+    "bespokeImageAlt": "Bộ sưu tập kim cương đen được tuyển chọn trên nhung sẫm màu",
+    "detailInDepth": "Phân tích chuyên sâu"
   },
   "blog": {
     "eyebrow": "Tạp chí BlackDiamond",
@@ -487,7 +514,9 @@
     "allLabel": "Tất cả",
     "readMore": "Đọc bài viết",
     "minRead": "phút đọc",
-    "loadMore": "Xem thêm bài viết"
+    "loadMore": "Xem thêm bài viết",
+    "postCountSuffix": "bài viết",
+    "moreArticlesLabel": "Tất cả bài viết"
   },
   "investment": {
     "eyebrow": "Bảo toàn giá trị tài sản",
@@ -530,7 +559,9 @@
         "title": "Dịch Vụ Concierge Tìm Nguồn",
         "body": "Tìm kiếm toàn cầu cho những tác phẩm đơn lẻ đạt tiêu chuẩn bảo tàng"
       }
-    ]
+    ],
+    "standardsEyebrow": "Khung xác minh",
+    "channelsEyebrow": "Vòng trong tuyển chọn"
   },
   "membership": {
     "eyebrow": "Định nghĩa mới về đặc quyền",
@@ -567,7 +598,18 @@
     "bespokeTitle": "Chế Tác Riêng",
     "bespokeBody": "Tùy chỉnh nhu cầu sở hữu, từ những tác phẩm bán lẻ đẳng cấp kiệt tác cho đến nguồn cung mang tính kiến trúc dành cho đối tác bán sỉ.",
     "contactTitle": "Concierge Phụ Trách",
-    "contactBody": "Kênh liên hệ được mã hóa trực tiếp dành cho các yêu cầu tìm nguồn đá quý trên mười carat. Thời gian phản hồi cho hội viên thông thường không quá bốn giờ."
+    "contactBody": "Kênh liên hệ được mã hóa trực tiếp dành cho các yêu cầu tìm nguồn đá quý trên mười carat. Thời gian phản hồi cho hội viên thông thường không quá bốn giờ.",
+    "bespokeEyebrow": "Đặt hàng riêng",
+    "sizeSelectedLabel": "Đã chọn 2.5 carat",
+    "shadeName": "Obsidian đậm (mờ)",
+    "cutOptions": [
+      "Cắt thô bất đối xứng",
+      "Emerald kiến trúc",
+      "Brilliant của khoảng trống",
+      "Cushion carbon"
+    ],
+    "conciergeAlt": "Quản gia riêng",
+    "conciergeRole": "Giám đốc Cấp cao phụ trách Nguồn cung"
   },
   "posters": {
     "overviewEyebrow": "Tổng quan thương hiệu",

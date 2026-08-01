@@ -29,7 +29,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <>
       <SyncHtmlLang locale={typedLocale} />
-      <JsonLd schema={organizationSchema()} />
+      <JsonLd schema={organizationSchema(typedLocale)} />
       <Header dictionary={dictionary} locale={typedLocale} />
       {children}
       <Footer dictionary={dictionary} locale={typedLocale} />

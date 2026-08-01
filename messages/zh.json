@@ -21,7 +21,11 @@
     "language": "语言",
     "openMenu": "打开菜单",
     "closeMenu": "关闭菜单",
-    "newsletterPlaceholder": "电子邮箱地址"
+    "newsletterPlaceholder": "电子邮箱地址",
+    "send": "发送",
+    "thankYou": "谢谢！我们已收到您的信息。",
+    "genericError": "发生错误，请重试。",
+    "mainNavLabel": "主导航"
   },
   "seo": {
     "home": {
@@ -214,7 +218,8 @@
         "title": "投资级标准",
         "body": "收藏级宝石依据稀有度、耐久性与长期投资组合价值精心甄选。"
       }
-    ]
+    ],
+    "heroImageAlt": "稀有深色宝石的特写，微微反射着光芒"
   },
   "education": {
     "eyebrow": "专业知识系列",
@@ -339,7 +344,16 @@
         "title": "金属光泽抛光",
         "body": "专用的含钻石粉铁质抛光盘,将每个刻面打磨至完美的金属光泽。这一过程耗时,是同等大小无色钻石抛光时间的3至4倍。"
       }
-    ]
+    ],
+    "scrollHint": "滚动探索",
+    "propertiesEyebrow": "黑钻石的物理特征",
+    "investmentEyebrow": "投资",
+    "rawEyebrow": "源自自然的原始粗犷",
+    "cutEyebrow": "源自人手的精准工艺",
+    "caratLight": "轻盈",
+    "caratNotable": "醒目",
+    "caratGrand": "恢弘",
+    "nebulaAlt": "深空星云"
   },
   "catalog": {
     "eyebrow": "臻选典藏",
@@ -478,7 +492,20 @@
     "detailCertDownload": "下载 PDF",
     "detailCertNote": "此报告编号可通过发证机构的公开系统独立验证。",
     "detailCertNone": "此宝石附有内部分级记录,可依需求另行申请官方 GIA 或 IGI 证书。",
-    "priceApproxNote": "所示价格为泰铢的近似换算，实际价格可能因汇率变动而有所不同。"
+    "priceApproxNote": "所示价格为泰铢的近似换算，实际价格可能因汇率变动而有所不同。",
+    "detailCarat": "克拉",
+    "detailCut": "切工",
+    "detailMetal": "金属",
+    "detailSetting": "镶嵌底座",
+    "detailOrigin": "产地",
+    "detailCertLabel": "证书",
+    "detailGemSpecs": "宝石规格",
+    "detailSettingSpecs": "镶嵌与底座工艺",
+    "priceMinLabel": "最低",
+    "priceMaxLabel": "最高",
+    "bespokeBackgroundWord": "虚空",
+    "bespokeImageAlt": "精选黑钻藏品置于深色天鹅绒之上",
+    "detailInDepth": "深度分析"
   },
   "blog": {
     "eyebrow": "BlackDiamond 杂志",
@@ -487,7 +514,9 @@
     "allLabel": "全部",
     "readMore": "阅读全文",
     "minRead": "分钟阅读",
-    "loadMore": "查看更多文章"
+    "loadMore": "查看更多文章",
+    "postCountSuffix": "篇文章",
+    "moreArticlesLabel": "全部文章"
   },
   "investment": {
     "eyebrow": "守护资产价值",
@@ -530,7 +559,9 @@
         "title": "礼宾寻源服务",
         "body": "为博物馆级孤品全球寻源。"
       }
-    ]
+    ],
+    "standardsEyebrow": "验证框架",
+    "channelsEyebrow": "甄选核心圈"
   },
   "membership": {
     "eyebrow": "重新定义尊享特权",
@@ -567,7 +598,18 @@
     "bespokeTitle": "专属定制",
     "bespokeBody": "从大师级零售单品到面向批发合作伙伴的建筑级供应,灵活定制您的购藏需求。",
     "contactTitle": "专属礼宾顾问",
-    "contactBody": "为超过十克拉的宝石寻源需求提供直接加密联络渠道。会员咨询通常在四小时内获得回复。"
+    "contactBody": "为超过十克拉的宝石寻源需求提供直接加密联络渠道。会员咨询通常在四小时内获得回复。",
+    "bespokeEyebrow": "定制委托",
+    "sizeSelectedLabel": "已选择 2.5 克拉",
+    "shadeName": "深邃黑曜岩（哑光）",
+    "cutOptions": [
+      "不对称原石切割",
+      "建筑感祖母绿型",
+      "虚空明亮式",
+      "碳素垫形"
+    ],
+    "conciergeAlt": "礼宾专员",
+    "conciergeRole": "高级采购总监"
   },
   "posters": {
     "overviewEyebrow": "品牌概览",

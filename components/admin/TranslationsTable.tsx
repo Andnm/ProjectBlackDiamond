@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { StatusBadge } from "@/components/admin/StatusBadge";
 import { Spinner } from "@/components/admin/Spinner";
+import { Modal } from "@/components/admin/Modal";
 import { saveManualTranslationAction, retranslateCellsAction } from "@/app/admin/(dashboard)/translations-actions";
 import type { ContentType } from "@/lib/translation/fields";
 import type { TargetLocale, TranslationCell } from "@/lib/translation/manual-edit";
@@ -25,7 +26,7 @@ function cellKey(fieldName: string, locale: string): string {
 }
 
 export function TranslationsTable({ contentType, contentId, cells, fieldLabels }: Props) {
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [activeKey, setActiveKey] = useState<string | null>(null);
   const [draft, setDraft] = useState<Record<string, string>>({});
   const [savingKey, setSavingKey] = useState<string | null>(null);
   const [retranslating, startRetranslate] = useTransition();
@@ -39,6 +40,8 @@ export function TranslationsTable({ contentType, contentId, cells, fieldLabels }
   }
   const fieldNames = [...byField.keys()];
 
+  const activeCell = activeKey ? cells.find((c) => cellKey(c.fieldName, c.locale) === activeKey) ?? null : null;
+
   function valueFor(cell: TranslationCell): string {
     const key = cellKey(cell.fieldName, cell.locale);
     return draft[key] ?? cell.value;
@@ -50,7 +53,11 @@ export function TranslationsTable({ contentType, contentId, cells, fieldLabels }
     setErrorByKey((prev) => ({ ...prev, [key]: "" }));
     const result = await saveManualTranslationAction(contentType, contentId, cell.fieldName, cell.locale, valueFor(cell));
     setSavingKey(null);
-    if (result.error) setErrorByKey((prev) => ({ ...prev, [key]: result.error! }));
+    if (result.error) {
+      setErrorByKey((prev) => ({ ...prev, [key]: result.error! }));
+    } else {
+      setActiveKey(null);
+    }
   }
 
   function handleRetranslate(targets: { fieldName: string; locale: TargetLocale }[], key: string) {
@@ -64,6 +71,8 @@ export function TranslationsTable({ contentType, contentId, cells, fieldLabels }
           for (const t of targets) next[cellKey(t.fieldName, t.locale)] = result.error!;
           return next;
         });
+      } else if (key !== "__all__") {
+        setActiveKey(null);
       }
     });
   }
@@ -72,14 +81,19 @@ export function TranslationsTable({ contentType, contentId, cells, fieldLabels }
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between gap-4">
         <p className="text-xs text-neutral-500">
-          กดสถานะเพื่อดูและแก้ไขคำแปล — ข้อความที่ทำเครื่องหมาย “แก้ไขเอง” จะไม่ถูกแปลทับให้อัตโนมัติอีก
+          กดสถานะเพื่อเปิดหน้าต่างดูและแก้ไขคำแปล — ข้อความที่ทำเครื่องหมาย “แก้ไขโดยแอดมิน” จะไม่ถูกแปลทับให้อัตโนมัติอีก
         </p>
         <button
           className="inline-flex items-center gap-2 border border-neutral-700 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-neutral-300 transition hover:border-amber-400 hover:text-amber-400 disabled:opacity-50"
           disabled={retranslating}
           onClick={() =>
             handleRetranslate(
-              fieldNames.flatMap((fieldName) => TARGET_LOCALES.map((locale) => ({ fieldName, locale }))),
+              // Excludes manual_edited cells on purpose — "translate all" is a
+              // broad sweep, not a deliberate per-cell override, so it must
+              // never silently clobber an admin's hand-corrected text. The
+              // per-cell "translate now" button inside a cell's own modal is
+              // the deliberate, scoped action that's allowed to override it.
+              cells.filter((c) => c.status !== "manual_edited").map((c) => ({ fieldName: c.fieldName, locale: c.locale })),
               "__all__",
             )
           }
@@ -90,7 +104,7 @@ export function TranslationsTable({ contentType, contentId, cells, fieldLabels }
               <Spinner /> กำลังแปลทั้งหมด…
             </>
           ) : (
-            "แปลใหม่ทั้งหมด"
+            "แปลใหม่ทั้งหมด (ไม่ทับที่แก้ไขเอง)"
           )}
         </button>
       </div>
@@ -116,50 +130,15 @@ export function TranslationsTable({ contentType, contentId, cells, fieldLabels }
                   {TARGET_LOCALES.map((locale) => {
                     const cell = rowCells.get(locale);
                     if (!cell) return <td className="px-4 py-3 text-neutral-600" key={locale}>—</td>;
-                    const key = cellKey(fieldName, locale);
-                    const isExpanded = expanded === key;
                     return (
                       <td className="px-4 py-3" key={locale}>
                         <button
                           className="focus-ring"
-                          onClick={() => setExpanded(isExpanded ? null : key)}
+                          onClick={() => setActiveKey(cellKey(fieldName, locale))}
                           type="button"
                         >
                           <StatusBadge status={cell.status} />
                         </button>
-
-                        {isExpanded ? (
-                          <div className="mt-3 flex w-64 flex-col gap-2">
-                            <textarea
-                              className={fieldClass}
-                              onChange={(event) => setDraft((prev) => ({ ...prev, [key]: event.target.value }))}
-                              rows={cell.fieldKind === "html" ? 8 : 4}
-                              value={valueFor(cell)}
-                            />
-                            {cell.errorMessage ? (
-                              <p className="text-xs text-red-400">{cell.errorMessage}</p>
-                            ) : null}
-                            {errorByKey[key] ? <p className="text-xs text-red-400">{errorByKey[key]}</p> : null}
-                            <div className="flex gap-2">
-                              <button
-                                className="border border-amber-400 bg-amber-400 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-neutral-950 transition hover:bg-amber-300 disabled:opacity-50"
-                                disabled={savingKey === key}
-                                onClick={() => handleSave(cell)}
-                                type="button"
-                              >
-                                {savingKey === key ? <Spinner /> : "บันทึก"}
-                              </button>
-                              <button
-                                className="border border-neutral-700 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-neutral-300 transition hover:border-amber-400 hover:text-amber-400 disabled:opacity-50"
-                                disabled={retranslating}
-                                onClick={() => handleRetranslate([{ fieldName, locale }], key)}
-                                type="button"
-                              >
-                                {retranslating && retranslatingKey === key ? <Spinner /> : "แปลตอนนี้"}
-                              </button>
-                            </div>
-                          </div>
-                        ) : null}
                       </td>
                     );
                   })}
@@ -169,6 +148,77 @@ export function TranslationsTable({ contentType, contentId, cells, fieldLabels }
           </tbody>
         </table>
       </div>
+
+      <Modal
+        onClose={() => setActiveKey(null)}
+        open={activeCell !== null}
+        title={activeCell ? `${fieldLabels[activeCell.fieldName] ?? activeCell.fieldName} — ${LOCALE_LABELS[activeCell.locale]}` : ""}
+      >
+        {activeCell ? (
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-2">
+              <StatusBadge status={activeCell.status} />
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col gap-1.5">
+                <span className="text-xs font-bold uppercase tracking-[0.14em] text-neutral-400">
+                  ต้นฉบับ (ภาษาไทย)
+                </span>
+                <div className={`${fieldClass} min-h-[8rem] cursor-text whitespace-pre-wrap text-neutral-400`}>
+                  {activeCell.sourceValue || "—"}
+                </div>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <span className="text-xs font-bold uppercase tracking-[0.14em] text-neutral-400">
+                  คำแปล ({LOCALE_LABELS[activeCell.locale]})
+                </span>
+                <textarea
+                  className={fieldClass}
+                  onChange={(event) =>
+                    setDraft((prev) => ({ ...prev, [cellKey(activeCell.fieldName, activeCell.locale)]: event.target.value }))
+                  }
+                  rows={activeCell.fieldKind === "html" ? 10 : 6}
+                  value={valueFor(activeCell)}
+                />
+              </div>
+            </div>
+
+            {activeCell.errorMessage ? <p className="text-xs text-red-400">{activeCell.errorMessage}</p> : null}
+            {errorByKey[cellKey(activeCell.fieldName, activeCell.locale)] ? (
+              <p className="text-xs text-red-400">{errorByKey[cellKey(activeCell.fieldName, activeCell.locale)]}</p>
+            ) : null}
+
+            <div className="flex gap-2">
+              <button
+                className="border border-amber-400 bg-amber-400 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-neutral-950 transition hover:bg-amber-300 disabled:opacity-50"
+                disabled={savingKey === cellKey(activeCell.fieldName, activeCell.locale)}
+                onClick={() => handleSave(activeCell)}
+                type="button"
+              >
+                {savingKey === cellKey(activeCell.fieldName, activeCell.locale) ? <Spinner /> : "บันทึก"}
+              </button>
+              <button
+                className="border border-neutral-700 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-neutral-300 transition hover:border-amber-400 hover:text-amber-400 disabled:opacity-50"
+                disabled={retranslating}
+                onClick={() =>
+                  handleRetranslate(
+                    [{ fieldName: activeCell.fieldName, locale: activeCell.locale }],
+                    cellKey(activeCell.fieldName, activeCell.locale),
+                  )
+                }
+                type="button"
+              >
+                {retranslating && retranslatingKey === cellKey(activeCell.fieldName, activeCell.locale) ? (
+                  <Spinner />
+                ) : (
+                  "แปลตอนนี้"
+                )}
+              </button>
+            </div>
+          </div>
+        ) : null}
+      </Modal>
     </div>
   );
 }
