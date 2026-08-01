@@ -8,6 +8,7 @@ import type { CollectionPiece } from "@/lib/collection";
 import { PosterShowcase } from "@/components/PosterShowcase";
 import { getInformationImages } from "@/lib/information-assets";
 import homeBg from "@/assets/images/background/home_background.png";
+import lifestyleBg from "@/assets/images/background/lifestyle_background.png";
 
 type Props = {
   dictionary: Dictionary;
@@ -25,7 +26,7 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
       <section className="relative flex min-h-screen items-center overflow-hidden py-20 md:py-0">
         <div className="absolute inset-0 bg-surface">
           <Image
-            alt="ภาพระยะใกล้ของอัญมณีสีเข้มหายากสะท้อนแสงเพียงเล็กน้อย"
+            alt={d.heroImageAlt}
             className="h-full w-full object-cover opacity-60"
             fill
             priority
@@ -281,7 +282,7 @@ export function HomeSections({ dictionary, locale, featuredPieces }: Props) {
             className="h-full w-full object-cover"
             fill
             sizes="100vw"
-            src="/images/lifestyle-background.png"
+            src={lifestyleBg}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />

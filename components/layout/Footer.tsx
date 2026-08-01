@@ -3,6 +3,7 @@ import Link from "next/link";
 import { localizedPath, type Locale } from "@/i18n/routing";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { getBrandLogo } from "@/lib/brand-assets";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
 type Props = {
   dictionary: Dictionary;
@@ -57,18 +58,14 @@ export function Footer({ dictionary, locale }: Props) {
         <section>
           <h2 className="eyebrow mb-6">{dictionary.footer.newsletter}</h2>
           <p className="mb-6 text-sm leading-7 text-on-muted">{dictionary.footer.newsletterCopy}</p>
-          <form className="flex border-b border-outline/70" action="/api/newsletter">
-            <input
-              aria-label={dictionary.common.newsletterPlaceholder}
-              className="w-full bg-transparent py-3 text-sm text-on-surface outline-none placeholder:text-on-muted"
-              name="email"
-              placeholder={dictionary.common.newsletterPlaceholder}
-              type="email"
-            />
-            <button className="px-3 text-primary" type="submit" aria-label={dictionary.common.requestConsultation}>
-              ส่ง
-            </button>
-          </form>
+          <NewsletterForm
+            ariaLabel={dictionary.common.newsletterPlaceholder}
+            errorMessage={dictionary.common.genericError}
+            locale={locale}
+            placeholder={dictionary.common.newsletterPlaceholder}
+            submitLabel={dictionary.common.send}
+            successMessage={dictionary.common.thankYou}
+          />
         </section>
       </div>
       <div className="section-shell mt-12 border-t border-outline/20 pt-8 text-xs uppercase tracking-[0.18em] text-on-muted">

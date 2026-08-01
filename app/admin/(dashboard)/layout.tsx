@@ -21,7 +21,7 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
       <div className="flex min-h-screen flex-col lg:flex-row">
-        <aside className="flex shrink-0 flex-col gap-8 border-b border-neutral-800 px-6 py-6 lg:w-64 lg:border-b-0 lg:border-r lg:px-8 lg:py-10">
+        <aside className="flex shrink-0 flex-col gap-8 border-b border-neutral-800 px-6 py-6 lg:sticky lg:top-0 lg:h-screen lg:w-64 lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-8 lg:py-10">
           <div>
             <Image alt="BlackDiamond" className="h-8 w-auto" src={defaultBrandLogo} />
             <p className="mt-2 font-headline text-xl text-white">ผู้ดูแลระบบ</p>
@@ -44,7 +44,7 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
           </div>
         </aside>
 
-        <main className="flex-1 px-6 py-8 lg:px-12 lg:py-12">{children}</main>
+        <main className="min-w-0 flex-1 px-6 py-8 lg:px-12 lg:py-12">{children}</main>
       </div>
     </div>
   );

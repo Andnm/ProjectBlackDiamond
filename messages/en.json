@@ -21,7 +21,11 @@
     "language": "Language",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
-    "newsletterPlaceholder": "Email Address"
+    "newsletterPlaceholder": "Email Address",
+    "send": "Send",
+    "thankYou": "Thank you! We've received your information.",
+    "genericError": "Something went wrong. Please try again.",
+    "mainNavLabel": "Main Navigation"
   },
   "seo": {
     "home": {
@@ -214,7 +218,8 @@
         "title": "Investment Standard",
         "body": "Collector-grade gems are selected for rarity, durability, and long-term value within an investment portfolio."
       }
-    ]
+    ],
+    "heroImageAlt": "Close-up of a rare dark gemstone reflecting a faint light"
   },
   "education": {
     "eyebrow": "Specialized Knowledge Series",
@@ -339,7 +344,16 @@
         "title": "Metallic Polish",
         "body": "Specialized steel plates charged with diamond powder polish each facet to a flawless metallic sheen. The process takes three to four times longer than polishing a colorless diamond of equal size."
       }
-    ]
+    ],
+    "scrollHint": "Scroll to Explore",
+    "propertiesEyebrow": "The Physical Character of Black Diamonds",
+    "investmentEyebrow": "Investment",
+    "rawEyebrow": "Raw, Untamed by Nature",
+    "cutEyebrow": "Precision by Human Hand",
+    "caratLight": "Subtle",
+    "caratNotable": "Notable",
+    "caratGrand": "Magnificent",
+    "nebulaAlt": "A deep-space nebula"
   },
   "catalog": {
     "eyebrow": "Curated Collection",
@@ -478,7 +492,20 @@
     "detailCertDownload": "Download PDF",
     "detailCertNote": "This report number can be independently verified through the issuing authority's public registry.",
     "detailCertNone": "This piece comes with an in-house grading record. A formal GIA or IGI certificate can be arranged upon request.",
-    "priceApproxNote": "Prices shown are an approximate conversion from Thai Baht and may differ from the actual price depending on the exchange rate."
+    "priceApproxNote": "Prices shown are an approximate conversion from Thai Baht and may differ from the actual price depending on the exchange rate.",
+    "detailCarat": "Carat",
+    "detailCut": "Cut",
+    "detailMetal": "Metal",
+    "detailSetting": "Setting",
+    "detailOrigin": "Origin",
+    "detailCertLabel": "Certification",
+    "detailGemSpecs": "Gemstone Specifications",
+    "detailSettingSpecs": "Setting & Mounting",
+    "priceMinLabel": "Min",
+    "priceMaxLabel": "Max",
+    "bespokeBackgroundWord": "Void",
+    "bespokeImageAlt": "A curated black diamond collection on dark velvet",
+    "detailInDepth": "In-Depth Analysis"
   },
   "blog": {
     "eyebrow": "BlackDiamond Magazine",
@@ -487,7 +514,9 @@
     "allLabel": "All",
     "readMore": "Read Article",
     "minRead": "min read",
-    "loadMore": "Load More Articles"
+    "loadMore": "Load More Articles",
+    "postCountSuffix": "Articles",
+    "moreArticlesLabel": "More Articles"
   },
   "investment": {
     "eyebrow": "Preserve Your Wealth",
@@ -530,7 +559,9 @@
         "title": "Concierge Sourcing",
         "body": "Global search for singular, museum-grade pieces."
       }
-    ]
+    ],
+    "standardsEyebrow": "Verification Framework",
+    "channelsEyebrow": "The Curated Inner Circle"
   },
   "membership": {
     "eyebrow": "Redefining Privilege",
@@ -567,7 +598,18 @@
     "bespokeTitle": "Bespoke Commissions",
     "bespokeBody": "Tailor your acquisition needs — from a single retail masterpiece to architectural-scale supply for wholesale partners.",
     "contactTitle": "Dedicated Concierge",
-    "contactBody": "A direct, encrypted channel for sourcing requests exceeding ten carats. Members can typically expect a response within four hours."
+    "contactBody": "A direct, encrypted channel for sourcing requests exceeding ten carats. Members can typically expect a response within four hours.",
+    "bespokeEyebrow": "Custom Commission",
+    "sizeSelectedLabel": "2.5 Carats Selected",
+    "shadeName": "Deep Obsidian (Matte)",
+    "cutOptions": [
+      "Asymmetric Raw Cut",
+      "Architectural Emerald",
+      "Void Brilliant",
+      "Carbon Cushion"
+    ],
+    "conciergeAlt": "Concierge",
+    "conciergeRole": "Senior Sourcing Director"
   },
   "posters": {
     "overviewEyebrow": "Brand Overview",

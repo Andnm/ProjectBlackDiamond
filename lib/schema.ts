@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/routing";
 import type { CollectionPiece } from "@/lib/collection";
 import type { BlogPost } from "@/lib/blog";
+import fallbackImage from "@/assets/images/background/education_background.png";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.blackdiamondluxury.org";
 const BRAND_NAME = "BlackDiamond";
@@ -11,7 +12,31 @@ function abs(path: string) {
   return `${SITE_URL}${path}`;
 }
 
-export function organizationSchema() {
+const LOCALE_TAG: Record<Locale, string> = {
+  th: "th-TH",
+  vi: "vi-VN",
+  lo: "lo-LA",
+  zh: "zh-CN",
+  en: "en-US",
+};
+
+const ORGANIZATION_DESCRIPTION: Record<Locale, string> = {
+  th: "จุดหมายปลายทางระดับสูงสำหรับเพชรดำธรรมชาติ — อัญมณีระดับสะสมที่ได้รับการรับรอง เครื่องประดับเชิงสถาปัตยกรรม และแหล่งที่มาที่ตรวจสอบได้",
+  vi: "Điểm đến hàng đầu cho kim cương đen tự nhiên — đá quý sưu tầm được chứng nhận, trang sức mang tính kiến trúc và nguồn gốc có thể xác minh.",
+  lo: "ຈຸດໝາຍປາຍທາງລະດັບສູງສຳລັບເພັດດຳທຳມະຊາດ — ອັນຍະມະນີລະດັບສະສົມທີ່ໄດ້ຮັບການຮັບຮອງ, ເຄື່ອງປະດັບເຊີງສະຖາປັດຕະຍະກຳ ແລະ ແຫຼ່ງທີ່ມາທີ່ກວດສອບໄດ້.",
+  zh: "天然黑钻的顶级目的地——经过认证的收藏级宝石、建筑感珠宝设计，以及可验证的来源。",
+  en: "The premier destination for natural black diamonds — certified collector-grade gemstones, architectural jewelry, and verifiable provenance.",
+};
+
+const KNOWS_ABOUT: Record<Locale, string[]> = {
+  th: ["เพชรดำ", "Carbonado", "การรับรอง GIA", "อัญมณีหรูหรา", "การลงทุนเพชร"],
+  vi: ["Kim cương đen", "Carbonado", "Chứng nhận GIA", "Đá quý xa xỉ", "Đầu tư kim cương"],
+  lo: ["ເພັດດຳ", "Carbonado", "ການຮັບຮອງ GIA", "ອັນຍະມະນີຫລູຫລາ", "ການລົງທຶນເພັດ"],
+  zh: ["黑钻石", "Carbonado", "GIA认证", "奢华宝石", "钻石投资"],
+  en: ["Black Diamonds", "Carbonado", "GIA Certification", "Luxury Gemstones", "Diamond Investment"],
+};
+
+export function organizationSchema(locale: Locale = "th") {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -20,25 +45,18 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
-      url: abs("/images/education-background.png"),
+      url: abs(fallbackImage.src),
       width: 1200,
       height: 630,
     },
-    description:
-      "จุดหมายปลายทางระดับสูงสำหรับเพชรดำธรรมชาติ — อัญมณีระดับสะสมที่ได้รับการรับรอง เครื่องประดับเชิงสถาปัตยกรรม และแหล่งที่มาที่ตรวจสอบได้",
+    description: ORGANIZATION_DESCRIPTION[locale],
     email: BRAND_EMAIL,
     telephone: BRAND_PHONE,
     foundingLocation: {
       "@type": "Place",
       name: "Thailand",
     },
-    knowsAbout: [
-      "เพชรดำ",
-      "Carbonado",
-      "การรับรอง GIA",
-      "อัญมณีหรูหรา",
-      "การลงทุนเพชร",
-    ],
+    knowsAbout: KNOWS_ABOUT[locale],
   };
 }
 
@@ -58,7 +76,7 @@ export function webSiteSchema() {
       },
       "query-input": "required name=search_term_string",
     },
-    inLanguage: ["th-TH"],
+    inLanguage: Object.values(LOCALE_TAG),
   };
 }
 
@@ -78,7 +96,7 @@ export function breadcrumbSchema(
 }
 
 export function articleSchema(post: BlogPost, locale: Locale) {
-  const localeTag = "th-TH";
+  const localeTag = LOCALE_TAG[locale];
   const url = abs(`/${locale}/blog/${post.slug}`);
 
   return {
@@ -105,7 +123,7 @@ export function articleSchema(post: BlogPost, locale: Locale) {
     },
     image: {
       "@type": "ImageObject",
-      url: abs("/images/education-background.png"),
+      url: abs(fallbackImage.src),
       width: 1200,
       height: 630,
     },
@@ -116,10 +134,27 @@ export function articleSchema(post: BlogPost, locale: Locale) {
   };
 }
 
+const MATERIAL_LABEL: Record<Locale, string> = {
+  th: "เพชรดำธรรมชาติ",
+  vi: "Kim cương đen tự nhiên",
+  lo: "ເພັດດຳທຳມະຊາດ",
+  zh: "天然黑钻石",
+  en: "Natural Black Diamond",
+};
+
+const PRODUCT_PROPERTY_LABELS: Record<Locale, { carat: string; rarityIndex: string; origin: string; certification: string }> = {
+  th: { carat: "กะรัต", rarityIndex: "ดัชนีความหายาก", origin: "แหล่งที่มา", certification: "ใบรับรอง" },
+  vi: { carat: "Carat", rarityIndex: "Chỉ số hiếm", origin: "Xuất xứ", certification: "Chứng nhận" },
+  lo: { carat: "ກະລັດ", rarityIndex: "ດັດຊະນີຄວາມຫາຍາກ", origin: "ແຫຼ່ງກຳເນີດ", certification: "ໃບຮັບຮອງ" },
+  zh: { carat: "克拉", rarityIndex: "稀有指数", origin: "产地", certification: "证书" },
+  en: { carat: "Carat", rarityIndex: "Rarity Index", origin: "Origin", certification: "Certification" },
+};
+
 export function gemstoneProductSchema(piece: CollectionPiece, locale: Locale) {
   const url = abs(`/${locale}/catalog/${piece.slug}`);
   const imageUrl =
     typeof piece.image === "string" ? piece.image : piece.image.src;
+  const labels = PRODUCT_PROPERTY_LABELS[locale];
 
   return {
     "@context": "https://schema.org",
@@ -128,12 +163,12 @@ export function gemstoneProductSchema(piece: CollectionPiece, locale: Locale) {
     name: piece.name[locale],
     description: piece.summary[locale],
     url,
-    image: imageUrl ? abs(imageUrl) : abs("/images/education-background.png"),
+    image: imageUrl ? abs(imageUrl) : abs(fallbackImage.src),
     brand: {
       "@type": "Brand",
       name: BRAND_NAME,
     },
-    material: "เพชรดำธรรมชาติ",
+    material: MATERIAL_LABEL[locale],
     keywords: piece.tags.join(", "),
     offers: {
       "@type": "Offer",
@@ -147,27 +182,43 @@ export function gemstoneProductSchema(piece: CollectionPiece, locale: Locale) {
     additionalProperty: [
       {
         "@type": "PropertyValue",
-        name: "กะรัต",
+        name: labels.carat,
         value: piece.specs.carat,
       },
       {
         "@type": "PropertyValue",
-        name: "ดัชนีความหายาก",
+        name: labels.rarityIndex,
         value: piece.rarityIndex.toString(),
       },
       {
         "@type": "PropertyValue",
-        name: "แหล่งที่มา",
+        name: labels.origin,
         value: piece.specs.origin[locale],
       },
       {
         "@type": "PropertyValue",
-        name: "ใบรับรอง",
+        name: labels.certification,
         value: piece.specs.certification,
       },
     ],
   };
 }
+
+const BLOG_LIST_NAME: Record<Locale, string> = {
+  th: "BlackDiamond Journal — บทความ",
+  vi: "BlackDiamond Journal — Bài viết",
+  lo: "BlackDiamond Journal — ບົດຄວາມ",
+  zh: "BlackDiamond 杂志 — 文章",
+  en: "BlackDiamond Journal — Articles",
+};
+
+const CATALOG_LIST_NAME: Record<Locale, string> = {
+  th: "BlackDiamond คอลเลกชัน",
+  vi: "Bộ sưu tập BlackDiamond",
+  lo: "ຄໍເລັກຊັນ BlackDiamond",
+  zh: "BlackDiamond 典藏系列",
+  en: "BlackDiamond Collection",
+};
 
 export function blogListSchema(
   posts: BlogPost[],
@@ -176,7 +227,7 @@ export function blogListSchema(
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `BlackDiamond Journal — บทความ`,
+    name: BLOG_LIST_NAME[locale],
     url: abs(`/${locale}/blog`),
     itemListElement: posts.map((post, i) => ({
       "@type": "ListItem",
@@ -194,7 +245,7 @@ export function catalogListSchema(
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `BlackDiamond Collection — คอลเลกชัน`,
+    name: CATALOG_LIST_NAME[locale],
     url: abs(`/${locale}/catalog`),
     itemListElement: pieces.map((piece, i) => ({
       "@type": "ListItem",

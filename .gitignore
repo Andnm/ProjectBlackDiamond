@@ -44,3 +44,6 @@ Thumbs.db
 
 # Local AI assistant config
 .claude/
+
+# Local data dumps/backups
+backups/

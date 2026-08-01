@@ -14,18 +14,14 @@ type Props = {
   posts: BlogPost[];
 };
 
+// Keyed by the Thai source category text (post.category.th), which is always
+// populated and stable, so the badge color no longer depends on the display locale.
 const CATEGORY_COLORS: Record<string, string> = {
-  Science: "#c6c6c7",
   "วิทยาศาสตร์": "#c6c6c7",
-  Guide: "#e9c176",
   "คู่มือ": "#e9c176",
-  Certification: "#c5a059",
   "การรับรอง": "#c5a059",
-  Market: "#9ab4a0",
   "ตลาด": "#9ab4a0",
-  History: "#b4a09a",
   "ประวัติศาสตร์": "#b4a09a",
-  Care: "#a09ab4",
   "การดูแลรักษา": "#a09ab4",
 };
 
@@ -85,7 +81,7 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
             <div className="mt-8 flex items-center gap-3">
               <span className="h-px w-8 bg-primary" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-on-muted">
-                {posts.length} บทความ
+                {posts.length} {d.postCountSuffix}
               </span>
             </div>
           </div>
@@ -129,7 +125,7 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
               <div className="relative overflow-hidden bg-surface-container-lowest">
                 <span
                   className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 select-none font-headline text-[10rem] leading-none opacity-[0.04] md:text-[14rem]"
-                  style={{ color: categoryColor(featured.category[locale]) }}
+                  style={{ color: categoryColor(featured.category.th) }}
                   aria-hidden
                 >
                   {featured.category[locale]}
@@ -141,7 +137,7 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
                     <div className="flex flex-wrap items-center gap-3 mb-6">
                       <span
                         className="border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
-                        style={{ borderColor: `${categoryColor(featured.category[locale])}60`, color: categoryColor(featured.category[locale]) }}
+                        style={{ borderColor: `${categoryColor(featured.category.th)}60`, color: categoryColor(featured.category.th) }}
                       >
                         {featured.category[locale]}
                       </span>
@@ -182,7 +178,7 @@ export function BlogSections({ dictionary, locale, posts }: Props) {
             <div className="mb-12 flex items-center gap-6">
               <span className="h-px flex-1 bg-outline/20" />
               <span className="eyebrow opacity-50">
-                บทความทั้งหมด
+                {d.moreArticlesLabel}
               </span>
               <span className="h-px flex-1 bg-outline/20" />
             </div>
@@ -258,7 +254,7 @@ function ArticleCard({
   minReadLabel: string;
   blogPath: string;
 }) {
-  const color = categoryColor(post.category[locale]);
+  const color = categoryColor(post.category.th);
 
   return (
     <Link

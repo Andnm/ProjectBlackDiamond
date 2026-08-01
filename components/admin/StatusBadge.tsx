@@ -1,36 +1,40 @@
 import { Tooltip } from "@/components/admin/Tooltip";
 import type { TranslationStatusValue } from "@/lib/translation/manual-edit";
 
+// Labels are deliberately worded as different ACTIONS (not just "done" twice
+// in different colors) — "done" and "manual_edited" both represent finished,
+// usable text, but via a different path, and that distinction matters (one
+// can be silently re-translated later, the other never will be).
 const STATUS_META: Record<TranslationStatusValue, { label: string; className: string; hint: string }> = {
   done: {
-    label: "เสร็จแล้ว",
+    label: "แปลอัตโนมัติแล้ว",
     className: "bg-emerald-950/60 text-emerald-300",
-    hint: "แปลอัตโนมัติสำเร็จ และตรงกับต้นฉบับภาษาไทยล่าสุด",
+    hint: "ระบบแปลอัตโนมัติสำเร็จ และตรงกับต้นฉบับภาษาไทยล่าสุด หากแก้ไขต้นฉบับภาษาไทยภายหลัง ข้อความนี้จะถูกแปลใหม่โดยอัตโนมัติ",
   },
   pending: {
-    label: "รอแปล",
+    label: "รอคิวแปล",
     className: "bg-amber-950/60 text-amber-300",
     hint: "ยังไม่ได้แปล เพราะโควต้าเต็มตอนที่บันทึก — ระบบจะแปลอัตโนมัติเมื่อโควต้าเดือนถัดไปเปิดใหม่ หรือกด \"แปลตอนนี้\" เพื่อลองอีกครั้ง",
   },
   in_progress: {
-    label: "กำลังแปล",
+    label: "กำลังแปล...",
     className: "bg-blue-950/60 text-blue-300",
     hint: "กำลังส่งข้อความนี้ไปแปล",
   },
   failed: {
-    label: "ผิดพลาด",
+    label: "แปลไม่สำเร็จ",
     className: "bg-red-950/60 text-red-300",
     hint: "เรียก API แปลไม่สำเร็จ (ดูข้อความผิดพลาดด้านล่าง) — กด \"แปลตอนนี้\" เพื่อลองใหม่",
   },
   manual_edited: {
-    label: "แก้ไขเอง",
+    label: "แก้ไขโดยแอดมิน",
     className: "bg-purple-950/60 text-purple-300",
-    hint: "แอดมินแก้ไขข้อความนี้เอง ระบบจะไม่แปลทับให้อัตโนมัติอีก แม้ต้นฉบับภาษาไทยจะเปลี่ยนภายหลัง",
+    hint: "แอดมินพิมพ์/แก้ไขข้อความนี้เอง — ถูกล็อกไว้ ระบบจะไม่แปลทับให้อัตโนมัติอีก แม้ต้นฉบับภาษาไทยจะเปลี่ยนภายหลังก็ตาม (ต้องกด \"แปลตอนนี้\" เองถ้าต้องการให้ระบบแปลทับ)",
   },
   untranslated: {
     label: "ยังไม่แปล",
     className: "bg-neutral-800 text-neutral-400",
-    hint: "ยังไม่เคยพยายามแปลข้อความนี้",
+    hint: "ยังไม่เคยพยายามแปลข้อความนี้เลย",
   },
 };
 

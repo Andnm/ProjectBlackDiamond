@@ -26,19 +26,19 @@ export function CatalogDetailSections({ dictionary, locale, piece, currency, rat
         : "#9a8f80";
 
   const primarySpecRows: [string, string][] = [
-    ["Carat", piece.specs.carat],
+    [d.detailCarat, piece.specs.carat],
     [d.detailDimensions, piece.specs.dimensions],
-    ["การเจียระไน", piece.specs.cut[locale]],
+    [d.detailCut, piece.specs.cut[locale]],
     [d.detailHardness, piece.specs.hardness],
     [d.detailLuster, piece.specs.luster[locale]],
     [d.detailTreatment, piece.specs.treatment[locale]],
   ];
 
   const settingSpecRows: [string, string][] = [
-    ["ตัวเรือน", piece.specs.setting[locale]],
-    ["โลหะ", piece.specs.metal[locale]],
-    ["แหล่งที่มา", piece.specs.origin[locale]],
-    ["ใบรับรอง", piece.specs.certification],
+    [d.detailSetting, piece.specs.setting[locale]],
+    [d.detailMetal, piece.specs.metal[locale]],
+    [d.detailOrigin, piece.specs.origin[locale]],
+    [d.detailCertLabel, piece.specs.certification],
   ];
 
   return (
@@ -146,7 +146,7 @@ export function CatalogDetailSections({ dictionary, locale, piece, currency, rat
 
               <div className="mb-8">
                 <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                  {"ข้อมูลจำเพาะอัญมณี"}
+                  {d.detailGemSpecs}
                 </p>
                 <dl className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
                   {primarySpecRows.map(([label, value]) => (
@@ -162,7 +162,7 @@ export function CatalogDetailSections({ dictionary, locale, piece, currency, rat
 
               <div>
                 <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                  {"ตัวเรือนและการฝัง"}
+                  {d.detailSettingSpecs}
                 </p>
                 <dl className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
                   {settingSpecRows.map(([label, value]) => (
@@ -187,7 +187,7 @@ export function CatalogDetailSections({ dictionary, locale, piece, currency, rat
             </section>
 
             <section className="mb-16 space-y-4">
-              <SectionTitle>{"การวิเคราะห์เชิงลึก"}</SectionTitle>
+              <SectionTitle>{d.detailInDepth}</SectionTitle>
               <InsightBlock title={d.detailInclusion} body={piece.inclusionProfile[locale]} accent />
               <InsightBlock title={d.detailLight} body={piece.lightBehavior[locale]} accent />
               <InsightBlock title={d.detailProvenance} body={piece.provenance[locale]} />
@@ -236,7 +236,7 @@ export function CatalogDetailSections({ dictionary, locale, piece, currency, rat
                 <span className="h-2 w-2 rotate-45 bg-primary" />
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-muted">
-                    {"แหล่งที่มา"}
+                    {d.detailOrigin}
                   </p>
                   <p className="mt-0.5 text-sm font-semibold text-on-surface">
                     {piece.origin[locale]}

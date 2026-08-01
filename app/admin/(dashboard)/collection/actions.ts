@@ -15,6 +15,8 @@ import {
 import { isPriceCurrency } from "@/lib/format-price";
 import type { Certificate, CollectionPieceRow } from "@/lib/admin/types";
 import { syncTranslations } from "@/lib/translation/translate-content";
+import { storagePathFromPublicUrl } from "@/lib/admin/storage";
+import { locales } from "@/i18n/routing";
 
 export type PieceFormState = { error?: string } | null;
 
@@ -55,18 +57,19 @@ function buildCertificate(formData: FormData): Certificate | null {
   };
 }
 
-function buildSpecs(formData: FormData) {
+function buildSpecs(formData: FormData, existing: CollectionPieceRow["specs"] | undefined) {
+  const existingSpecs = (existing ?? {}) as Partial<CollectionPieceRow["specs"]>;
   return {
     carat: readText(formData, "specs_carat") ?? "",
     dimensions: readText(formData, "specs_dimensions") ?? "",
-    cut: toLocalizedJson(formData.get("specs_cut")),
-    setting: toLocalizedJson(formData.get("specs_setting")),
-    metal: toLocalizedJson(formData.get("specs_metal")),
-    origin: toLocalizedJson(formData.get("specs_origin")),
+    cut: toLocalizedJson(formData.get("specs_cut"), existingSpecs.cut),
+    setting: toLocalizedJson(formData.get("specs_setting"), existingSpecs.setting),
+    metal: toLocalizedJson(formData.get("specs_metal"), existingSpecs.metal),
+    origin: toLocalizedJson(formData.get("specs_origin"), existingSpecs.origin),
     certification: readText(formData, "specs_certification") ?? "",
     hardness: readText(formData, "specs_hardness") ?? "",
-    luster: toLocalizedJson(formData.get("specs_luster")),
-    treatment: toLocalizedJson(formData.get("specs_treatment")),
+    luster: toLocalizedJson(formData.get("specs_luster"), existingSpecs.luster),
+    treatment: toLocalizedJson(formData.get("specs_treatment"), existingSpecs.treatment),
   };
 }
 
@@ -74,6 +77,7 @@ async function buildPiecePayload(
   supabase: Awaited<ReturnType<typeof createClient>>,
   formData: FormData,
   existingImageUrl: string | null,
+  existingRow: CollectionPieceRow | null,
 ) {
   const slug = readText(formData, "slug");
   if (!slug) throw new Error("กรุณากรอก slug");
@@ -88,38 +92,40 @@ async function buildPiecePayload(
     slug,
     display_order: readInt(formData, "display_order") ?? 0,
     image_url: imageUrl,
-    image_alt: toLocalizedJson(formData.get("image_alt")),
+    image_alt: toLocalizedJson(formData.get("image_alt"), existingRow?.image_alt),
     source_label: readText(formData, "source_label"),
     source_url: readText(formData, "source_url"),
-    name: toLocalizedJson(formData.get("name")),
-    line: toLocalizedJson(formData.get("line")),
-    summary: toLocalizedJson(formData.get("summary")),
+    name: toLocalizedJson(formData.get("name"), existingRow?.name),
+    line: toLocalizedJson(formData.get("line"), existingRow?.line),
+    summary: toLocalizedJson(formData.get("summary"), existingRow?.summary),
     price_amount: readDecimal(formData, "price_amount"),
     price_currency: (() => {
       const raw = String(formData.get("price_currency") ?? "");
       return isPriceCurrency(raw) ? raw : "THB";
     })(),
-    price_note: toLocalizedJson(formData.get("price_note")),
+    price_note: toLocalizedJson(formData.get("price_note"), existingRow?.price_note),
     rarity_index: readInt(formData, "rarity_index"),
-    origin: toLocalizedJson(formData.get("origin")),
+    origin: toLocalizedJson(formData.get("origin"), existingRow?.origin),
     certificate: buildCertificate(formData),
-    specs: buildSpecs(formData),
-    analysis: toLocalizedLines(formData.get("analysis")),
-    acquisition: toLocalizedLines(formData.get("acquisition")),
-    inclusion_profile: toLocalizedJson(formData.get("inclusion_profile")),
-    light_behavior: toLocalizedJson(formData.get("light_behavior")),
-    provenance: toLocalizedJson(formData.get("provenance")),
-    wearability: toLocalizedJson(formData.get("wearability")),
-    care: toLocalizedJson(formData.get("care")),
-    investment_note: toLocalizedJson(formData.get("investment_note")),
+    specs: buildSpecs(formData, existingRow?.specs as CollectionPieceRow["specs"] | undefined),
+    analysis: toLocalizedLines(formData.get("analysis"), existingRow?.analysis),
+    acquisition: toLocalizedLines(formData.get("acquisition"), existingRow?.acquisition),
+    inclusion_profile: toLocalizedJson(formData.get("inclusion_profile"), existingRow?.inclusion_profile),
+    light_behavior: toLocalizedJson(formData.get("light_behavior"), existingRow?.light_behavior),
+    provenance: toLocalizedJson(formData.get("provenance"), existingRow?.provenance),
+    wearability: toLocalizedJson(formData.get("wearability"), existingRow?.wearability),
+    care: toLocalizedJson(formData.get("care"), existingRow?.care),
+    investment_note: toLocalizedJson(formData.get("investment_note"), existingRow?.investment_note),
     tags: parseTags(formData.get("tags")),
     published: true,
   };
 }
 
 function revalidatePublicCollection(slug?: string) {
-  revalidatePath("/th/catalog");
-  if (slug) revalidatePath(`/th/catalog/${slug}`);
+  for (const locale of locales) {
+    revalidatePath(`/${locale}/catalog`);
+    if (slug) revalidatePath(`/${locale}/catalog/${slug}`);
+  }
 }
 
 export async function createCollectionPiece(_prevState: PieceFormState, formData: FormData): Promise<PieceFormState> {
@@ -127,7 +133,7 @@ export async function createCollectionPiece(_prevState: PieceFormState, formData
 
   let newId: string | null = null;
   try {
-    const payload = await buildPiecePayload(supabase, formData, null);
+    const payload = await buildPiecePayload(supabase, formData, null, null);
     const { data, error } = await supabase.from("collection_pieces").insert(payload).select("id").single();
     if (error) {
       if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
@@ -154,7 +160,14 @@ export async function updateCollectionPiece(
   const existingImageUrl = readText(formData, "existing_image_url");
 
   try {
-    const payload = await buildPiecePayload(supabase, formData, existingImageUrl);
+    const { data: existingRow, error: fetchError } = await supabase
+      .from("collection_pieces")
+      .select("*")
+      .eq("id", id)
+      .maybeSingle();
+    if (fetchError) return { error: fetchError.message };
+
+    const payload = await buildPiecePayload(supabase, formData, existingImageUrl, existingRow as CollectionPieceRow | null);
     const { error } = await supabase.from("collection_pieces").update(payload).eq("id", id);
     if (error) {
       if (error.code === "23505") return { error: "ตัวระบุ URL นี้มีอยู่แล้ว กรุณาเลือกค่าอื่น" };
@@ -174,9 +187,27 @@ export async function updateCollectionPiece(
 export async function deleteCollectionPiece(id: string) {
   const supabase = await createClient();
 
-  const { data } = await supabase.from("collection_pieces").select("slug").eq("id", id).maybeSingle();
+  const { data } = await supabase
+    .from("collection_pieces")
+    .select("slug, image_url")
+    .eq("id", id)
+    .maybeSingle();
+
   const { error } = await supabase.from("collection_pieces").delete().eq("id", id);
   if (error) throw new Error(error.message);
+
+  await supabase
+    .from("translation_status")
+    .delete()
+    .eq("content_type", "collection_piece")
+    .eq("content_id", id);
+
+  const imagePath = storagePathFromPublicUrl(
+    (data as Pick<CollectionPieceRow, "image_url"> | null)?.image_url,
+  );
+  if (imagePath) {
+    await supabase.storage.from("media").remove([imagePath]);
+  }
 
   revalidatePath("/admin/collection");
   revalidatePublicCollection((data as Pick<CollectionPieceRow, "slug"> | null)?.slug);

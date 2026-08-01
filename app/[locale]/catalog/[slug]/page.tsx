@@ -7,6 +7,7 @@ import { isLocale, locales, type Locale } from "@/i18n/routing";
 import { getPublishedCollectionPiece, getPublishedCollectionSlugs } from "@/lib/data/collection";
 import { getDisplayRateForLocale } from "@/lib/data/exchange-rates";
 import { gemstoneProductSchema, breadcrumbSchema } from "@/lib/schema";
+import fallbackImage from "@/assets/images/background/education_background.png";
 
 // Re-fetch from Supabase at most once per minute so admin edits show up
 // without a full redeploy, while keeping the page statically cacheable.
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "website",
       images: [
         {
-          url: imageUrl || "/images/education-background.png",
+          url: imageUrl || fallbackImage.src,
           alt: piece.imageAlt[typedLocale],
           width: 1200,
           height: 630,

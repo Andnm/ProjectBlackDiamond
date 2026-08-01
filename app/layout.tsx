@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Noto_Serif, Noto_Sans_Thai, Noto_Serif_Thai } from "next/font/google";
 import { defaultLocale } from "@/i18n/routing";
+import fallbackImage from "@/assets/images/background/education_background.png";
 import "flag-icons/css/flag-icons.min.css";
 import "./globals.css";
 
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "BlackDiamond",
     images: [
       {
-        url: "/images/education-background.png",
+        url: fallbackImage.src,
         width: 1200,
         height: 630,
         alt: "BlackDiamond — เพชรดำธรรมชาติหายาก",
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@blackdiamondluxury",
     creator: "@blackdiamondluxury",
-    images: ["/images/education-background.png"],
+    images: [fallbackImage.src],
   },
   verification: {
     // Add your Google Search Console verification code here:
