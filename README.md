@@ -20,13 +20,13 @@ A multilingual website and content-management system for a luxury black-diamond 
 
 ```mermaid
 flowchart LR
-  V[Visitor] --> N[Next.js App Router<br/>/[locale]/...]
-  A[Admin] --> AD[/admin<br/>Supabase Auth]
-  N --> DB[(Supabase Postgres<br/>RLS)]
+  V["Visitor"] --> N["Next.js App Router<br/>locale routes"]
+  A["Admin"] --> AD["Admin area<br/>Supabase Auth"]
+  N --> DB[("Supabase Postgres<br/>RLS")]
   AD --> DB
-  AD --> ST[(Supabase Storage)]
-  AD --> TR[Translation provider]
-  CRON[Vercel Cron<br/>daily] --> FX[/api/cron/exchange-rates/] --> DB
+  AD --> ST[("Supabase Storage")]
+  AD --> TR["Translation provider"]
+  CRON["Vercel Cron<br/>daily"] --> FX["Exchange-rate job"] --> DB
 ```
 
 - **Content model:** every translatable field is stored per locale in JSON; a `translation_status` table tracks each field as pending, done, failed or manually edited, so editing the source never silently overwrites a hand-corrected translation.
