@@ -2,6 +2,8 @@
 
 A multilingual website and content-management system for a luxury black-diamond jewellery brand, built for a real client. Visitors browse the collection, read articles and register interest in five languages; the client's team manages everything from a private admin area, including automatic translation of new content.
 
+**Live site: [blackdiamondluxury.org](https://www.blackdiamondluxury.org/)**
+
 ![Next.js](https://img.shields.io/badge/Next.js-16-black) ![React](https://img.shields.io/badge/React-19-61dafb) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6) ![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%7C%20Auth%20%7C%20Storage-3ecf8e) ![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)
 
 ## Features
