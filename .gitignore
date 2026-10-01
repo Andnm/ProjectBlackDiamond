@@ -47,3 +47,7 @@ Thumbs.db
 
 # Local data dumps/backups
 backups/
+
+# Internal QA artifacts (not published)
+AUDIT_REPORT_*.md
+TEST_SCRIPT_E2E.md
